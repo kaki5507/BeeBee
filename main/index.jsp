@@ -9,7 +9,6 @@
     <meta name="keywords" content="market">
     <meta name="copyright" content="kaki5507">
     <title>main</title>
-    <link rel="stylesheet" href="">
 </head>
 <body>
 
