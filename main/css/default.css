@@ -6,3 +6,4 @@ ol,ul,li{list-style-type: none;}
 a{outline: 0;text-decoration: none; color: #333;}
 img{ vertical-align: top; border: 0;} 
 a:active, a:hover {outline: none;}
+input{display: block; width: 400px; border: 2px solid grey; padding: 5px; color: #212529; font-size: 14px;}

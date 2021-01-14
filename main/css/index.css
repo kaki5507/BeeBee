@@ -1,1 +1,25 @@
 @charset "utf-8"; 
+
+/*-- gnb --*/
+.gnb {
+    width: 100%; 
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100; /* 맨앞 */
+}
+/*-- wrap ==*/
+.wrap{
+    width: 1024px; height: 60px; margin: 0 auto; background-color: pink;
+}
+/*-- h1 --*/
+h1{display: block; width: 100px; }
+h1 a img{height: 50px; background-color: grey; padding: 0 16px 10px 16px; float: left;}
+
+/*-- fixed-bar-search --*/
+#fixed-bar-search{position: relative; background-color: red; float: left;}
+
+/*-- .search-input-wrap --*/
+.search-input-wrap{float: left;}
+
+/*-- menu --*/
+.menu{}
+/*-- d-menu(detail menu) --*/
+.d-menu{display: none;}
