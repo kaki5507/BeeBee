@@ -1,0 +1,38 @@
+@charset "utf-8"; 
+*{margin: 0; padding: 0; font-family: 'jua';}
+/*------------ gnb ------------*/
+.gnb {
+    width: 100%; 
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100; /* 맨앞 */
+}
+
+/*------ wrap ------*/
+.wrap{
+    width: 1024px; height: 60px; margin: 0 auto; background-color: #F6BB43;
+    border-radius: 10px;
+}
+
+
+/*------ h1 ------*/
+h1{display: block; width: 100px; }
+h1 a img{height: 50px; padding: 0 16px 10px 16px; float: left;}
+
+
+/*------ fixed-bar-search ------*/
+#fixed-bar-search{position: relative; float: left;}
+/*-- search-input-wrap --*/
+.search-input-wrap{float: left;}
+/*-- search-info --*/
+.search-info{position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); border: 0;}
+/*-- header-search-input --*/
+#header-search-input{ margin: 16px 10px 10px 10px;}
+
+
+/*------ menu ------*/
+.menu{position: relative; text-align: center;}
+.menu li{ font-size: 1.2rem; float: left; margin-top: 5px; padding: 15px 0 0 5px;}
+.beetalk{margin: 0 20px; overflow: hidden;}
+/*-- d-menu(detail menu) --*/
+.d-wrap{overflow: hidden; width: 600px;}
+.d-menu{ width: 100px; margin-top: 10px;}
+.d-menu > li {font-size: 0.8em;  width: 100px; margin-top: 10px;}
