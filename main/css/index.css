@@ -3,10 +3,13 @@
 .main-wrap{width: 100%; margin: 0 auto;}
 /*---- home-main-wrap ----*/
 .home-main-wrap:nth-child(1){width: 100%; margin: 0 auto; background-color: #F6BB43;}
+.home-main-wrap:nth-child(2){width: 100%; margin: 0 auto; background-color: antiquewhite;}
+.home-main-wrap:nth-child(3){width: 100%; margin: 0 auto; background-color: aqua;}
+.home-main-wrap:nth-child(4){width: 100%; margin: 0 auto; background-color: gray;}
 
 /*---- main-contents ----*/
 .main-contents{
-    width: 80%; height: 350px; margin: 0 auto;
+    width: 80%; height: 400px; margin: 0 auto;
 }
 
 /*---- first-content ----*/
@@ -15,17 +18,17 @@
     font-size: 30px; letter-spacing: 5px; line-height: 130px;
     position: relative;
 }
-.first-content > h2{display: block; width: 400px; height: auto; float: left; padding: 30px; margin-left: 15%;}
+.first-content > h2{display: block; width: 330px; height: auto; float: left; padding: 20px; margin-left: 15%;}
 .first-content > h2 > span{color: #FEDC56}
 
 /*-- first-img-wrap --*/
 .first-img-wrap{width: 330px; height: auto; float: right; padding: 10px; margin-right: 20%;}
-.first-img-wrap > img{margin:10px; border: 5px solid; border-radius: 10px; width: 80%; overflow: hidden; box-shadow: 12px 12px 2px 1px rgba(246, 187, 67, 0.7)} 
+.first-img-wrap > img{margin:10px; vertical-align: top; border: 5px solid; border-radius: 10px; width: 80%; box-shadow: 12px 12px 2px 1px rgba(246, 187, 67, 0.7)} 
 /*-- h2 --*/
 h2{font-weight: 400;}
 
 /*---- second-content ----*/
-.second-content{background-color: antiquewhite;}
+.second-content{background-color: white;}
 .second-content p{text-align: center; padding-top: 50px; font-size: 2.0em;}
 /*-- second-matching --*/
 .second-matching{position: relative; width: 50%; height: 260px; margin: 0 auto;}
@@ -51,3 +54,16 @@ h2{font-weight: 400;}
 .bee-right-fly > .bee-flying:nth-child(1){top: 10px; right: 0;}
 .bee-right-fly > .bee-flying:nth-child(2){top: 80px; right: 10px;}
 .bee-right-fly > .bee-flying:nth-child(3){top: 150px; right: 30px;}
+
+
+/*---- third-content ----*/
+.third-content{background-color: white;}
+.third-content p{text-align: left; padding-left: 160px; padding-top: 20px; font-size: 1.8em;}
+.third-contents{width: 100%; height: 100%; margin: 0 auto;}
+.third-contents > img{width: 250px; margin: 10px 20px 0 0; vertical-align: middle; border: 3px solid; border-radius: 10px; box-shadow: 12px 12px 2px 1px rgba(246, 187, 67, 0.7)}
+.third-contents > img:first-child{margin-left: 170px;}
+.third-contents > img:nth-child(3){margin-left: 70px; margin-right: 30px;}
+.third-contents > span{display: inline-block; width: 170px; text-align: center; font-size: 2.0em;}
+
+/*---- third-content ----*/
+.fourth-content{background-color: white;}
