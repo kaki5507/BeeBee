@@ -7,7 +7,7 @@
 /* .home-main-wrap:nth-child(2){} */
 .home-main-wrap:nth-child(3){background-color: #9fc0de;}
 .home-main-wrap:nth-child(4){background-color: wheat;}
-
+.home-main-wrap:nth-child(5){background-color: white;}
 /*---- main-contents ----*/
 .main-contents{
     width: 80%; height: 400px; margin: 0 auto;
@@ -105,3 +105,11 @@ h3{font-size: 30px; line-height: 40px; font-weight: lighter; text-align: center;
 /*-------- //fourth-content --------*/
 
 /*-------- fifth-content --------*/
+.fifth-content > h4{display: block; font-size: 3.0em; text-align: center; width: 100%; padding: 50px 0;}
+.study-matching{
+    width: 450px; font-size: 2.0em; color: white; height: 100px; border: 3px solid black; 
+    border-radius: 10px; box-shadow: 10px 10px 0 0 black; margin-left: 33%;
+    outline: 0; background-color: #9fc0de; letter-spacing: 20px;
+}
+/*클릭시*/
+.study-matching:focus{background-color: #779ecc;}
