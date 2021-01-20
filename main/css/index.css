@@ -76,16 +76,15 @@ h2{font-weight: 400;}
 
 
 /*-------- fourth-content --------*/
-.fourth-content{}
 h3{font-size: 30px; line-height: 40px; font-weight: lighter; text-align: center;}
 /*-- bee-kinds --*/
 .bee-kinds{height: 60%; width: 80%; position: relative; margin: 0 auto;}
 /*-- bee-info --*/
 .bee-info{
     width: 150px; height: 170px; float: left; border: 3px solid #FF985A; border-radius: 200px; box-shadow: 12px 12px 2px 1px rgba(246, 187, 67, 0.7);
-    margin: 10px 7px 0; padding: 10px 30px 10px 10px;
+    margin: 10px 7px 0; padding: 10px 30px 10px 10px; position: relative;
 }
-.bee-info > img{width: 180px; padding: 30px 0 0;}
+.bee-info > img{width: 300px; position: absolute; top: 0; left: -50px;}/* 벌 크기 절대적으로 */
 /*-- bee-kinds-guide --*/
 .bee-kinds-guide{
     width: 100%; position: relative; margin: 0 auto;
