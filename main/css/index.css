@@ -37,7 +37,7 @@ h2{font-weight: 400;}
 .second-content{background-color: white;}
 .second-content p{text-align: center; padding-top: 50px; font-size: 2.0em;}
 /*-- second-matching --*/
-.second-matching{position: relative; width: 50%; height: 260px; margin: 0 auto;}
+.second-matching{position: relative; width: 60%; height: 260px; margin: 0 auto;}
 .second-matching .bee-home{position: absolute; width: 300px; top: 20px; left: 210px;}
 .second-matching .bee-flying{width: 80px;}
 /*-- bee-left-fly --*/
@@ -57,9 +57,9 @@ h2{font-weight: 400;}
 /*-- bee-right-fly --*/
 .bee-right-fly{float: right; position: relative;}
 .bee-right-fly > .bee-flying{position: absolute; width: 150px;}
-.bee-right-fly > .bee-flying:nth-child(1){top: 10px; right: 0;}
-.bee-right-fly > .bee-flying:nth-child(2){top: 80px; right: 10px;}
-.bee-right-fly > .bee-flying:nth-child(3){top: 150px; right: 30px;}
+.bee-right-fly > .bee-flying:nth-child(1){top: 10px; right: 30px;}
+.bee-right-fly > .bee-flying:nth-child(2){top: 80px; right: 50px;}
+.bee-right-fly > .bee-flying:nth-child(3){top: 150px; right: 70px;}
 /*-------- //second-content --------*/
 
 
@@ -78,20 +78,20 @@ h2{font-weight: 400;}
 /*-------- fourth-content --------*/
 h3{font-size: 30px; line-height: 40px; font-weight: lighter; text-align: center;}
 /*-- bee-kinds --*/
-.bee-kinds{height: 60%; width: 80%; position: relative; margin: 0 auto;}
+.bee-kinds{height: 60%; width: 90%; position: relative; margin: 0 auto;}
 /*-- bee-info --*/
 .bee-info{
     width: 150px; height: 170px; float: left; border: 3px solid #FF985A; border-radius: 200px; box-shadow: 12px 12px 2px 1px rgba(246, 187, 67, 0.7);
     margin: 10px 7px 0; padding: 10px 30px 10px 10px; position: relative;
 }
-.bee-info > img{width: 300px; position: absolute; top: 0; left: -50px;}/* 벌 크기 절대적으로 */
+.bee-info > img{width: 300px; position: absolute; top: 8px; left: -50px;}/* 벌 크기 절대적으로 */
 /*-- bee-kinds-guide --*/
 .bee-kinds-guide{
     width: 100%; position: relative; margin: 0 auto;
 }
 .bee-tier{float: left; width: 170px; padding: 15px; margin: 0 10px 0 5px; text-align: left; background-color: #ff985a; border-radius: 5%;}
 .bee-tier > dt{font-size: 1.5em;}
-.bee-tier:first-child{margin-left: 130px;}
+.bee-tier:first-child{margin-left: 60px;}
 /* 등급 간격 */
 .bee-tier > dd > table > thead > tr > td span{padding-left: 10px;}
 .bee-tier > dd > table > tbody > tr > td {padding-left: 10px;}
@@ -107,7 +107,7 @@ h3{font-size: 30px; line-height: 40px; font-weight: lighter; text-align: center;
 .fifth-content > h4{display: block; font-size: 3.0em; text-align: center; width: 100%; padding: 50px 0;}
 .study-matching{
     width: 450px; font-size: 2.0em; color: white; height: 100px; border: 3px solid black; 
-    border-radius: 10px; box-shadow: 10px 10px 0 0 black; margin-left: 33%;
+    border-radius: 10px; box-shadow: 10px 10px 0 0 black; margin-left: 30%;
     outline: 0; background-color: #9fc0de; letter-spacing: 20px;
 }
 /*클릭시*/
