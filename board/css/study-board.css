@@ -1,0 +1,23 @@
+/*------ study-board-wrap ------*/
+.study-board-wrap{width: 1024px; padding: 30px 0; margin: 0 auto;}
+
+/*---- board-side-menu ----*/
+.board-side-menu{width: 204px; float: left; margin-right: 20px; border-radius: 30px; background-image: url(/board/img/hive-310659_1280.png); background-position: center; background-repeat: no-repeat; padding: 20px; font-size: 30px;}
+.board-side-menu h3{
+    display: block; background-image: url("/board/img/bee-pen.PNG"); color: white; font-weight: 300; background-size: contain; background-repeat: no-repeat; background-position: right;
+    padding: 20px; margin: 30px 0 70px;}
+.board-side-menu > ul > li{display: block; font-size: 0.8em; font-style: italic; border-bottom: 3px solid black;}
+.board-side-menu > ul > li > a{display: block; padding: 20px 0;}
+
+/*---- board-center ----*/
+.board-center{width: 750px; max-height: 800px; float: left;}
+.board-table{width: 100%; border: 5px solid black; border-collapse: collapse;}
+.board-table tr th,td{text-align: center; border-collapse: collapse; border-bottom: 1px solid black; padding: 10px;}
+.board-table tr th{background-color: rgb(234, 156, 094);}
+.board-table tr td{background-color: rgba(234, 156, 094, 0.3); font-weight: 300; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-width: 154px;}
+/* 글 간격 */
+.bt-1{width: 15%;}
+.bt-2{width: 15%;}
+.bt-3{width: 40%}
+.bt-4{width: 20%;}
+.bt-5{width: 10%;}
