@@ -1,10 +1,10 @@
-/*------ study-board-wrap ------*/
-.study-board-wrap{width: 1024px; padding: 30px 0; margin: 0 auto;}
+/*------ board-wrap ------*/
+.board-wrap{width: 1024px; padding: 30px 0; margin: 0 auto;}
 
 /*---- board-side-menu ----*/
 .board-side-menu{width: 204px; float: left; margin-right: 20px; border-radius: 30px; background-image: url(/board/img/hive-310659_1280.png); background-position: center; background-repeat: no-repeat; padding: 20px; font-size: 30px;}
 .board-side-menu h3{
-    display: block; background-image: url("/board/img/bee-pen.PNG"); color: white; font-weight: 300; background-size: contain; background-repeat: no-repeat; background-position: right;
+    display: block; background-image: url("/board/img/bee-pen.PNG"); color: white; font-weight: 300; background-size: 50px; background-repeat: no-repeat; background-position: right;
     padding: 20px; margin: 30px 0 70px;}
 .board-side-menu > ul > li{display: block; font-size: 0.8em; font-style: italic; border-bottom: 3px solid black;}
 .board-side-menu > ul > li > a{display: block; padding: 20px 0;}
