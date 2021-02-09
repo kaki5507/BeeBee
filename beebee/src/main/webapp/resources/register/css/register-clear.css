@@ -1,0 +1,64 @@
+/*------------ reg-clear-wrap ------------*/
+.reg-clear-wrap{width: 800px; margin: 30px auto;}
+
+/*-------- h3 --------*/
+h3{text-align: center; font-size: 2.5em; letter-spacing: 5px; color: rgb(234, 118, 103); text-shadow: 2px 2px saddlebrown;}
+
+/*-------- clear-bee-home --------*/
+.clear-bee-home{position: relative; margin: 100px auto 30px;}
+.clear-bee-home > img{width: 250px; position: absolute;}
+/* 마지막 홈 이동 */
+.clear-bee-home > a{
+    display: block; border: 3px solid black; padding: 40px 60px; font-size: 3.0em; background-color: orange; color: white; border-radius: 15px;
+    position: absolute;
+    right: 200px; top: 250px;
+    animation: matchgo 1s 4s ease-in;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+/* 벌집 */
+.clear-bee-home > img:first-child{width: 400px; top: 150px; left: 300px;}
+/* 벌 나는모습 1*/
+.clear-bee-home > img:nth-child(2){
+    left: 100px; top: 100px;
+    animation: beeflying1 2s linear;
+    opacity: 0;
+}
+/* 벌 나는모습 2*/
+.clear-bee-home > img:nth-child(3){
+    left: 100px; top: 100px;
+    animation: beeflying2 2s linear;
+    opacity: 0;
+}
+/* 벌 들어가는 모습 */
+.clear-bee-home > img:nth-child(4){
+    left: 350px; top: 200px;
+    animation: beesmaller 2s 2s ease-in;
+    opacity: 0;
+}
+
+/* 애니메이션 참고 animation: 이름 | 시작지연시간 | 재생속도 | 재생시간 | 반복횟수 | 진행방향 */
+@keyframes beeflying1{
+    25%{margin: 20px 0 0 20px; opacity: 0;}
+    50%{margin: 40px 0 0 40px; opacity: 1;}
+    75%{margin: 60px 0 0 60px; opacity: 0;}
+    100%{margin: 80px 0 0 80px; opacity: 1;}
+}
+@keyframes beeflying2{
+    25%{margin: 20px 0 0 20px; opacity: 1;}
+    50%{margin: 40px 0 0 40px; opacity: 0;}
+    75%{margin: 60px 0 0 60px; opacity: 1;}
+    100%{margin: 80px 0 0 80px; opacity: 0;}
+}
+@keyframes beesmaller{
+    from{opacity: 1;}
+    to{width: 200px; opacity: 0; margin: 50px 0 0 50px;}
+}
+@keyframes matchgo{
+    0%{opacity: 0; transform: rotate3d(1,1,1 45deg);}
+    25%{opacity: 0.25; transform: rotate3d(2, -1, -1, -0.2turn);}
+    50%{opacity: 0.5; transform: rotate3d(0, 1, 0.5, 3.142rad);}
+    75%{opacity: 0.75; transform: rotate3d(1,1,1 45deg);}
+    100%{opacity: 1; transform: rotate3d(0);}
+}
