@@ -1,6 +1,36 @@
 /*------------ fidp-wrap ------------*/
 #idp-wrap{width: 600px; margin: 0 auto;}
-h3{text-align: center; font-size: 2.5em; letter-spacing: 5px; color: orange; text-shadow: 2px 2px gray;}
+.find{width: 600px;}
 
-/*------ idpass ------*/
-.idpass{width: 100%; height: auto; margin: 20px 0 10px;}
+/*------ idp-box ------*/
+.idp-box{font-size: 1.5em;}
+
+/*-- idp-btn 아이디 찾기 / 비밀번호 찾기 누르는 곳 --*/
+.idp-btn{width: 100%; text-align: center; font-size: 2.0em; border-bottom: 1px solid #ffb347;}
+.idp-btn > a{line-height: 100px; margin: 30px 0; padding: 30px 0; letter-spacing: 5px; color: rgb(234, 118, 103); text-shadow: 2px 2px saddlebrown; opacity: 0.5;}
+.idp-btn > a:active{opacity: 1;}
+
+/*-- idp-box 안의 요소들 띄워주기 --*/
+.idp-box > div{margin: 20px 0;}
+
+/*---- idp-info ----*/
+.idp-info{background-color: #f2c894; margin: 40px 0; padding: 20px; border-radius: 10px;}
+.idp-info > input{font-size: 1.2em; box-sizing: border-box; width: 60%; border-radius: 5px; padding: 10px; font-style: 'jua';}
+.idp-info > label{width: 80px; float: left; padding: 25px 0 20px 10px; margin-right: 10px;}
+
+/* input 크기 */
+.find-form{display: inline-block; box-sizing: border-box; width: 450px; padding: 20px; border: 10px solid #FFB347; border-radius: 15px; font: "jua";}
+input:focus{outline: none;}
+
+/* 인증번호 발송 */
+.authentic-n{margin-left: 15px; border-radius: 15px; width: 100px; border: none; height: 60px;}
+.authentic-n:hover{background: white;}
+.authentic-n:focus{outline: none;}
+
+/* placeholder 글씨체*/
+input::placeholder{font-family: 'jua'; font-size: 0.8em;}
+
+/* 확인 버튼 */
+.find-btn{text-align: center;background: none !important;}
+.btn-check{display: inline-block; background-color: orange; border: none; width: 200px; height: 60px; font-size: 1.3em; font-weight: 400; font-family: 'jua'; border-radius: 15px; margin: 0 10px; opacity: 0.7;}
+.btn-check:hover,:focus{opacity: 1; outline: 0;}
