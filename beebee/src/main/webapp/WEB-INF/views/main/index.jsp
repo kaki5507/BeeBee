@@ -1,4 +1,8 @@
-<!-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -11,10 +15,14 @@
     <title>main</title>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../../../resources/common/css/default.css">
-        <link rel="stylesheet" href="../../../resources/main/css/index.css">
+        <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/common/css/default.css">
+        <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/main/css/index.css">  
+        <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/common/css/header.css">
+        <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/common/css/footer.css">
 </head>
 <body>
+    <%@ include file="/WEB-INF/views/common/header.jsp" %>
+    
     <!------ main-wrap ------>
     <div class="main-wrap">
         <!---- home-main-wrap(0) ---->
@@ -22,7 +30,7 @@
             <div class="first-content main-contents">
                 <h2>꿀벌<span>(Bee)</span>처럼<br>부지런하게<span>(Bee)</span>일하자</h2>
                 <div class="first-img-wrap">
-                    <img src="../../../resources/main/img/main-first.PNG" alt="study maching system">
+                    <img src="<%=request.getContextPath() %>/resources/main/img/main-first.PNG" alt="study maching system">
                 </div>
             </div>
         </div>
@@ -32,16 +40,16 @@
             <div class="second-content main-contents">
                 <p>간편한 매칭 시스템을 이용한 스터디 모임!</p>
                 <div class="second-matching">
-                    <img src="../../../resources/main/img/Bee-kinds/bee-home.png" alt="bee-home" class="bee-home">
+                    <img src="<%=request.getContextPath() %>/resources/main/img/Bee-kinds/bee-home.png" alt="bee-home" class="bee-home">
                     <div class="bee-left-fly">
-                        <img src="../../../resources/main/img/Bee-kinds/b-bee.png" alt="bronze-bee" class="bee-flying">
-                        <img src="../../../resources/main/img/Bee-kinds/b-bee.png" alt="bronze-bee" class="bee-flying">
-                        <img src="../../../resources/main/img/Bee-kinds/b-bee.png" alt="bronze-bee" class="bee-flying">
+                        <img src="<%=request.getContextPath() %>/resources/main/img/Bee-kinds/b-bee.png" alt="bronze-bee" class="bee-flying">
+                        <img src="<%=request.getContextPath() %>/resources/main/img/Bee-kinds/b-bee.png" alt="bronze-bee" class="bee-flying">
+                        <img src="<%=request.getContextPath() %>/resources/main/img/Bee-kinds/b-bee.png" alt="bronze-bee" class="bee-flying">
                     </div>
                     <div class="bee-right-fly">
-                        <img src="../../../resources/main/img/Bee-kinds/b-bee.png" alt="bronze-bee" class="bee-flying">
-                        <img src="../../../resources/main/img/Bee-kinds/b-bee.png" alt="bronze-bee" class="bee-flying">
-                        <img src="../../../resources/main/img/Bee-kinds/b-bee.png" alt="bronze-bee" class="bee-flying">
+                        <img src="<%=request.getContextPath() %>/resources/main/img/Bee-kinds/b-bee.png" alt="bronze-bee" class="bee-flying">
+                        <img src="<%=request.getContextPath() %>/resources/main/img/Bee-kinds/b-bee.png" alt="bronze-bee" class="bee-flying">
+                        <img src="<%=request.getContextPath() %>/resources/main/img/Bee-kinds/b-bee.png" alt="bronze-bee" class="bee-flying">
                     </div>
                 </div>
             </div>
@@ -53,9 +61,9 @@
                 <p>비비톡으로 스터디원과의 빠른 연락</p>
                 <div class="third-contents-info">
                     <div class="third-contents">
-                        <img src="../../../resources/main/img/main-third-chat.PNG" alt="비비톡">
+                        <img src="<%=request.getContextPath() %>/resources/main/img/main-third-chat.PNG" alt="비비톡">
                         <span>공부 인증</span>
-                        <img src="../../../resources/main/img/main-third-group.PNG" alt="그룹 정보">
+                        <img src="<%=request.getContextPath() %>/resources/main/img/main-third-group.PNG" alt="그룹 정보">
                         <span>실시간 달성률</span>
                     </div>
                 </div>
@@ -67,11 +75,11 @@
             <div class="fourth-content main-contents">
                 <h3>벌 등급 소개</h3>
                 <div class="bee-kinds">
-                    <div class="bee-info"><img src="../../../resources/main/img/Bee-kinds/b-bee.png" alt="bronze-bee"></div>
-                    <div class="bee-info"><img src="../../../resources/main/img/Bee-kinds/s-bee.png" alt="silver-bee"></div>
-                    <div class="bee-info"><img src="../../../resources/main/img/Bee-kinds/g-bee.png" alt="gold-bee"></div>
-                    <div class="bee-info"><img src="../../../resources/main/img/Bee-kinds/p-bee.png" alt="platinum-bee"></div>
-                    <div class="bee-info"><img src="../../../resources/main/img/Bee-kinds/d-bee.png" alt="diamond-bee"></div>
+                    <div class="bee-info"><img src="<%=request.getContextPath() %>/resources/main/img/Bee-kinds/b-bee.png" alt="bronze-bee"></div>
+                    <div class="bee-info"><img src="<%=request.getContextPath() %>/resources/main/img/Bee-kinds/s-bee.png" alt="silver-bee"></div>
+                    <div class="bee-info"><img src="<%=request.getContextPath() %>/resources/main/img/Bee-kinds/g-bee.png" alt="gold-bee"></div>
+                    <div class="bee-info"><img src="<%=request.getContextPath() %>/resources/main/img/Bee-kinds/p-bee.png" alt="platinum-bee"></div>
+                    <div class="bee-info"><img src="<%=request.getContextPath() %>/resources/main/img/Bee-kinds/d-bee.png" alt="diamond-bee"></div>
                 </div>
                 <div class="bee-kinds-guide">
                     <dl class="bee-tier">
@@ -203,5 +211,7 @@
         <!---- //home-main-wrap(4) ---->        
     </div>
     <!------ //main-wrap ------>
+    
+    <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

@@ -1,4 +1,7 @@
-<!-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -12,13 +15,13 @@
         <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-observe-mutations></script><!-- 폰트어썸 -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../../../resources/common/css/default.css">
-        <link rel="stylesheet" href="../../../resources/login/css/login.css">
+        <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/common/css/default.css">
+        <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/login/css/login.css">
 </head>
 <body>
     <!------ login-wrap -------->
     <form id="login-wrap" name="loginForm" action="#" method="post">
-        <img class="checkpoint" src="../../../resources/login/img/checkpoint.png" alt="로그인 검문소">
+        <img class="checkpoint" src="<%=request.getContextPath() %>resources/login/img/checkpoint.png" alt="로그인 검문소">
         <h3>로그인</h3>
         
         <!---- idpass ---->
