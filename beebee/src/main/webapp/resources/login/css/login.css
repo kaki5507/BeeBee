@@ -1,13 +1,13 @@
 /*------------ login-wrap ------------*/
-#login-wrap{width: 600px; margin: 0 auto;}
-.checkpoint{width: 400px; margin: 20px 0 20px 120px;}
+#login-wrap{width: 100%; margin: 0 auto;}
+.checkpoint{width: 30%; margin: 5% 0 2% 35%;}
 h3{text-align: center; font-size: 2.5em; letter-spacing: 5px; color: orange; text-shadow: 2px 2px gray;}
 
 /*------ idpass ------*/
 .idpass{width: 100%; height: auto; margin: 20px 0 10px;}
 
 /*-- saveid --*/
-.saveid{width: 400px; margin: 0 0 0 75px; font-size: 1.5em; line-height: 1.8em;}
+.saveid{display: block; width: 80%; height: auto; margin: 0 0 0 36%; font-size: 1.5em; line-height: 1.8em;}
 .saveid > input{float: left; width: 30px; height: 20px; margin-top: 10px;}
 
 /*-- 로그인,비밀번호 label --*/
@@ -28,7 +28,7 @@ h3{text-align: center; font-size: 2.5em; letter-spacing: 5px; color: orange; tex
 .btnlogin > button:hover,:focus{outline: 0; color: black;}
 .btnlogin > button:active{color: white;}
 /*-- login-menu --*/
-.login-menu{width: 400px; display: inline-block; margin: 30px 0 0 100px; text-align: center;}
+.login-menu{display: inherit; text-align: center;}
 .login-menu > a{display: inline-block; margin:10px; width: 100px;}
 .login-menu > span{display: inline-block;}
 
@@ -54,16 +54,16 @@ h3{text-align: center; font-size: 2.5em; letter-spacing: 5px; color: orange; tex
 /*---- login-way ----*/
 .login-way{text-align: center;}
 .login-way > li{
-    width: 70%; height: 80px; margin: 5% auto; border:1px solid #c8c8c8;
+    width: 45%; height: 10%; margin: 5% auto; border:1px solid #c8c8c8;
     transition: linear background-color 0.2s, transform 1s;
 }
 .login-way > li > a{
-    width: 70%; height: 80px; margin: 5% auto; text-align: center;
+    width: 45%; height: 10%; margin: 5% auto; text-align: center;
     transition: linear background-color 0.2s, transform 1s;
 }
 /* way - option */
-.login-img{width: 20%; font-size: 2.0em; float: left; line-height: 2.5em;}
-.login-title{width: 80%;  font-size: 1.3em; line-height: 4.0em;}
+.login-img{width: 20%; font-size: 2.0em; float: left; margin-top: 3%;}
+.login-title{width: 80%; margin-top: 4%; font-size: 1.3em;}
 /* way - option - animation */
 .login-way-email:hover{background-color: orange; color: white;}
 .login-way-email:hover > a{background-color: orange; color: white;}
@@ -77,3 +77,18 @@ h3{text-align: center; font-size: 2.5em; letter-spacing: 5px; color: orange; tex
 .login-way-naver:hover > a > .way-img > span{color: white;}
 .login-way-apple:hover{background: linear-gradient(silver,#707070); color: white;}
 .login-way-apple:hover > a{background: linear-gradient(silver,#707070); color: white;}
+
+@media only screen and (min-width: 0) and (max-width: 736px) {
+    .checkpoint{width: 80%; margin: 5% 0 5% 12%;}
+    h3{font-size: 2.0em;}
+    /* 로그인 input */
+    .info-login{display: inline-block; width: 80%; padding: 10px; font-size: 1.2em;}
+    /*-- btnlogin --*/
+    .btnlogin > button{width: 80%;}
+    /*-- saveid --*/
+    .saveid{margin: 0 0 0 10%; font-size: 1.0em; line-height: 2.2em;}
+    /* way - option */
+    .login-img{width: 8%; font-size: 1.1em; margin-top: 5%; margin-left: 5%;}
+    .login-title{width: 100%; margin-top: 6%; font-size: 1.0em;}
+    .login-way > li, li > a{height: 5%;}
+}

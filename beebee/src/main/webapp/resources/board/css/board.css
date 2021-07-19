@@ -1,23 +1,48 @@
 /*------ board-wrap ------*/
-.board-wrap{width: 1024px; padding: 30px 0; margin: 0 auto;}
+.board-wrap{width: 80%; height: auto; margin: 2% auto; display: grid;}
 
 /*---- board-side-menu ----*/
-.board-side-menu{width: 204px; float: left; margin-right: 20px; border-radius: 30px; background-image: url(../../board/img/hive-310659_1280.png); background-position: center; background-repeat: no-repeat; padding: 20px; font-size: 30px;}
-.board-side-menu h3{
-    display: block; background-image: url("../../board/img/bee-pen.PNG"); color: white; font-weight: 300; background-size: 50px; background-repeat: no-repeat; background-position: right;
-    padding: 20px; margin: 30px 0 70px;}
-.board-side-menu > ul > li{display: block; font-size: 0.8em; font-style: italic; border-bottom: 3px solid black;}
-.board-side-menu > ul > li > a{display: block; padding: 20px 0;}
+.board-side-menu{grid-column: 1 / 3; grid-row: 1 / 3; margin-right: 2%; border-radius: 5%; background-image: url(../../board/img/hive-310659_1280.png); background-position: center; background-repeat: no-repeat; padding: 2%; font-size: 1.2em;}
+.board-side-menu > ul{display: flex; justify-content: space-between; flex-direction: column;}
+.board-side-menu > ul > li{font-size: 0.6em; font-style: italic;}
+.board-side-menu > ul > li > h3{
+    display: block; background-image: url("../../board/img/bee-pen.PNG"); color: white; font-weight: 300; background-size: 20%; background-repeat: no-repeat; background-position: right;
+    padding: 2%; font-size: 1.6vw;}
+.board-side-menu > ul > li > a{display: block; font-size: 1.5vw; margin: 9%; border-bottom: 3px solid black;}
+
+/*---- board-option ----*/
+.board-option{grid-column: 3 / 5; grid-row: 1; display: flex; justify-content: space-between; font-size: 1.8vw;}
+.board-option > div > h2{width: 10vw; margin-left: 5%; color: rgb(234, 118, 103);}
+.btn-reg{width: 10vw;}
 
 /*---- board-center ----*/
-.board-center{width: 750px; max-height: 800px; float: left;}
-.board-table{width: 100%; border: 5px solid black; border-collapse: collapse;}
-.board-table tr th,td{text-align: center; border-collapse: collapse; border-bottom: 1px solid black; padding: 10px;}
+.board-center{grid-column: 3 / 5; grid-row: 2 / 6;}
+.board-table{width: 100%; border: 1px solid #eee; border-collapse: collapse;}
+.board-table tr th,td{text-align: center; border-collapse: collapse; border-bottom: 1px solid #eee; padding: 10px;}
 .board-table tr th{background-color: rgb(234, 156, 094);}
 .board-table tr td{background-color: rgba(234, 156, 094, 0.3); font-weight: 300; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-width: 154px;}
+
 /* 글 간격 */
 .bt-1{width: 15%;}
 .bt-2{width: 15%;}
 .bt-3{width: 40%}
 .bt-4{width: 20%;}
 .bt-5{width: 10%;}
+
+
+@media only screen and (min-width: 0) and (max-width: 736px) {
+    /*---- board-side-menu ----*/
+    .board-wrap {display: flex; flex-direction: column;}
+    .board-side-menu{ display: flex; flex-direction: row; border-radius: 10px; margin-right: 0; margin-bottom: 5%;}
+    .board-side-menu h3{font-size: 1.2em; background-image: none;}
+    .board-side-menu > ul {display: flex; width: 100%; flex-direction: row;}
+    .board-side-menu > ul > li{border: 0; width: 100%;} 
+    .board-side-menu > ul > li a{padding: 0; font-size: 0.8em;} 
+
+    /*---- board-center ----*/
+    .board-table{table-layout: fixed;}
+    .board-table tr th,td{padding: 0; font-size: 0.7em;}
+
+    .btn-reg{width: 15vw;}
+
+}

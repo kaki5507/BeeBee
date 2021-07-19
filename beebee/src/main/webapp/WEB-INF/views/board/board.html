@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="../../../resources/board/css/board.css">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+      $(document).ready(function(){
+         $("#header").load("../common/header.html")
+         $("#footer").load("../common/footer.html")
+      });
+</script>    
+<div id="header"></div>
+
+<!------ board-wrap ------>
+<div class="board-wrap">
+    <!---- board-side-menu ---->
+    <div class="board-side-menu">
+        <ul>
+            <li><h3>공부 인증</h3></li>
+            <li><a href="#">공부 인증</a></li>
+            <li><a href="#">자유게시판</a></li>
+            <li><a href="#">질문게시판</a></li>
+            <li><a href="#">자격증</a></li>
+        </ul>
+    </div>
+    <!---- //board-side-menu ---->
+    
+    <!---- board-option ---->
+    <form class="board-option" action="">
+        <div><h2>게시판</h2></div>
+        <div>
+            <input type="text" class="form-search" value="검색하기">
+        </div>
+        <div>
+            <button id='board-regBtn' type="button" class="btn btn-reg">글 작성하기</button>
+        </div>
+    </form>
+    <!---- //board-option ---->
+    
+    <!---- board-center ---->
+    <div class="board-center">
+        <table class="board-table">
+            <tr>
+                <th class="bt-1">번호</th>
+                <th class="bt-2">제목</th>
+                <th class="bt-3">이름</th>
+                <th class="bt-4">작성일</th>
+                <th class="bt-5">조회 수</th>
+            </tr>
+            <tr>
+                <td class="bt-1">번호 타임리프</td>
+                <td class="bt-2">제목 타임리프</td>
+                <td class="bt-3">이름 타임리프</td>
+                <td class="bt-4">작성일 타임리프</td>
+                <td class="bt-5">조회수 타임리프</td>
+            </tr>
+        </table>
+
+        <ul class="pagination">
+            <li class="page-pre"><a href="">&lt;</a></li>
+            <li class="page-num"><a href="">1</a></li>
+            <li class="page-num"><a href="">1</a></li>
+            <li class="page-num"><a href="">1</a></li>
+            <li class="page-num"><a href="">1</a></li>
+            <li class="page-next"><a href="">&gt;</a></li>
+        </ul>
+    </div>
+    <!---- //board-center ---->
+    
+</div>
+<!------ //board-wrap ------>    
+<div id="footer"></div>
