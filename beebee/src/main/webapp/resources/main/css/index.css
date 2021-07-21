@@ -3,14 +3,13 @@
 .main-wrap{width: 100%; margin: 0 auto;}
 /*---- home-main-wrap ----*/
 .home-main-wrap{width: 100%; margin: 0 auto;}
-.home-main-wrap:nth-child(1){background-color: #ff985a;}
-/* .home-main-wrap:nth-child(2){} */
+.home-main-wrap:nth-child(1){background-color: #ff985a;} 
 .home-main-wrap:nth-child(3){background-color: #9fc0de;}
 .home-main-wrap:nth-child(4){background-color: wheat;}
 .home-main-wrap:nth-child(5){background-color: white;}
 /*---- main-contents ----*/
 .main-contents{
-    width: 80%; height: 400px; margin: 0 auto;
+    width: 80%; height: 60%; margin: 0 auto;
 }
 
 
@@ -36,51 +35,37 @@ h2{font-weight: 400;}
 
 
 /*-------- second-content --------*/
-.second-content{background-color: white;}
-.second-content p{text-align: center; padding-top: 50px; font-size: 2.0em;}
+.second-content{height: 50%;}
+.second-content p{text-align: center; padding-top: 3%; font-size: 2.0vw;}
 /*-- second-matching --*/
-.second-matching{position: relative; width: 60%; height: 260px; margin: 0 auto;}
-.second-matching .bee-home{position: absolute; width: 300px; top: 20px; left: 210px;}
-.second-matching .bee-flying{width: 80px;}
-/*-- bee-left-fly --*/
-.bee-left-fly{float: left; position: relative;}
-.bee-left-fly > img{
-    float: left;
+.second-matching{width: 100%; height: 80%; margin: 0 auto;}
+/*-- bee-fly --*/
+.bee-fly{width: 60%; margin:0 auto;}
+.bee-fly > img:first-child{
     transform:rotate(180deg);   
     -moz-transform: scaleX(-1); 
     -o-transform: scaleX(-1); 
     -webkit-transform: scaleX(-1); 
     transform: scaleX(-1);   
 }
-.bee-left-fly > .bee-flying{position: absolute; width: 150px;}
-.bee-left-fly > .bee-flying:nth-child(1){top: 10px; left: 0;}
-.bee-left-fly > .bee-flying:nth-child(2){top: 80px; left: 10px;}
-.bee-left-fly > .bee-flying:nth-child(3){top: 150px; left: 30px;}
-/*-- bee-right-fly --*/
-.bee-right-fly{float: right; position: relative;}
-.bee-right-fly > .bee-flying{position: absolute; width: 150px;}
-.bee-right-fly > .bee-flying:nth-child(1){top: 10px; right: 30px;}
-.bee-right-fly > .bee-flying:nth-child(2){top: 80px; right: 50px;}
-.bee-right-fly > .bee-flying:nth-child(3){top: 150px; right: 70px;}
-/*-------- //second-content --------*/
-
+.bee-flying{width: 45%;}
 
 
 /*-------- third-content --------*/
 .third-content{font-style: italic;}
-.third-content p{text-align: left; padding-left: 160px; padding-top: 20px; font-size: 1.8em;}
-.third-contents{width: 100%; height: 100%; margin: 0 auto;}
-.third-contents > img{width: 250px; margin: 10px 20px 0 0; vertical-align: middle; border: 3px solid; border-radius: 10px; box-shadow: 15px 15px 2px 1px rgba(255, 255, 255, 0.7)}
-.third-contents > img:first-child{margin-left: 170px;}
-.third-contents > img:nth-child(3){margin-left: 70px; margin-right: 30px;}
-.third-contents > span{display: inline-block; width: 170px; text-align: center; font-size: 2.0em;}
+.third-content p{text-align: center; padding-top: 3%; font-size: 1.8em;}
+.third-contents{width: 100%; margin: 0 auto;}
+.third-contents > img{width: 20%; margin-top: 3%; vertical-align: middle; border: 3px solid; border-radius: 5%; box-shadow: 12px 12px 2px 1px rgba(255, 255, 255, 0.7)}
+.third-contents > img:first-child{margin-left: 20%; margin-right: 3%; text-align: center;}
+.third-contents > img:nth-child(3){margin-left: 5%; margin-right: 30px;}
+.third-contents > span{display: inline-block; text-align: center; font-size: 1.5vw;}
 /*-------- //third-content --------*/
 
 
 /*-------- fourth-content --------*/
-h3{font-size: 30px; line-height: 40px; font-weight: lighter; text-align: center;}
+h3{font-size: 2vw; padding-top: 2%; font-weight: lighter; text-align: center;}
 /*-- bee-kinds --*/
-.bee-kinds{height: 60%; width: 90%; position: relative; margin: 0 auto;}
+.bee-kinds{width: 90%; position: relative; margin: 0 auto;}
 /*-- bee-info --*/
 .bee-info{
     width: 150px; height: 170px; float: left; border: 3px solid #FF985A; border-radius: 200px; box-shadow: 12px 12px 2px 1px rgba(246, 187, 67, 0.7);
@@ -88,10 +73,10 @@ h3{font-size: 30px; line-height: 40px; font-weight: lighter; text-align: center;
 }
 .bee-info > img{width: 300px; position: absolute; top: 8px; left: -50px;}/* 벌 크기 절대적으로 */
 /*-- bee-kinds-guide --*/
-.bee-kinds-guide{
+.bee-kinds-guide{   
     width: 100%; position: relative; margin: 0 auto;
 }
-.bee-tier{float: left; width: 170px; padding: 15px; margin: 0 10px 0 5px; text-align: left; background-color: #ff985a; border-radius: 5%;}
+.bee-tier{float: left; width: 170px; padding: 15px; margin: 2% 10px 0 5px; text-align: left; background-color: #ff985a; border-radius: 5%;}
 .bee-tier > dt{font-size: 1.5em;}
 .bee-tier:first-child{margin-left: 60px;}
 /* 등급 간격 */
@@ -103,9 +88,14 @@ h3{font-size: 30px; line-height: 40px; font-weight: lighter; text-align: center;
 .bee-tier:nth-child(3) > dd >table > thead .tier-color{color: gold;}
 .bee-tier:nth-child(4) > dd >table > thead .tier-color{color: #00A0FF;}
 .bee-tier:nth-child(5) > dd >table > thead .tier-color{color: #BA55D3}
+
+/* 슬라이더 패드 때 */
+.btn-zip{display: flex; width: 70%; justify-content: space-evenly; margin: 0 auto;}
+.num-btn{font-size: 35px; width: 50px; height: 60px; border-radius: 50%; border: 5px solid black; background-color: initial;}
 /*-------- //fourth-content --------*/
 
 /*-------- fifth-content --------*/
+.fifth-content{height: 40%;}
 .fifth-content > h4{display: block; font-size: 3.0em; text-align: center; width: 100%; padding: 50px 0;}
 .study-matching{
     width: 450px; font-size: 2.0em; color: white; height: 100px; border: 3px solid black; 
@@ -115,10 +105,32 @@ h3{font-size: 30px; line-height: 40px; font-weight: lighter; text-align: center;
 /*클릭시*/
 .study-matching:focus{background-color: #779ecc;}
 
-
+@media only screen and (min-width: 1175px) and (max-width: 1475px){
+    .bee-kinds{width: 70%; height: 150px;}
+    .bee-info{width: 70px; height: 90px;}
+    .bee-info > img {width: 180px;position: absolute;top: 8px;left: -35px;}
+    .bee-tier{font-size: 0.8em; width: 110px; margin: 2% 5px 0 5px; height: 70px; padding: 10px;}
+    .bee-tier:first-child{margin-left: 135px;}
+    .bee-tier dd > table{font-size: 0.7em;}
+} 
 /*--------------------------- 패드 ---------------------------*/
-@media only screen and (min-width: 736px) and (max-width: 1023px){
-    
+@media only screen and (min-width: 736px) and (max-width: 1175px){
+    /*------ wrap ------*/
+    .main-wrap{margin: 0 auto;}
+
+    .first-content{height: 50%;}
+    .second-content{height: 40%;}
+    .third-content{height: 43%;}
+    /*-------- fourth-content --------*/
+    .fourth-content{position: relative; width: 70%; height: 110%;}
+    /*-- bee-kinds --*/
+    .bee-kinds{height: 380px; width: 120px; float: left;}
+    /*-- bee-info --*/
+    .bee-info{width: 50%; height: 20%; float: none;margin: 50px 0; padding: 10px 30px 10px 10px;}
+    .bee-info:first-child{margin: 10% 0;}
+    .bee-info > img{width: 160%; position: absolute; top: 5%; left: -20px;}/* 벌 크기 절대적으로 */
+    .bee-kinds-guide{float: right; width: 50%;}
+    .bee-tier{float: right; margin: 15px 0px;}
 }
 
 /*--------------------------- 모바일 ---------------------------*/
@@ -136,37 +148,35 @@ h3{font-size: 30px; line-height: 40px; font-weight: lighter; text-align: center;
     .first-img-wrap{width: 45%; float: none;}
     .first-img-wrap > img{margin:0 15% 10%;} 
     /*-------- second-content --------*/
-    .second-content{background-color: white;}
-    .second-content p{font-size: 1.2em; padding: 25px 0;}
-    /*-- second-matching --*/
-    .second-matching .bee-home{left: -35px;}
-
-    /*-- bee-flying --*/
-    .bee-left-fly > .bee-flying{margin-left: -140px;}
-    .bee-right-fly > .bee-flying{margin-right: -170px;}
+    .second-content{height: 25%;}
 
     /*-------- third-content --------*/
-    .third-content p{padding-left: 10%; font-size: 1.2em;}
+    .third-content{height: 80%;}
+    .third-content p{padding-left: 0; font-size: 1.2em;}
     .third-contents{text-align: center;}
-    .third-contents > img:first-child{margin-left: 0px;}
-    .third-contents > img:nth-child(3){margin: auto;}
-    .third-contents > span{padding: 9% 0 3% 0; font-size: 1.2em;}
+    .third-contents > img{display: inline-block; width: 35%; box-shadow: 6px 6px 2px 1px rgba(255, 255, 255, 0.7)}
+    .third-contents > img:first-child{margin-left: 0;}
+    .third-contents > img:nth-child(3){margin-left: 10%;}
+    .third-contents > span{font-size: 1.2em;}
     
+    .fourth-content{position: relative; width: 70%; height: 100%;}
     /*-- bee-kinds --*/
-    .bee-kinds{height: 40%; width: 25%; float: left;}
+    .bee-kinds{height: 380px; width: 120px; float: left;}
     /*-- bee-info --*/
     .bee-info{width: 50%; height: 20%; float: none;margin: 25% 0; padding: 10px 30px 10px 10px;}
     .bee-info:first-child{margin: 10% 0;}
     .bee-info > img{width: 160%; position: absolute; top: 5%; left: -20px;}/* 벌 크기 절대적으로 */
-    
+
+    /*-- bee-kinds-guide --*/
     .bee-kinds-guide{float: right; width: 50%;}
-    .bee-tier{float: right; height: 10%; padding: 5px; margin: 12px 0px;}
+    .bee-tier{float: right; height: 10%; padding: 5px; margin: 25px 0px;}
     .bee-tier > dt{text-align: center;}
+    
     /* 등급 간격 */
     .bee-tier > dd > table > thead > tr > th{font-size: 0.8em;}
     .bee-tier > dd > table > tbody > tr > th {font-size: 0.7em;}
     .bee-tier > dd > table > tbody > tr > td {font-size: 0.7em;}
-
+    
      /*-------- fifth-content --------*/
     .fifth-content > h4{font-size: 1.5em; padding: 30px 0;}
     .study-matching{font-size: 1.5em;width: 80%;height: auto; letter-spacing: 20px; text-align: center; margin: 0 0 8% 8%;}

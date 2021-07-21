@@ -47,7 +47,7 @@ h1 a img{height: 50px; padding: 0 16px 10px 16px; float: left;}
 .page-con{width: 3vw; height: 2vw;}
 .page-pre{float: left;}
 .page-next{float: right;}
-@media only screen and (min-width: 0) and (max-width: 1200px) {
+@media only screen and (min-width: 0) and (max-width: 1207px) {
     .gnb {margin-top: 0; z-index: 100;}
     /*------ h1 ------*/
     h1{margin-left: 0;}

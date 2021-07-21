@@ -37,7 +37,7 @@ input::placeholder{font-family: 'jua'; font-size: 0.8em;}
 .btn-check:hover,:focus{opacity: 1; outline: 0;}
 
 
-@media only screen and (min-width: 0) and (max-width: 736px) {
+@media only screen and (min-width: 0) and (max-width: 1262px) {
     .find{width: 100%;}
     .idp-btn{font-size: 1.2em;}
     .idp-btn > a{display: inline-block; margin: 0; padding: 0; line-height: normal;}
