@@ -1,4 +1,4 @@
-package beebee.sh.mapper;
+package com.sh.mapper;
 
 import org.apache.ibatis.annotations.Select;
 
