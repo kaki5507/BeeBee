@@ -9,4 +9,3 @@ GRANT CONNECT, DBA TO beebee;
 -- 비밀번호 바꾸기
 alter user beebee IDENTIFIED BY 5507;
 
-
