@@ -1,0 +1,15 @@
+eclipse.preferences.version=1
+encoding//src/main/webapp/WEB-INF/views/board/board-get.html=UTF-8
+encoding//src/main/webapp/WEB-INF/views/board/board-modify.html=UTF-8
+encoding//src/main/webapp/WEB-INF/views/board/board-register.html=UTF-8
+encoding//src/main/webapp/WEB-INF/views/board/board.html=UTF-8
+encoding//src/main/webapp/WEB-INF/views/common/footer.html=UTF-8
+encoding//src/main/webapp/WEB-INF/views/idpassword/idpassword.html=UTF-8
+encoding//src/main/webapp/WEB-INF/views/login/login.html=UTF-8
+encoding//src/main/webapp/WEB-INF/views/main/index.html=UTF-8
+encoding//src/main/webapp/WEB-INF/views/register/register-agree.html=UTF-8
+encoding//src/main/webapp/WEB-INF/views/register/register-clear.html=UTF-8
+encoding//src/main/webapp/WEB-INF/views/register/register-identi.html=UTF-8
+encoding//src/main/webapp/WEB-INF/views/register/register-welcome.html=UTF-8
+encoding//src/main/webapp/WEB-INF/views/register/stipulation/privacy.html=UTF-8
+encoding//src/main/webapp/WEB-INF/views/register/stipulation/service.html=UTF-8
