@@ -1,4 +1,4 @@
-package beebee.sh.persistence;
+package com.sh.persistence;
 
 import static org.junit.Assert.fail;
 
