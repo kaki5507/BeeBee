@@ -1,0 +1,91 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="name" content="kaki">
+    <meta name="description" content="beebee study-matching">
+    <meta name="keywords" content="study crud">
+    <meta name="copyright" content="kaki5507">
+    <title>main</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com"> <!-- 구굴 웹 폰트 더 빠르게 (?) 연결 하기 위함 주석 처리로 테스트  -->
+        <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet"> <!-- 구글 웹 폰트 -->
+        <link rel="stylesheet" href="../../../resources/common/css/default.css"> <!-- 기본 css -->
+        <link rel="stylesheet" href="../../../resources/common/css/header.css">
+        <link rel="stylesheet" href="../../../resources/common/css/footer.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" crossorigin="anonymous">
+</head>
+<body>
+<!---- gnb ---->
+<div class="gnb">
+    <div class="wrap">
+        <!-- h1 -->
+        <h1><a href="#"><img src="../../../resources/common/img/beelogo.png" alt="로고"></a></h1>
+        <section id="fixed-bar-search">
+            <div class="search-input-wrap">
+                <span class="search-info">검색</span>
+                <input type="text" name="header-search-input" id="header-search-input" class="fixed-search-input" placeholder="검색어를 입력해보세요!">
+            </div>
+        </section>
+        <nav>
+            <div class="side-btn"><img src="../../../resources/common/img/menu-1.png" alt="menu"></div>
+            <!-- big menu-->
+            <ul class="menu">
+                <li>
+                    <a href="../board/board.html">게 시 판</a>
+                    <ul class="d-menu">
+                        <li><a href="#">공부 인증</a></li>
+                        <li><a href="#">자유게시판</a></li>
+                        <li><a href="#">질문게시판</a></li>
+                        <li><a href="#">자격증</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">스터디 매칭</a>
+                    <ul class="d-menu">
+                        <li><a href="#">정보처리기사</a></li>
+                        <li><a href="#">정보처리산업기사</a></li>
+                        <li><a href="#">컴퓨터활용능력</a></li>
+                        <li><a href="#">팀 포트폴리오</a></li>
+                    </ul>
+                </li>              
+              
+                <li class="beetalk"><a href="#">비비 톡</a></li>
+                	
+                <li>
+                    <a href="#">내 정보</a>
+                    <ul class="d-menu">
+                        <li><a href="#">알림</a></li>
+                        <li><a href="#">내 등급 :</a></li>
+                        <li><a href="#">로그아웃</a></li>
+                    </ul>
+                </li>
+            </ul>
+            
+        </nav>
+
+        <form action="" class="side-menu-form">
+            <div class="side-menu-wrap">
+                <nav class="side-menu">
+                    <ul>
+                        <li><a href="../main/index.html">비비 홈</a></li>
+                        <li><a href="../main/index.html">게시판</a></li>
+                        <li><a href="../main/index.html">스터디매칭</a></li>
+                        <li><a href="../main/index.html">비비 톡</a></li>
+                        <li><a href="../main/index.html">내 정보</a></li>
+                    </ul>
+                    
+                    <div>
+                        <h2>로그인, 로그아웃</h2>
+                    </div>
+                </nav>
+            </div>
+        </form>
+    </div>
+</div>
+<!---- //gnb ---->
+<script defer src="../../../resources/common/js/header.js"></script>

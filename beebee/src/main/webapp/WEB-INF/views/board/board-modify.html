@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="../../../resources/board/css/board-default.css">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+      $(document).ready(function(){
+         $("#header").load("../common/header.html")
+         $("#footer").load("../common/footer.html")
+      });
+</script>    
+<div id="header"></div>
+
+<div class="board-default-wrap">
+      <h2>게시글 수정하기</h2>
+
+      <div class="get-group">
+            <label for="">번호</label>
+            <input type="text" class="form-control" readonly='readonly'>
+      </div>
+
+      <div class="get-group">
+            <label for="">제목</label>
+            <input type="text" class="form-control">
+      </div>
+
+      <div class="get-group">
+            <label for="">텍스트 내용</label>
+            <textarea class="form-control" name="" id="" cols="30" rows="3"></textarea>         
+      </div>
+
+      <div class="get-group">
+            <label for="">작성자</label>
+            <input type="text" class="form-control" readonly='readonly'>
+      </div>
+
+      <div class="get-group">
+            <label for="">작성일</label>
+            <input type="text" class="form-control" readonly='readonly'>
+      </div>
+
+      <div class="get-group">
+            <label for="">최근수정일</label>
+            <input type="text" class="form-control" readonly='readonly'>
+      </div>
+
+      <div class="get-btn">
+            <button class="btn btn-modify">수정하기</button>
+            <button class="btn btn-remove">삭제</button>
+            <button class="btn">게시판</button>
+      </div>
+      
+      <form action="">
+            <input type="hidden">
+            <input type="hidden">
+            <input type="hidden">
+      </form>
+</div>
+
+<div id="footer"></div>

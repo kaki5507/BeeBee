@@ -1,207 +1,240 @@
-<!-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> -->
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta author="name" content="kaki">
-    <meta name="description" content="beebee market">
-    <meta name="keywords" content="market crud">
-    <meta name="copyright" content="kaki5507">
-    <title>main</title>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../../resources/common/css/default.css">
-        <link rel="stylesheet" href="../../resources/main/css/index.css">
-</head>
-<body>
-    <!------ main-wrap ------>
-    <div class="main-wrap">
-        <!---- home-main-wrap(0) ---->
-        <div class="home-main-wrap">
-            <div class="first-content main-contents">
-                <h2>꿀벌<span>(Bee)</span>처럼<br>부지런하게<span>(Bee)</span>일하자</h2>
-                <div class="first-img-wrap">
-                    <img src="./img/main-first.PNG" alt="study maching system">
-                </div>
-            </div>
-        </div>
-        <!---- //home-main-wrap(0) ---->
-        <!---- home-main-wrap(1) ---->
-        <div class="home-main-wrap">
-            <div class="second-content main-contents">
-                <p>간편한 매칭 시스템을 이용한 스터디 모임!</p>
-                <div class="second-matching">
-                    <img src="./img/Bee-kinds/bee-home.png" alt="bee-home" class="bee-home">
-                    <div class="bee-left-fly">
-                        <img src="./img/Bee-kinds/b-bee.png" alt="bronze-bee" class="bee-flying">
-                        <img src="./img/Bee-kinds/b-bee.png" alt="bronze-bee" class="bee-flying">
-                        <img src="./img/Bee-kinds/b-bee.png" alt="bronze-bee" class="bee-flying">
+<!--
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
+<%@ include file="/WEB-INF/views/common/header.jsp" %>
+-->
+<link rel="stylesheet" href="../../../resources/main/css/index.css">
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script defer src="../../../resources/main/js/index.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#header").load("../common/header.html")
+        $("#footer").load("../common/footer.html")
+    });
+</script>
+<div id="header"></div>
+
+<div class="main">
+    <!-- 슬라이드 -->
+    <div class="main_contents_list main_slide">
+        <input type="radio" name="slide" id="slide01" checked>
+        <input type="radio" name="slide" id="slide02">
+        <input type="radio" name="slide" id="slide03">
+        <div class="slidewrap">
+            
+            <ul class="slidelist">
+                <!-- 슬라이드 영역 -->
+                <li class="slideitem">
+                    <a class="slideitem01" href="https://leetcode.com/problemset/algorithms/">
+                        <div class="textbox">
+                            <h3>어떻게 공부해야 되지?</h3>
+                            <p>리트코드를 이용해서 알고리즘을 풀어보아요🧡</p>
+                        </div>
+                        <img src="../../../resources/main/img/slide_menu01.png" alt="슬라이드 메뉴1">
+                    </a>
+                </li>
+                <li class="slideitem">
+                    <a class="slideitem02" href="https://w-giraffe.tistory.com/">
+                        <div class="textbox">
+                            <h3>티스토리</h3>
+                            <p>공부한 내용을 정리하며 성장해요</p>
+                        </div>
+                        <img src="../../../resources/main/img/slide_menu02.png" alt="슬라이드 메뉴2">
+                    </a>
+                </li>
+                <li class="slideitem">
+                    <a class="slideitem03" href="https://cafe.naver.com/chil9chil9line">
+                        <div class="textbox">
+                            <h3>스터디 커뮤니케이션 (Study Communication)</h3>
+                            <p>자격증 정보를 공유하며 스터디를 매칭해요</p>
+                        </div>
+                        <img src="../../../resources/main/img/slide_menu03.png" alt="슬라이드 메뉴3">
+                    </a>
+                </li class="slideitem">
+    
+                <!-- 좌,우 슬라이드 버튼 -->
+                <div class="slide-control">
+                    <div>
+                        <label for="slide03" class="left"></label>
+                        <label for="slide02" class="right"></label>
                     </div>
-                    <div class="bee-right-fly">
-                        <img src="./img/Bee-kinds/b-bee.png" alt="bronze-bee" class="bee-flying">
-                        <img src="./img/Bee-kinds/b-bee.png" alt="bronze-bee" class="bee-flying">
-                        <img src="./img/Bee-kinds/b-bee.png" alt="bronze-bee" class="bee-flying">
+                    <div>
+                        <label for="slide01" class="left"></label>
+                        <label for="slide03" class="right"></label>
+                    </div>
+                    <div>
+                        <label for="slide02" class="left"></label>
+                        <label for="slide01" class="right"></label>
                     </div>
                 </div>
-            </div>
+    
+            </ul>
+            <!-- 페이징 -->
+            <ul class="slide-pagelist">
+                <li><label for="slide01">리트코드</label></li>
+                <li><label for="slide02">티스토리</label></li>
+                <li><label for="slide03">스터디</label></li>
+            </ul>
         </div>
-        <!---- //home-main-wrap(1) ---->
-        <!---- home-main-wrap(2) ---->
-        <div class="home-main-wrap">
-            <div class="third-content main-contents">
-                <p>비비톡으로 스터디원과의 빠른 연락</p>
-                <div class="third-contents-info">
-                    <div class="third-contents">
-                        <img src="./img/main-third-chat.PNG" alt="비비톡">
-                        <span>공부 인증</span>
-                        <img src="./img/main-third-group.PNG" alt="그룹 정보">
-                        <span>실시간 달성률</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!---- //home-main-wrap(2) ---->
-        <!---- home-main-wrap(3) ---->
-        <div class="home-main-wrap">
-            <div class="fourth-content main-contents">
-                <h3>벌 등급 소개</h3>
-                <div class="bee-kinds">
-                    <div class="bee-info"><img src="./img/Bee-kinds/b-bee.png" alt="bronze-bee"></div>
-                    <div class="bee-info"><img src="./img/Bee-kinds/s-bee.png" alt="silver-bee"></div>
-                    <div class="bee-info"><img src="./img/Bee-kinds/g-bee.png" alt="gold-bee"></div>
-                    <div class="bee-info"><img src="./img/Bee-kinds/p-bee.png" alt="platinum-bee"></div>
-                    <div class="bee-info"><img src="./img/Bee-kinds/d-bee.png" alt="diamond-bee"></div>
-                </div>
-                <div class="bee-kinds-guide">
-                    <dl class="bee-tier">
-                        <dt>벌</dt>
-                        <dd>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>등급</th>
-                                        <td><span class="tier-color">BRONZE</span></td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th>스터디 완료</th>
-                                        <td>없음</td>
-                                    </tr>
-                                    <tr>
-                                        <th>시간 인증</th>
-                                        <td>없음</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </dd>
-                    </dl>
-                    <dl class="bee-tier">
-                        <dt>꿀벌</dt>
-                        <dd>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>등급</th>
-                                        <td><span class="tier-color">SILVER</span></td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th>스터디 완료</th>
-                                        <td>5회 이상</td>
-                                    </tr>
-                                    <tr>
-                                        <th>시간 인증</th>
-                                        <td>100회 이상</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </dd>
-                    </dl>
-                    <dl class="bee-tier">
-                        <dt>땅벌</dt>
-                        <dd>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>등급</th>
-                                        <td><span class="tier-color">GOLD</span></td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th>스터디 완료</th>
-                                        <td>10회 이상</td>
-                                    </tr>
-                                    <tr>
-                                        <th>시간 인증</th>
-                                        <td>200회 이상</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </dd>
-                    </dl>
-                    <dl class="bee-tier">
-                        <dt>여왕벌</dt>
-                        <dd>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>등급</th>
-                                        <td><span class="tier-color">DIAMOND</span></td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th>스터디 완료</th>
-                                        <td>30회 이상</td>
-                                    </tr>
-                                    <tr>
-                                        <th>시간 인증</th>
-                                        <td>500회 이상</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </dd>
-                    </dl>
-                    <dl class="bee-tier">
-                        <dt>장수말벌</dt>
-                        <dd>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>등급</th>
-                                        <td><span class="tier-color">MASTER</span></td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th>스터디 완료</th>
-                                        <td>50회 이상</td>
-                                    </tr>
-                                    <tr>
-                                        <th>시간 인증</th>
-                                        <td>1000회 이상</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </dd>
-                    </dl>
-                </div>
-            </div>
-        </div>
-        <!---- //home-main-wrap(3) ---->
-        <!---- home-main-wrap(4) ---->
-        <div class="home-main-wrap">
-            <div class="fifth-content main-contents">
-                <h4>스터디 매칭 하러가기</h4>
-                <button class="study-matching">START</button>
-            </div>
-        </div>
-        <!---- //home-main-wrap(4) ---->        
     </div>
-    <!------ //main-wrap ------>
-</body>
-</html>
+    <!-- // .main_contents_list -->
+
+    <!-- 등급 소개 -->
+    <div class="main_contents_list">
+        <div class="rate_about">
+            <ul class="rate_kinds">
+                <li class="rate_level">
+                    <div class="level_img">
+                        <div class="level_img_cir"><img class=".bee_img" src="../../../resources/main/img/Bee-kinds/b-bee.png" alt=""></div>
+                    </div>
+                    <!-- // .level_img_cir -->
+                    <div class="level_explain">
+                        <dl>
+                            <dt>아기벌</dt>
+                            <dd>게시글 0개</dd>
+                            <dd>댓글 0개</dd>
+                            <dd>방문수 1회</dd>
+                        </dl>
+                    </div>
+                    <!-- // .level_explain-->
+                </li>
+                <li class="rate_level">
+                    <div class="level_img">
+                        <div class="level_img_cir"><img class=".bee_img" src="../../../resources/main/img/Bee-kinds/s-bee.png" alt=""></div>
+                    </div>
+                    <!-- // .level_img_cir -->
+                    <div class="level_explain">
+                        <dl>
+                            <dt>청소년벌</dt>
+                            <dd>게시글 3개</dd>
+                            <dd>댓글 5개</dd>
+                            <dd>방문수 50회</dd>
+                        </dl>
+                    </div>
+                    <!-- // .level_explain-->
+                </li>
+                <li class="rate_level">
+                    <div class="level_img">
+                        <div class="level_img_cir"><img class=".bee_img" src="../../../resources/main/img/Bee-kinds/g-bee.png" alt=""></div>
+                    </div>
+                    <!-- // .level_img_cir -->
+                    <div class="level_explain">
+                        <dl>
+                            <dt>꿀벌</dt>
+                            <dd>게시글 10개</dd>
+                            <dd>댓글 100개</dd>
+                            <dd>방문수 100회</dd>
+                        </dl>
+                    </div>
+                    <!-- // .level_explain-->
+                </li>
+                <li class="rate_level">
+                    <div class="level_img">
+                        <div class="level_img_cir"><img class=".bee_img" src="../../../resources/main/img/Bee-kinds/p-bee.png" alt=""></div>
+                    </div>
+                    <!-- // .level_img_cir -->
+                    <div class="level_explain">
+                        <dl>
+                            <dt>여왕벌</dt>
+                            <dd>게시글 50개</dd>
+                            <dd>댓글 500개</dd>
+                            <dd>방문수 2000회</dd>
+                        </dl>
+                    </div>
+                    <!-- // .level_explain-->
+                </li>
+                <li class="rate_level">
+                    <div class="level_img">
+                        <div class="level_img_cir"><img class=".bee_img" src="../../../resources/main/img/Bee-kinds/d-bee.png" alt=""></div>
+                    </div>
+                    <!-- // .level_img_cir -->
+                    <div class="level_explain">
+                        <dl>
+                            <dt>장수말벌</dt>
+                            <dd>게시글 200개</dd>
+                            <dd>댓글 2000개</dd>
+                            <dd>방문수 5000회</dd>
+                        </dl>
+                    </div>
+                    <!-- // .level_explain-->
+                </li>
+            </ul>
+            <!-- // .rate_kinds -->
+        </div>
+        <!-- // .rate_about -->
+    </div>
+    <!-- // .main_contents_list -->
+
+    <!-- 게시판 -->
+    <div class="main_contents_list">
+        <div class="board_peek">
+            <div class="board_peek_study">
+                <h3>시간 인증</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>제목</th>
+                            <th>내용</th>
+                            <th>아이디</th>
+                            <th>1시간 전 이런식으로</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>제목 thy</td>
+                            <td>내용 thy</td>
+                            <td>아이디 thy</td>
+                            <td>시간 thy</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- // .board_peek_study -->
+
+            <div class="board_peek_free">
+                <h3>자유게시판</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>제목</th>
+                            <th>내용</th>
+                            <th>아이디</th>
+                            <th>1시간 전 이런식으로</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>제목 thy</td>
+                            <td>내용 thy</td>
+                            <td>아이디 thy</td>
+                            <td>시간 thy</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- // .board_peek_free -->
+        </div>
+        <!-- // .board_peek-->
+    </div>
+    <!-- // .main_contents_list -->
+
+    <!-- 웹 소개 -->
+    <div class="main_contents_list">
+        <div class="web_about">
+            <img src="../../../resources/main/img/main-first.PNG" alt="">
+            <img src="../../../resources/main/img/main-third-group.PNG" alt="">
+            <img src="../../../resources/main/img/main-third-chat.PNG" alt="">
+            <div class="web_about_info">
+                <p class="web_about_info_p">Study Application</p>
+                <span class="web_about_info_span">스터디 어플을 이용해서<br>더욱 편안하게</span>
+            </div>
+        </div>
+        <!-- // .web_about -->
+    </div>
+    <!-- // .main_contents_list -->
+</div>
+<!------ // .main ------>
+<div id="footer"></div>
+<!-- <%@ include file="/WEB-INF/views/common/footer.jsp" %> -->
