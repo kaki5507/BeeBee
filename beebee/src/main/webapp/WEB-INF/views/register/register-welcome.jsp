@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <link rel="stylesheet" href="../../../resources/register/css/register-welcome.css">
 
- <%@ include file="/WEB-INF/views/common/header.jsp" %>
+<%@ include file="/WEB-INF/views/common/header.jsp" %>
  
 <!------ reg-wrap -------->
 <form id="reg-wrap" name="regForm" action="#" method="get">

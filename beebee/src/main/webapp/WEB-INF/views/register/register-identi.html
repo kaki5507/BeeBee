@@ -30,44 +30,44 @@
 
             <!-- id-wrap -->
             <div class="id-wrap">
-                <label for="mId">비비ID<b class="m-must">필수입력</b></label>
-                <input type="text" class="info-form" id="mId" name="mId" maxlength="40" placeholder="비비ID ( 이메일 )">
+                <label for="email">비비ID<b class="m-must">필수입력</b></label>
+                <input type="text" class="info-form" id="email" name="email" maxlength="40" placeholder="비비ID ( 이메일 )" onblur="checkEmail()">
                 <button type="button" class="authentic-n">인증번호 발송</button>
-                <span id="mId_error"></span>
+                <span id="email_error"></span>
             </div>
 
             <span>보유하신 <strong>이메일</strong>을 입력해주세요.</span>
 
             <!-- authen-wrap -->
             <div class="authen-wrap">
-                <label for="mAuthen">인증번호<b class="m-must">필수입력</b></label>
-                <input type="text" class="info-form" id="mAuthen" name="mAuthen" placeholder="인증번호 입력 ( 유효시간 5분 )">
-                <span id="mAuthen_error"></span>
+                <label for="authen">인증번호<b class="m-must">필수입력</b></label>
+                <input type="text" class="info-form" id="authen" name="authen" placeholder="인증번호 입력 ( 유효시간 5분 )" onblur="checkAuthen()">
+                <span id="authen_error"></span>
             </div>
 
             <span><strong>[인증번호 발송]</strong>을 먼저 진행해주세요.</span>
 
             <!-- name-wrap -->
             <div class="name-wrap">
-                <label for="mName">닉네임<b class="m-must">필수입력</b></label>
-                <input type="text" class="info-form" id="mName" name="mName" maxlength="10" placeholder="닉네임">
-                <span id="mName_error"></span>
+                <label for="nickName">닉네임<b class="m-must">필수입력</b></label>
+                <input type="text" class="info-form" id="nickName" name="nickName" maxlength="10" placeholder="닉네임" onblur="checkNickName()">
+                <span id="nickName_error"></span>
             </div>
 
             <!-- pwd-wrap -->
             <div class="pwd-wrap">
-                <label for="mPwd">비밀번호<b class="m-must">필수입력</b></label>
-                <input type="text" class="info-form" id="mPwd" name="mPwd" minlength="10" maxlength="16" placeholder="비밀번호">
-                <span id="mPwd_error"></span>
+                <label for="pwd">비밀번호<b class="m-must">필수입력</b></label>
+                <input type="text" class="info-form" id="pwd" name="pwd" minlength="10" maxlength="16" placeholder="비밀번호" onblur="checkPwd()">
+                <span id="pwd_error"></span>
             </div>
 
-            <span>영문/숫자/특수문자를 조합하여 10~16자로 입력해주세요.</span>
+            <span>대문자/소문자/숫자/특수문자를 조합 10~16자로 입력해주세요.</span>
 
             <!-- pwdc-wrap -->
             <div class="pwdc-wrap">
-                <label for="mPwdc">비밀번호 확인<b class="m-must">필수입력</b></label>
-                <input type="text" class="info-form" id="mPwdc" name="mPwdc" minlength="10" maxlength="16" placeholder="비밀번호 확인">
-                <span id="mPwdc_error"></span>
+                <label for="pwdc">비밀번호 확인<b class="m-must">필수입력</b></label>
+                <input type="text" class="info-form" id="pwdc" name="pwdc" minlength="10" maxlength="16" placeholder="비밀번호 확인" onblur="checkPwdc()" >
+                <span id= "pwdc_error"></span>
             </div>
 
             <span><strong>비밀번호</strong>를 다시 한번 입력해주세요.</span>
