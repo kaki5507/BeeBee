@@ -88,4 +88,3 @@
     </div>
 </div>
 <!---- //gnb ---->
-<script defer src="../../../resources/common/js/header.js"></script>

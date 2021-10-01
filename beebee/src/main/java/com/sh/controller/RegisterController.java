@@ -57,9 +57,9 @@ public class RegisterController {
 	// ResponseBody 자바 객체를 HTTP 요청의 body 내용으로 매핑
 	@PostMapping("/emailCheck")
 	@ResponseBody
-	public int emailCheck(@RequestParam(value="mId", required=false) String email){
-		log.info("아이디 체크 진입");
-		log.info("전달받은 ID : " + email);
+	public int emailCheck(@RequestParam(value="email", required=false) String email){
+		log.info("아이디 체크");
+		log.info("전달받은 email : " + email);
 		int cnt = service.emailCheck(email);
 		log.info("전달받은 cnt" + cnt);
 		
@@ -70,8 +70,21 @@ public class RegisterController {
 	// 이메일 체크 화면
 	@GetMapping("/emailCheck")
 	public String emailCheck() {
+		log.info("GET emailCheck");
 		return "/register/register-identi";
 	}
+	
+	// 닉네임 체크
+	@PostMapping("/nickNameCheck")
+	@ResponseBody
+	public int nickNameCheck(@RequestParam(value="nickName", required=false) String nickName){
+		log.info("닉네임 체크");
+		log.info("전달받은 nickName : " + nickName);
+		int cnt = service.nickNameCheck(nickName);
+		log.info("전달받은 cnt" + cnt + "1이면 존재 0이면 없음");
+		
+		return cnt;
+	}	
 	
 	// 회원 가입 완료
 	@GetMapping("/register-clear")

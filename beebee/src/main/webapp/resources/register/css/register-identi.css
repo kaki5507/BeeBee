@@ -29,7 +29,7 @@ h2{display: block; position: relative; font-size: 4.0em; border-bottom: 1px soli
 /*------ m-wrap ------*/
 #m-wrap{width: 45%; margin: 0 auto; font-size: 1.5em;}
 #m-wrap > div{background-color: #f2c894; margin: 40px 0; padding: 20px; border-radius: 10px;}
-#m-wrap > div > span{color: red; width: 100%; display: inline-block; font-size: 15px;}
+#m-wrap > div > span{color: red; width: 100%; margin-top: 10px; display: inline-block; font-size: 15px;}
 /* 설명 */
 #m-wrap > span{display: inline-block; width: 100%; text-align: center; font-size: 0.8em;}
 #m-wrap > div > label{width: 25%; float: left; padding: 25px 0 20px 10px;}

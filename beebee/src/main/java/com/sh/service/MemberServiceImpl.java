@@ -42,5 +42,12 @@ public class MemberServiceImpl implements MemberService{
 		int cnt = mapper.emailCheck(email);
 		return cnt;
 	}
+
+	// 닉네임 중복 체크
+	@Override
+	public int nickNameCheck(String nickName) {
+		int cnt = mapper.nickNameCheck(nickName);
+		return cnt;
+	}
 	
 }

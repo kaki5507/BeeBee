@@ -12,4 +12,5 @@ public interface MemberMapper {
 	
 	public int emailCheck(String email);
 	
+	public int nickNameCheck(String nickName);
 }

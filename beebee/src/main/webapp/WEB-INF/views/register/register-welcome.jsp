@@ -61,3 +61,4 @@
     <!---- //reglevel ---->
 </form>
 <!------ //reg-wrap -------->
+<%@ include file="/WEB-INF/views/common/footer.jsp" %>

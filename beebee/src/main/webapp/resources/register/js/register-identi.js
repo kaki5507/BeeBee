@@ -38,19 +38,19 @@ function joinClear(){
 // 이메일 체크
 function checkEmail(){
     let _email_error = document.getElementById('email_error');
-    let emailExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+    let emailExp = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
     let email = $('#email').val();
 
     if(_email.value === ""){
         _email_error.style.color = 'red';
         _email_error.innerHTML = "이메일을 입력해주세요.";
         return false;
-    }else if(!emailExp.test(_pwd.value)){
+    }else if(!emailExp.test(_email.value)){
         _email_error.style.color = 'red';
         _email_error.innerHTML = "이메일 형식에 맞게 입력해주세요.";
         return false;        
     }
-
+    
     $.ajax({
         type : 'POST',
         data : {"email":email}, // data email이라는 String으로 보냄
@@ -100,7 +100,6 @@ function checkNickName(){
             }else{
                 _nickName_error.style.color = 'red';
                 _nickName_error.innerHTML = "아쉽게도 누군가 사용중이에요.";
-                return false;
             }
         },
         error:function(){

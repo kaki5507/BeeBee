@@ -57,7 +57,7 @@
             <!-- pwd-wrap -->
             <div class="pwd-wrap">
                 <label for="pwd">비밀번호<b class="m-must">필수입력</b></label>
-                <input type="text" class="info-form" id="pwd" name="pwd" minlength="10" maxlength="16" placeholder="비밀번호" onblur="checkPwd()">
+                <input type="password" class="info-form" id="pwd" name="pwd" minlength="10" maxlength="16" placeholder="비밀번호" onblur="checkPwd()">
                 <span id="pwd_error"></span>
             </div>
 
@@ -66,7 +66,7 @@
             <!-- pwdc-wrap -->
             <div class="pwdc-wrap">
                 <label for="pwdc">비밀번호 확인<b class="m-must">필수입력</b></label>
-                <input type="text" class="info-form" id="pwdc" name="pwdc" minlength="10" maxlength="16" placeholder="비밀번호 확인" onblur="checkPwdc()">
+                <input type="password" class="info-form" id="pwdc" name="pwdc" minlength="10" maxlength="16" placeholder="비밀번호 확인" onblur="checkPwdc()">
                 <span id="pwdc_error"></span>
             </div>
 
@@ -74,7 +74,7 @@
 
             <!-- reg-btn -->
             <div class="reg-btn">
-                <button type="button" class="bee-join" id="btn-join" onclick="joinClear();" value="작성완료">NEXT</button>
+                <button type="button" class="bee-join" id="btn-join" onclick="joinClear();" value="작성완료">CREATE</button>
                 <a href="#" class="btn-cancel">CANCEL</a>
             </div>
             <!-- //reg-btn -->
