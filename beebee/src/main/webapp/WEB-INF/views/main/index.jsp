@@ -1,14 +1,11 @@
-<link rel="stylesheet" href="../../../resources/main/css/index.css">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
+<%@ include file="/WEB-INF/views/common/header.jsp" %>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script defer src="../../../resources/main/js/index.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#header").load("../common/header.html")
-        $("#footer").load("../common/footer.html")
-    });
-</script>
-<div id="header"></div>
+<script src="../../../resources/main/js/index.js"></script>
+<link rel="stylesheet" href="../../../resources/main/css/index.css">
 
 <div class="main">
     <!-- 슬라이드 -->
@@ -230,5 +227,4 @@
     <!-- // .main_contents_list -->
 </div>
 <!------ // .main ------>
-<div id="footer"></div>
-<!-- <%@ include file="/WEB-INF/views/common/footer.jsp" %> -->
+<%@ include file="/WEB-INF/views/common/footer.jsp" %> 

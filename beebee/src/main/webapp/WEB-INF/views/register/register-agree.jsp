@@ -7,18 +7,6 @@
 <link rel="stylesheet" href="../../../resources/register/css/register-agree.css">
  
 <script defer src="../../../resources/register/js/register-agree.js"></script>
-<!-- 그냥 script만 설정해주면 parsing HTML fetching js executing js 식으로 실행되는데 이러면 
-     단점은 사용자가 기본적인 html은 빨리 볼 수 있는데, javscript에 의존적이면 js가 늦게 들어와서
-     피칭하는 시간(실행하는 시간) 을 기다려야 된다.
-
-     asyn 설정해주면 html을 파싱하다가 병렬로 asyn을 확인하고, 다운로드하자 해놓고 다운로드가 다되면
-     다시 실행주는 방식 피칭하는 시간을 아낄수는 있지만, html이 되면서 js가 실행되기 때문에
-     html이 중간만 뿌려지는 상태에서 js가 뿌려질 수 있음.
-
-     defer 은 가장 좋은 옵션인거 같고 html파일을 다 파싱해주고 그다음에 js를 실행 시키는 방법
-     asyn 는 순서에 상관없이 다운로드가 빨리 된거 부터 피칭이 되기 때문에 defer을 이용하면
-     순서대로 할 수 있어서 defer을 쓰는게 효과적!!
--->
 
 <!------ ag-wrap -------->
 <form id="ag-wrap" name="agForm" action="#" method="post">
@@ -46,7 +34,7 @@
         <div class="serv-chk-wrap">
             <input type="checkbox" id="serv-chk" value="비비 서비스 이용약관 동의" name="agree-list">
             <label for="serv-chk">비비 서비스 이용약관 동의</label>
-            <iframe src="register/stipulation/service.html"  title="비비 서비스 이용약관" frameborder="0"></iframe>
+            <iframe src="stipulation/service"  title="비비 서비스 이용약관" frameborder="0"></iframe>
         </div>
         <!-- //serv-chk -->
 
@@ -54,7 +42,7 @@
         <div class="priv-chk-wrap">
             <input type="checkbox" id="priv-chk" value="개인정보 수집 및 이용 동의" name="agree-list">
             <label for="priv-chk">개인정보 수집 및 이용 동의</label>
-            <iframe src="register/stipulation/privacy.html" frameborder="0"></iframe>
+            <iframe src="stipulation/privacy" frameborder="0"></iframe>
         </div>
         <!-- //priv-chk-wrap -->
 

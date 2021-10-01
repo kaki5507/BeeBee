@@ -5,15 +5,16 @@
   
 <mapper namespace="com.sh.mapper.MemberMapper">
 
+	<!-- 멤버 리스트 보기 -->
 	<select id="selectList" resultType="com.sh.domain.MemberVO">
 		select email, nickname, pwd
-		from tbl_member
+		from tbl_members
 	</select>
 
-
+	<!-- 회원 가입  -->
 	<insert id="insert">
-		insert into tbl_member (email,nickname,pwd,regdate)
-		values (#{email}, #{nickname}, #{pwd}, #{regdate})
+		insert into tbl_members (email, nickname, pwd)
+		values (#{email}, #{nickName}, #{pwd})
 	</insert>
 	
 	<!-- 이메일 중복 체크 -->

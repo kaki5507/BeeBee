@@ -23,7 +23,13 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void register(MemberVO member) {
 		
+		mapper.insert(member);
+		
 		log.info("register......"+member);
+		log.info("이메일 "+ member.getEmail());
+		log.info("닉네임 "+ member.getNickName());
+		log.info("비밀번호 "+ member.getPwd());
+		log.info("생성일 "+ member.getRegdate());
 		
 	}
 

@@ -14,6 +14,7 @@ var okPwdc = false;
 
 // 회원가입 버튼
 function joinClear(){
+	
     if(!okEmail){
         _email.focus();
         return false;
@@ -30,7 +31,10 @@ function joinClear(){
         _pwdc.focus();
         return false;
     }else{
-
+    	document.getElementById('btn-join').onclick = function(){
+    		document.getElementById('m-wrap').submit();
+    		return false;
+    	};
     }
 
 }
@@ -100,6 +104,7 @@ function checkNickName(){
             }else{
                 _nickName_error.style.color = 'red';
                 _nickName_error.innerHTML = "아쉽게도 누군가 사용중이에요.";
+                return false;
             }
         },
         error:function(){

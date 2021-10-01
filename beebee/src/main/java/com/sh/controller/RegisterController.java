@@ -37,6 +37,16 @@ public class RegisterController {
 		log.info("이용약관 페이지 입니다");
 	}
 	
+	// 이용약관,개인정보 수집 동의 화면
+	@GetMapping("/stipulation/privacy")
+	public void privacy() {
+		log.info("이용약관");
+	}
+	@GetMapping("/stipulation/service")
+	public void service() {
+		log.info("이용약관");
+	}
+	
 	// 회원 정보 입력 화면
 	@GetMapping("/register-identi")
 	public void register_identi() {
@@ -65,15 +75,7 @@ public class RegisterController {
 		
 		return cnt;
 	}
-	
-	
-	// 이메일 체크 화면
-	@GetMapping("/emailCheck")
-	public String emailCheck() {
-		log.info("GET emailCheck");
-		return "/register/register-identi";
-	}
-	
+		
 	// 닉네임 체크
 	@PostMapping("/nickNameCheck")
 	@ResponseBody
@@ -84,7 +86,14 @@ public class RegisterController {
 		log.info("전달받은 cnt" + cnt + "1이면 존재 0이면 없음");
 		
 		return cnt;
-	}	
+	}
+	
+	// 이메일,닉네임 체크 화면
+	@GetMapping({"/emailCheck","/nickNameCheck"})
+	public String emailCheck() {
+		log.info("GET emailCheck");
+		return "/register/register-identi";
+	}
 	
 	// 회원 가입 완료
 	@GetMapping("/register-clear")
