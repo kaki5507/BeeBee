@@ -6,4 +6,5 @@
 pom.properties
 .COMMIT_EDITMSG.swp
 /.COMMIT_EDITMSG.swp
+/target/
 root-context.xml
