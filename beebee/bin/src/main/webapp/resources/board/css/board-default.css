@@ -1,0 +1,8 @@
+/*------ board-rwrap ------*/
+.board-default-wrap{font-size: 2vw; margin: 5% auto; width: 60%; height: auto; display: flex; flex-direction: column;}
+h2{color: rgb(234, 118, 103); padding: 0 0 5%;}
+/*---- get-group ----*/
+.get-group{margin: 2% 0;}
+
+/* form-control */
+.form-control{margin: 1% 0; width: 100%; border: 0.5vw solid rgb(234, 156, 094); outline: none; background: #eee; border-radius: 4px;}
