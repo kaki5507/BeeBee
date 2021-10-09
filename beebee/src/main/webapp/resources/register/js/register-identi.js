@@ -132,6 +132,10 @@ function checkAuthen(){
                     _authen_error.style.color = '#08a600';
                     _authen_error.innerHTML = "인증번호가 일치합니다!";
                     okAuthen = true;
+            	}else{
+                    _authen_error.style.color = 'red';
+                    _authen_error.innerHTML = "인증번호가 맞지않습니다.";
+                    return false;
             	}
             },
             error:function(){
