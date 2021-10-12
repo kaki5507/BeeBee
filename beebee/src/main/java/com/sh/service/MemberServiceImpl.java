@@ -1,5 +1,6 @@
 package com.sh.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -18,7 +19,6 @@ public class MemberServiceImpl implements MemberService{
 
 	@Setter(onMethod_ = @Autowired)
 	private MemberMapper mapper;
-	
 	
 	// 회원 가입
 	@Override
@@ -54,6 +54,23 @@ public class MemberServiceImpl implements MemberService{
 	public int nickNameCheck(String nickName) {
 		int cnt = mapper.nickNameCheck(nickName);
 		return cnt;
+	}
+
+	// 로그인
+	@Override
+	public int login(MemberVO member) {
+		
+		int result = mapper.login(member);
+		
+		return result;
+	}
+
+	@Override
+	public MemberVO getByEmail(String email) {
+		
+		log.info("getByEmail..");
+		
+		return mapper.getByEmail(email);
 	}
 
 	

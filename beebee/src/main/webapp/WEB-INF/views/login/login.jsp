@@ -2,19 +2,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
+<link rel="stylesheet" href="../../../resources/login/css/login.css">
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 
-<link rel="stylesheet" href="../../../resources/login/css/login.css">
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript">
-      $(document).ready(function(){
-         $("#header").load("../common/header.html")
-         $("#footer").load("../common/footer.html")
-      });
-</script>    
-<div id="header"></div>
 <!------ login-wrap -------->
-<form id="login-wrap" name="loginForm" action="#" method="post">
+<form id="login-wrap" name="loginForm" action="/login/loginCheck" method="post">
     <img class="checkpoint" src="../../../resources/login/img/checkpoint.png" alt="로그인 검문소">
     <h3>로그인</h3>
     
@@ -30,14 +22,14 @@
         <!-- login-id -->
         <div class="login-id">
             <label for="email" class="idpwd-label">아이디</label>
-            <input type="text" id="email" class="info-login" placeholder="비비ID(아이디 또는 이메일)를 입력해주세요.">
+            <input type="text" id="email" name="email" class="info-login" placeholder="비비ID(아이디 또는 이메일)를 입력해주세요.">
         </div>
         <!-- //login-id -->
 
         <!-- login-pwd -->            
         <div class="login-pwd">
             <label for="pwd" class="idpwd-label">비밀번호</label>
-            <input type="text" id="pwd" class="info-login" placeholder="비밀번호를 입력해주세요.">
+            <input type="text" id="pwd" name="pwd" class="info-login" placeholder="비밀번호를 입력해주세요.">
         </div>
         <!-- //login-pwd -->
     </div>
@@ -45,7 +37,7 @@
     
     <!---- btnlogin ---->
     <div class="btnlogin">
-        <button type="button" id="btn-login">비비ID 로그인</button>
+        <button type="button" formmethod="post" id="btn-login">비비ID 로그인</button>
     </div>
     <!---- //btnlogin ---->
 
@@ -96,4 +88,6 @@
     
 </form>
 <!------ //login-wrap -------->
-<div id="footer"></div>
+<%@ include file="/WEB-INF/views/common/footer.jsp" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script defer src="../../../resources/login/js/login.js"></script>
