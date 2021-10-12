@@ -10,6 +10,11 @@
 		select email, nickname, pwd
 		from tbl_members
 	</select>
+	
+	<!-- 이메일로 회원 검색 -->
+	<select id="getByEmail" parameterType="String" resultType="com.sh.domain.MemberVO">
+		select * from tbl_members where email = #{email}
+	</select>
 
 	<!-- 회원 가입  -->
 	<insert id="insert">
@@ -27,4 +32,9 @@
 		select COUNT(nickName) from tbl_members where nickname = #{nickname}
 	</select>
 	
+	<!-- 로그인 -->
+	<select id="login" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM tbl_members WHERE email = #{email} AND pwd = #{pwd}
+	</select>
+	 
 </mapper>
