@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -43,27 +45,23 @@
                         <li><a href="#">자격증</a></li>
                     </ul>
                 </li>
-
-                <li>
-                    <a href="#">스터디 매칭</a>
-                    <ul class="d-menu">
-                        <li><a href="#">정보처리기사</a></li>
-                        <li><a href="#">정보처리산업기사</a></li>
-                        <li><a href="#">컴퓨터활용능력</a></li>
-                        <li><a href="#">팀 포트폴리오</a></li>
-                    </ul>
-                </li>              
-              
-                <li class="beetalk"><a href="#">비비 톡</a></li>
+                <c:if test="${sessionScope.login_info eq null}"><!-- eq 같으면 참 -->
+                <li><a href="<c:url value='/register/register-welcome'/>">회원가입</a></li>
                 	
                 <li>
-                    <a href="#">내 정보</a>
+                    <a href="<c:url value='/login/login'/>">로그인</a>
+                </li>
+                </c:if>
+                
+                <c:if test="${sessionScope.login_info ne null}"><!-- ne는 반대이면 참 -->
+                <li>
+                    <a href="#">${member.nickName }님</a>
                     <ul class="d-menu">
                         <li><a href="#">알림</a></li>
-                        <li><a href="#">내 등급 :</a></li>
-                        <li><a href="#">로그아웃</a></li>
+                        <li><a href="<c:url value='/login/logout'/>">로그아웃</a></li>
                     </ul>
                 </li>
+                </c:if>
             </ul>
             
         </nav>
