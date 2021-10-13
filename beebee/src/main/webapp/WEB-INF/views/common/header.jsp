@@ -37,7 +37,7 @@
             <!-- big menu-->
             <ul class="menu">
                 <li>
-                    <a href="../board/board.html">게 시 판</a>
+                    <a href="<c:url value='/board/board-list'/>">게 시 판</a>
                     <ul class="d-menu">
                         <li><a href="#">공부 인증</a></li>
                         <li><a href="#">자유게시판</a></li>

@@ -29,7 +29,7 @@
         <!-- login-pwd -->            
         <div class="login-pwd">
             <label for="pwd" class="idpwd-label">비밀번호</label>
-            <input type="text" id="pwd" name="pwd" class="info-login" placeholder="비밀번호를 입력해주세요.">
+            <input type="password" id="pwd" name="pwd" class="info-login" placeholder="비밀번호를 입력해주세요.">
         </div>
         <!-- //login-pwd -->
     </div>
