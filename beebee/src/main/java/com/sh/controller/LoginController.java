@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sh.domain.MemberVO;
@@ -49,7 +50,7 @@ public class LoginController {
 		if(result == 1) {
 			path = "redirect:/home";
 			session.setAttribute("login_info", member);
-			rttr.addFlashAttribute("member",service.getByEmail(email));
+			rttr.addFlashAttribute("member",service.getByEmail(email)); //Flash ¿œ»∏º∫
 		}else {
 			path = "redirect:/login/login";
 			session.setAttribute("login_info", null);

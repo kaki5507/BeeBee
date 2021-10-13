@@ -5,15 +5,6 @@
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 
 <link rel="stylesheet" href="../../../resources/board/css/board-list.css">
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript">
-      $(document).ready(function(){
-         $("#header").load("../common/header.html")
-         $("#footer").load("../common/footer.html")
-      });
-</script>    
-<div id="header"></div>
-
 <!------ board-wrap ------>
 <div class="board-wrap">
     <!---- board-side-menu ---->
@@ -32,7 +23,7 @@
     <form class="board-option" action="">
         <div><h2>게시판</h2></div>
         <div>
-            <input type="text" class="form-search" value="검색하기">
+            <input type="text" class="form-search" placeholder="검색하기">
         </div>
         <div>
             <button id='board-regBtn' type="button" class="btn btn-reg">글 작성하기</button>
@@ -50,13 +41,19 @@
                 <th class="bt-4">작성일</th>
                 <th class="bt-5">조회 수</th>
             </tr>
+            <c:forEach items="${list}" var="board">
             <tr>
-                <td class="bt-1">번호 타임리프</td>
-                <td class="bt-2">제목 타임리프</td>
-                <td class="bt-3">아이디 타임리프</td>
-                <td class="bt-4">작성일 타임리프</td>
-                <td class="bt-5">조회수 타임리프</td>
+                <td class="bt-1"><c:out value="${board.bno}" /></td>
+                <td class="bt-2">
+                	<a class='move' href='<c:out value="${board.bno}"/>'>
+                		<c:out value="${board.title}" />
+                	</a>
+                </td>
+                <td class="bt-3"><c:out value="${board.writer}" /></td>
+                <td class="bt-4"><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate}" /></td>
+                <td class="bt-5"><fmt:formatDate pattern="yyyy-MM-dd" value="${board.updateDate}" /></td>
             </tr>
+            </c:forEach>
         </table>
 
         <ul class="pagination">
@@ -70,6 +67,26 @@
     </div>
     <!---- //board-center ---->
     
+    <!---- actionForm 게시글 이동용 form ---->
+	<form id='actionForm' action="/board/list" method='get'>
+		<input type='hidden' name='pageNum'>
+		<input type='hidden' name='amount'>
+	</form>
+	<!---- //actionForm ---->
+    
+    <!---- modal-content 모달 ---->
+    <div class="modal-content">
+        <div class="modal-content-back">
+            <div class="modal-content-message"></div>
+            <button type="button" class="modal-close">닫기</button>
+        </div>
+    </div>
+    <!---- //.modal-content ---->
+
+    <!-- result값 가져오기 -->
+    <input type="hidden" class="result" value='<c:out value="${result}"/>' />
 </div>
 <!------ //board-wrap ------>    
-<div id="footer"></div>
+<%@ include file="/WEB-INF/views/common/footer.jsp" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../../../resources/board/js/board-list.js" type="text/javascript"></script>

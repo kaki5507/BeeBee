@@ -6,37 +6,30 @@
 
 <link rel="stylesheet" href="../../../resources/board/css/board-default.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript">
-      $(document).ready(function(){
-         $("#header").load("../common/header.html")
-         $("#footer").load("../common/footer.html")
-      });
-</script>    
-<div id="header"></div>
 
-<div class="board-default-wrap">
+<form class="board-default-wrap" action="/board/board-register" method="post">
       <h2>게시글 작성하기</h2>
 
       <div class="get-group">
             <label for="">제목</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="title">
       </div>
 
       <div class="get-group">
             <label for="">텍스트 내용</label>
-            <textarea class="form-control" name="" id="" cols="30" rows="3"></textarea>         
+            <textarea class="form-control" name="content" cols="30" rows="3"></textarea>         
       </div>
 
       <div class="get-group">
-            <label for="">작성자</label>
-            <input type="text" class="form-control" readonly='readonly'>
+            <label for=""></label>
+            <input type="text" name="writer" class="form-control">
       </div>
 
       <div class="get-btn">
             <button type="submit" class="btn btn-modify">작성완료</button>
-            <button class="btn btn-remove">리셋</button>
+            <button type="reset" class="btn btn-remove">리셋</button>
             <button class="btn">게시판</button>
       </div>
-</div>
+</form>
 
-<div id="footer"></div>
+<%@ include file="/WEB-INF/views/common/footer.jsp" %>

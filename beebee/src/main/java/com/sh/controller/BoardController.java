@@ -1,11 +1,15 @@
 package com.sh.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sh.domain.BoardVO;
@@ -22,14 +26,14 @@ public class BoardController {
 	
 	private BoardService service;
 	
-	@GetMapping("/list")
-	public void list(Model model) {
-		log.info("list");
+	@GetMapping("/board-list")
+	public void list(Model model,HttpSession session) {
 		
+		log.info("list");
 		model.addAttribute("list",service.getList());
 	}
 	
-	@PostMapping("/register")
+	@PostMapping("/board-register")
 	public String register(BoardVO board, RedirectAttributes rttr) {
 		log.info("register :" + board);
 		
@@ -37,10 +41,10 @@ public class BoardController {
 		
 		rttr.addFlashAttribute("result", board.getBno());
 		
-		return "redirect:/board/list";
+		return "redirect:/board/board-list";
 	}
 	
-	@GetMapping
+	@GetMapping({"/board-get","/board-modify"})
 	public void get(@RequestParam("bno") Long bno, Model model) {
 		log.info("/get");
 		model.addAttribute("board",service.get(bno));
@@ -54,7 +58,7 @@ public class BoardController {
 		if(service.modify(board)) {
 			rttr.addFlashAttribute("result","success");
 		}
-		return "redirect:/board/list";
+		return "redirect:/board/board-list";
 	}
 	
 	@PostMapping("/remove")
@@ -65,6 +69,11 @@ public class BoardController {
 			rttr.addFlashAttribute("result", "success");
 		}
 		
-		return "redirect:/board/list";
+		return "redirect:/board/board-list";
+	}
+	
+	@GetMapping("/board-register")
+	public void board_register() {
+		
 	}
 }
