@@ -1,5 +1,7 @@
 package com.sh.mapper;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.sh.domain.BoardVO;
+import com.sh.domain.Criteria;
 import com.sh.mapper.BoardMapper;
 
 import lombok.Setter;
@@ -21,10 +24,12 @@ public class BoardMapperTests {
 	@Setter(onMethod_ = @Autowired)
 	private BoardMapper mapper;
 	
+	/*
 	@Test
 	public void testGetList() {
 		mapper.getList().forEach(board -> log.info(board));
 	}
+	*/
 	/*
 	@Test
 	public void testInsert() {
@@ -74,6 +79,18 @@ public class BoardMapperTests {
 		
 		int count = mapper.update(board);
 		log.info("UPDATE COUNT : " + count);
+	}
+	
+	@Test
+	public void testPaging() {
+		Criteria cri = new Criteria();
+		
+		cri.setPageNum(3);
+		cri.setAmount(10);
+		
+		List<BoardVO> list = mapper.getListWithPaging(cri);
+		
+		list.forEach(board -> log.info(board));
 	}
 	
 }

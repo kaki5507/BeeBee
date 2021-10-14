@@ -38,15 +38,24 @@ public class BoardControllerTests {
 	public void testList() throws Exception{
 		
 		log.info(
-				mockMvc.perform(MockMvcRequestBuilders.get("/board/list"))
+				mockMvc.perform(MockMvcRequestBuilders.get("/board/board-list"))
 				.andReturn()
 				.getModelAndView()
 				.getModelMap());
 	}
 	
 	@Test
+	public void testListPaging() throws Exception {
+		log.info(mockMvc.perform(
+				MockMvcRequestBuilders.get("/board/board-list")
+				.param("pageNum", "2")
+				.param("amount", "10"))
+				.andReturn().getModelAndView().getModelMap());
+	}
+	
+	@Test
 	public void testRegister() throws Exception{
-		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/register")
+		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/board-register")
 				.param("title", "테스트 새글 제목")
 				.param("content", "테스트 새글 내용")
 				.param("writer", "user00")
@@ -58,7 +67,7 @@ public class BoardControllerTests {
 	@Test
 	public void testGet() throws Exception{
 		log.info(mockMvc.perform(MockMvcRequestBuilders
-				.get("/board/get")
+				.get("/board/board-get")
 				.param("bno", "2"))
 				.andReturn()
 				.getModelAndView().getModelMap());
@@ -68,7 +77,7 @@ public class BoardControllerTests {
 	public void testModify() throws Exception{
 		
 		String resultPage = mockMvc
-				.perform(MockMvcRequestBuilders.post("/board/modfiy")
+				.perform(MockMvcRequestBuilders.post("/board/board-modfiy")
 						.param("bno", "1")
 						.param("title", "수정된 테스트 새글 제목")
 						.param("content", "수정된 테스트 새글 내용")
