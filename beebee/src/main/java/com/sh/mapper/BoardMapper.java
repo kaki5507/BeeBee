@@ -5,10 +5,13 @@ import java.util.List;
 import org.apache.ibatis.annotations.Select;
 
 import com.sh.domain.BoardVO;
+import com.sh.domain.Criteria;
 
 public interface BoardMapper {
 	
 	public List<BoardVO> getList();
+	
+	public List<BoardVO> getListWithPaging(Criteria cri);
 	
 	public void insert(BoardVO board);
 	

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sh.domain.BoardVO;
+import com.sh.domain.Criteria;
+import com.sh.domain.PageDTO;
 import com.sh.service.BoardService;
 
 import lombok.AllArgsConstructor;
@@ -27,10 +29,11 @@ public class BoardController {
 	private BoardService service;
 	
 	@GetMapping("/board-list")
-	public void list(Model model,HttpSession session) {
+	public void list(Model model,Criteria cri) {
 		
 		log.info("list");
-		model.addAttribute("list",service.getList());
+		model.addAttribute("list",service.getList(cri));
+		model.addAttribute("pageMaker",new PageDTO(cri,123));
 	}
 	
 	@PostMapping("/board-register")
