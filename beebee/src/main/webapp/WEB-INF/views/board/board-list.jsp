@@ -57,20 +57,23 @@
         </table>
 
         <ul class="pagination">
-            <li class="page-pre"><a href="">&lt;</a></li>
-            <li class="page-num"><a href="">1</a></li>
-            <li class="page-num"><a href="">1</a></li>
-            <li class="page-num"><a href="">1</a></li>
-            <li class="page-num"><a href="">1</a></li>
-            <li class="page-next"><a href="">&gt;</a></li>
+        	<c:if test="${pageMaker.prev}">
+            	<li class="paginate_button page-pre"><a href="${pageMaker.startPage -1}">&lt;</a></li>
+            </c:if>
+            <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+            	<li class="paginate_button page-num ${pageMaker.cri.pageNum == num ? "active":""}"><a href="${num}">${num}</a></li>
+            </c:forEach>
+            <c:if test="${pageMaker.next}">
+            	<li class="paginate_button page-next"><a href="${pageMaker.endPage +1}">&gt;</a></li>
+            </c:if>	
         </ul>
     </div>
     <!---- //board-center ---->
     
     <!---- actionForm 게시글 이동용 form ---->
-	<form id='actionForm' action="/board/list" method='get'>
-		<input type='hidden' name='pageNum'>
-		<input type='hidden' name='amount'>
+	<form id='actionForm' action="/board/board-list" method='get'>
+		<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+		<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
 	</form>
 	<!---- //actionForm ---->
     

@@ -29,11 +29,11 @@
 
       <div class="get-group">
             <label for="">작성자</label>
-            <input type="text" class="form-control" name="writer" value='<c:out value="${board.writer}"/>' readonly='readonly'>
+            <input type="text" class="form-control" name="writer" value='<c:out value="${board.writer}"/>' readonly='readonly' />
       </div>
 
       <div class="get-btn">
-            <button data-oper="modify" class="btn btn-modify" onclick="location.href='/board/board-modify?bno=<c:out value="${board.bno}"/>'">>수정하기</button>
+            <button data-oper="modify" class="btn btn-modify" onclick="location.href='/board/board-modify?bno=<c:out value="${board.bno}"/>'">수정하기</button>
             <button data-oper="list" class="btn" onclick="location.href='/board/board-list'">게시판</button>
       </div>
 </div>

@@ -42,4 +42,12 @@ $(document).ready(function(){
         actionForm.attr("action","/board/board-get"); // attr 속성 변경(jQuery)
         actionForm.submit();
     });
+
+    // 페이지 이동을 위한 
+    $(".paginate_button a").on("click",function(e){
+        e.preventDefault(); // 이벤트 막음
+        console.log("click");
+        actionForm.find("input[name='pageNum']").val($(this).attr("href")); // hidden인 페이지 찾아서 이 이벤트 href 속성을 변경해주고
+        actionForm.submit();
+    });
 });

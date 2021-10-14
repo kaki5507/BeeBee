@@ -13,9 +13,9 @@ $(document).ready(function(){
 		if(operation === 'remove'){
 			formObj.attr("action", "/board/remove");
 		}else if(operation === 'list'){
-			// move to list
-            self.location = "/board/board-list";
-			return;
+			// list 페이지로 이동 파라미터도 같이 전달되어야 함
+			formObj.attr("action","/board/board-list").attr("method","get");
+			formObj.empty();
 		}
 		formObj.submit();
 	});
