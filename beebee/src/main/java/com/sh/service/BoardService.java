@@ -20,4 +20,5 @@ public interface BoardService {
 	// 페이지 기준 값을 매개 변수로 받음
 	public List<BoardVO> getList(Criteria cri);
 	
+	public int getTotal(Criteria cri);
 }
