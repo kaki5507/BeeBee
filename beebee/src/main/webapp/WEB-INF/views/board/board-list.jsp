@@ -61,7 +61,7 @@
             	<li class="paginate_button page-pre"><a href="${pageMaker.startPage -1}">&lt;</a></li>
             </c:if>
             <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-            	<li class="paginate_button page-num ${pageMaker.cri.pageNum == num ? "active":""}"><a href="${num}">${num}</a></li>
+            	<li class="paginate_button page-num ${pageMaker.cri.pageNum == num ? "page-active":""}"><a href="${num}">${num}</a></li>
             </c:forEach>
             <c:if test="${pageMaker.next}">
             	<li class="paginate_button page-next"><a href="${pageMaker.endPage +1}">&gt;</a></li>

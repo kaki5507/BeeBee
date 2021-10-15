@@ -29,6 +29,9 @@
 .bt-4{width: 20%;}
 .bt-5{width: 10%;}
 
+/* 현재 페이지 색 */
+.page-active{background-color:rgb(234, 156, 094); color: rgba(234, 156, 094, 0.3);}
+
 /*---- modal-content ----*/
 .modal-content{
     display: none;

@@ -44,10 +44,14 @@
       </div>
 
       <div class="get-btn">
-            <button type="submit" data-oper='modify' class="btn btn-modify">수정하기</button>
-            <button type="submit" data-oper='remove' class="btn btn-remove">삭제</button>
-            <button type="submit" data-oper='list' class="btn">게시판</button>
+            <button data-oper='modify' class="btn btn-modify">수정하기</button>
+            <button data-oper='remove' class="btn btn-remove">삭제</button>
+            <button data-oper='list' class="btn">게시판</button>
       </div>
+      
+      <!-- 페이지 값과 페이지 양 이동용 input -->
+      <input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
+      <input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
 </form>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 <script src="../../../resources/board/js/board-modify.js" type="text/javascript"></script>

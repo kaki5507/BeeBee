@@ -5,7 +5,6 @@
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 
 <link rel="stylesheet" href="../../../resources/board/css/board-default.css">
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 <div class="board-default-wrap">
       <h2>게시글 읽기</h2>
@@ -33,9 +32,19 @@
       </div>
 
       <div class="get-btn">
-            <button data-oper="modify" class="btn btn-modify" onclick="location.href='/board/board-modify?bno=<c:out value="${board.bno}"/>'">수정하기</button>
-            <button data-oper="list" class="btn" onclick="location.href='/board/board-list'">게시판</button>
+            <button data-oper="modify" class="btn btn-modify">수정하기</button>
+            <button data-oper="list" class="btn">게시판</button>
       </div>
+
+      <!---- 데이터 전송 operForm ---->
+	<form role="operForm" id='operForm' action="/board/board-modify" method='get'>
+            <input type='hidden' id="bno" name='bno' value='<c:out value="${board.bno}"/>'>
+		<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
+		<input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
+	</form>
+	<!---- //#operForm ---->
 </div>
 
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../../../resources/board/js/board-get.js" type="text/javascript"></script>

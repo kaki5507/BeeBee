@@ -15,7 +15,12 @@ $(document).ready(function(){
 		}else if(operation === 'list'){
 			// list 페이지로 이동 파라미터도 같이 전달되어야 함
 			formObj.attr("action","/board/board-list").attr("method","get");
+			let pageNumTag = $("input[name='pageNum']").clone(); // 임시 저장 empty로 삭제하기 때문에
+			let amountTag = $("input[name='amount']").clone();
+			
 			formObj.empty();
+			formObj.append(pageNumTag);
+			formObj.append(amountTag);
 		}
 		formObj.submit();
 	});
