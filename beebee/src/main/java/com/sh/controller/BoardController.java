@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,29 +49,34 @@ public class BoardController {
 	}
 	
 	@GetMapping({"/board-get","/board-modify"})
-	public void get(@RequestParam("bno") Long bno, Model model) {
+	public void get(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri,Model model) {
 		log.info("/get");
 		model.addAttribute("board",service.get(bno));
 	}
 	
 	@PostMapping
-	public String modify(BoardVO board, RedirectAttributes rttr) {
+	public String modify(BoardVO board, @ModelAttribute("cri") Criteria cri,RedirectAttributes rttr) {
 
 		log.info("modify :" + board);
 		
 		if(service.modify(board)) {
 			rttr.addFlashAttribute("result","success");
 		}
+		rttr.addAttribute("pageNum",cri.getPageNum()); // cri 값 pageNum으로 넘겨줌
+		rttr.addAttribute("amount",cri.getAmount());
+		
 		return "redirect:/board/board-list";
 	}
 	
 	@PostMapping("/remove")
-	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr) {
+	public String remove(@RequestParam("bno") Long bno,@ModelAttribute("cri") Criteria cri ,RedirectAttributes rttr) {
 		
 		log.info("remove...." + bno);
 		if(service.remove(bno)) {
 			rttr.addFlashAttribute("result", "success");
 		}
+		rttr.addAttribute("pageNum",cri.getPageNum());
+		rttr.addAttribute("amount",cri.getAmount());
 		
 		return "redirect:/board/board-list";
 	}
