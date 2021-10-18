@@ -52,6 +52,8 @@
       <!-- 페이지 값과 페이지 양 이동용 input -->
       <input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
       <input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
+      <input type='hidden' name='type' value='<c:out value="${cri.type}"/>'>
+      <input type='hidden' name='keyword' value='<c:out value="${cri.keyword}"/>'>
 </form>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 <script src="../../../resources/board/js/board-modify.js" type="text/javascript"></script>

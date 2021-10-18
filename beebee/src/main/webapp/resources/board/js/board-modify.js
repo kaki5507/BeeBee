@@ -17,10 +17,15 @@ $(document).ready(function(){
 			formObj.attr("action","/board/board-list").attr("method","get");
 			let pageNumTag = $("input[name='pageNum']").clone(); // 임시 저장 empty로 삭제하기 때문에
 			let amountTag = $("input[name='amount']").clone();
+			let keywordTag = $("input[name='keyword']").clone();
+			let typeTag = $("input[name='type']").clone();
 			
 			formObj.empty();
+
 			formObj.append(pageNumTag);
 			formObj.append(amountTag);
+			formObj.append(keywordTag);
+			formObj.append(typeTag);
 		}
 		formObj.submit();
 	});
