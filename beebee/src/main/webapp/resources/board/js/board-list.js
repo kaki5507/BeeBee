@@ -50,4 +50,28 @@ $(document).ready(function(){
         actionForm.find("input[name='pageNum']").val($(this).attr("href")); // hidden인 페이지 찾아서 이 이벤트 href 속성을 변경해주고
         actionForm.submit();
     });
+
+    // 검색 이벤트 처리
+    let searchForm = $(".searchForm");
+
+    $(".searchForm > div > button").on("click",function(e){
+
+        // 검색폼안에서 선택된 option의 value값을 찾습니다.
+        if(!searchForm.find("option:selected").val()){
+            alert("검색 종류를 선택하세요.");
+            return false;
+        }
+
+        // 키워드가 비어있으면
+        if(!searchForm.find("input[name='keyword']").val()){
+            alert("키워드를 입력하세요.");
+            return false;
+        }
+
+        // 페이지 번호는 1이 되도록 처리함. 처음 부터 검색 해야 되므로
+        searchForm.find("input[name='pageNum']").val("1");
+        e.preventDefault();
+
+        searchForm.submit();
+    });
 });
