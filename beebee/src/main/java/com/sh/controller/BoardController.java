@@ -67,10 +67,8 @@ public class BoardController {
 		if(service.modify(board)) {
 			rttr.addFlashAttribute("result","success");
 		}
-		rttr.addAttribute("pageNum",cri.getPageNum()); // cri 값 pageNum으로 넘겨줌
-		rttr.addAttribute("amount",cri.getAmount());
 		
-		return "redirect:/board/board-list";
+		return "redirect:/board/board-list" + cri.getListLink();
 	}
 	
 	@PostMapping("/remove")
@@ -80,10 +78,8 @@ public class BoardController {
 		if(service.remove(bno)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		rttr.addAttribute("pageNum",cri.getPageNum());
-		rttr.addAttribute("amount",cri.getAmount());
 		
-		return "redirect:/board/board-list";
+		return "redirect:/board/board-list" + cri.getListLink();
 	}
 	
 	@GetMapping("/board-register")
