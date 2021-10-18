@@ -19,17 +19,28 @@
     </div>
     <!---- //board-side-menu ---->
     
-    <!---- board-option ---->
-    <form class="board-option" action="">
+    <!---- searchForm ---->
+    <form class="searchForm" action="/board/board-list" method="get">
         <div><h2>게시판</h2></div>
         <div>
-            <input type="text" class="form-search" placeholder="검색하기">
+            <select name="type" class="type-search">
+                <option value="" <c:out value="${pageMaker.cri.type == null ? 'selected' : ''}"/>>--</option>
+                <option value="T" <c:out value="${pageMaker.cri.type eq 'T' ? 'selected' : ''}"/>>제목</option>
+                <option value="C" <c:out value="${pageMaker.cri.type eq 'C' ? 'selected' : ''}"/>>내용</option>
+                <option value="W" <c:out value="${pageMaker.cri.type eq 'W' ? 'selected' : ''}"/>>작성자</option>
+                <option value="TC" <c:out value="${pageMaker.cri.type eq 'TC' ? 'selected' : ''}"/>>제목 or 내용</option>
+                <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW' ? 'selected' : ''}"/>>제목 or 작성자</option>
+                <option value="TWC" <c:out value="${pageMaker.cri.type eq 'TWC' ? 'selected' : ''}"/>>제목 or 내용 or 작성자</option>
+            </select>
+            <input type="text" class="form-search" name="keyword" placeholder="검색하기" value='<c:out value="${pageMaker.cri.keyword}"/>' />
+            <input type="hidden" name="pageNum" value='<c:out value="${pageMaker.cri.pageNum}"/>' />
+            <input type="hidden" name="amount" value='<c:out value="${pageMaker.cri.amount}"/>' />
         </div>
         <div>
             <button id='board-regBtn' type="button" class="btn btn-reg">글 작성하기</button>
         </div>
     </form>
-    <!---- //board-option ---->
+    <!---- //searchForm ---->
     
     <!---- board-center ---->
     <div class="board-center">
@@ -74,6 +85,8 @@
 	<form id='actionForm' action="/board/board-list" method='get'>
 		<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
 		<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+        <input type='hidden' name='type' value='<c:out value="${pageMaker.cri.type}"/>'>
+        <input type='hidden' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>'>
 	</form>
 	<!---- //actionForm ---->
     

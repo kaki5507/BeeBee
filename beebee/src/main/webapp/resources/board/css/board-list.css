@@ -10,9 +10,9 @@
     padding: 2%; font-size: 1.6vw;}
 .board-side-menu > ul > li > a{display: block; font-size: 1.5vw; margin: 9%; border-bottom: 3px solid black;}
 
-/*---- board-option ----*/
-.board-option{grid-column: 3 / 5; grid-row: 1; display: flex; justify-content: space-between; font-size: 1.8vw;}
-.board-option > div > h2{width: 10vw; margin-left: 5%; color: rgb(234, 118, 103);}
+/*---- searchForm ----*/
+.searchForm{grid-column: 3 / 5; grid-row: 1; display: flex; justify-content: space-between; font-size: 1.8vw;}
+.searchForm > div > h2{width: 10vw; margin-left: 5%; color: rgb(234, 118, 103);}
 .btn-reg{width: 10vw;}
 
 /*---- board-center ----*/
@@ -66,6 +66,11 @@
     width: 30%;
 }
 
+/*-- 검색 폼 수정 --*/
+.type-search{width: 10vw; font-size: 0.8vw; float: left; display: block; margin-right: 10px; border: 2px solid gray; padding: 4px; color: #212529;}
+.form-search{width: 40vw; font-size: 0.8vw;}
+
+
 @media only screen and (min-width: 0) and (max-width: 736px) {
     /*---- board-side-menu ----*/
     .board-wrap {display: flex; flex-direction: column;}
@@ -80,5 +85,9 @@
     .board-table tr th,td{padding: 0; font-size: 0.7em;}
 
     .btn-reg{width: 15vw;}
+
+    /*-- 검색 폼 수정 --*/
+    .type-search{width: 10vw; padding: 1px; margin-right: 5px; font-size: 10px; color: #212529;}
+    .form-search{width: 40vw; padding: 1px; font-size: 10px;}
 
 }
