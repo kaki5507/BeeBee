@@ -69,6 +69,7 @@ public class BoardMapperTests {
 		log.info("DELETE COUNT :" + mapper.delete(2L));
 	}
 	*/
+	/*
 	@Test
 	public void testUpdate() {
 		BoardVO board = new BoardVO();
@@ -87,6 +88,18 @@ public class BoardMapperTests {
 		
 		cri.setPageNum(3);
 		cri.setAmount(10);
+		
+		List<BoardVO> list = mapper.getListWithPaging(cri);
+		
+		list.forEach(board -> log.info(board));
+	}
+	*/
+	@Test
+	public void testSearch() {
+		
+		Criteria cri = new Criteria();
+		cri.setKeyword("»õ·Î");
+		cri.setType("TC");
 		
 		List<BoardVO> list = mapper.getListWithPaging(cri);
 		
