@@ -56,14 +56,18 @@ public class BoardMapperTests {
 		
 		log.info(board);
 	}
-	
+	*/
 	@Test
 	public void testRead() {
-		BoardVO board = mapper.read(1L);
-		
+
+		BoardVO board = mapper.read(512L);
+		mapper.read(511L);
+		mapper.read(510L);
+		mapper.read(509L);
+		mapper.read(507L);
 		log.info(board);
 	}
-	
+	/*
 	@Test
 	public void testDelete() {
 		log.info("DELETE COUNT :" + mapper.delete(2L));
@@ -93,7 +97,7 @@ public class BoardMapperTests {
 		
 		list.forEach(board -> log.info(board));
 	}
-	*/
+	
 	@Test
 	public void testSearch() {
 		
@@ -105,5 +109,5 @@ public class BoardMapperTests {
 		
 		list.forEach(board -> log.info(board));
 	}
-	
+	*/
 }
