@@ -50,3 +50,29 @@
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="../../../resources/board/js/board-get.js" type="text/javascript"></script>
+<script>
+// c:out value jsp에서 작동 안그러면 또 hidden해서 값을 가져와야 함
+var bnoValue = '<c:out value="${board.bno}"/>';
+
+replyService.getList({bno:bnoValue, page:1},function(list){
+		
+	for(var i = 0, len = list.length||0; i<len; i++){
+		console.log(list[i]);
+	}
+});
+
+//댓글 수정 rno 8번
+replyService.update({
+	rno : 8,
+	bno : bnoValue,
+	reply : "수정된 댓글입니다."
+},function(result){
+	alert("수정 완료!");	
+});
+
+// 조회
+replyService.get(10, function(data){
+		console.log(data);
+});
+
+</script>

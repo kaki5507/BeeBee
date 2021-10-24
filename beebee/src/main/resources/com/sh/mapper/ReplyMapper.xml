@@ -16,6 +16,13 @@
 
 </select>
 
+<select id="getListWithPaging" resultType="com.sh.domain.ReplyVO">
+	select rno, bno, reply, replyer, replyDate, updatedate
+	from tbl_reply
+	where bno = #{bno}
+	order by rno asc
+</select>
+
 <delete id="delete">
 
 	delete from tbl_reply where rno = #{rno}
