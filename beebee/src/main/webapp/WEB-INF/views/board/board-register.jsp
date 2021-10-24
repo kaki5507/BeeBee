@@ -8,24 +8,12 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 <form class="board-default-wrap" action="/board/board-register" method="post">
-      <h2>게시글 작성하기</h2>
-
       <div class="get-group">
-            <label for="">제목</label>
-            <input type="text" class="form-control" name="title">
-      </div>
-
-      <div class="get-group">
-            <label for="">텍스트 내용</label>
-            <textarea class="form-control" name="content" cols="30" rows="3"></textarea>         
-      </div>
-
-      <div class="get-group">
-            <label for=""></label>
-            <input type="text" name="writer" class="form-control">
-      </div>
-
-      <div class="get-btn">
+            <div class="get-group-title">
+                  <input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력해주세요">
+            </div>
+            <textarea class="form-control" id="content" name="content" cols="30" rows="3" placeholder="내용을 입력해주세요"></textarea>         
+            <input type="text" id="writer" name="writer" class="form-control" placeholder="작성자">
             <button type="submit" class="btn btn-modify">작성완료</button>
             <button type="reset" class="btn btn-remove">리셋</button>
             <button class="btn">게시판</button>

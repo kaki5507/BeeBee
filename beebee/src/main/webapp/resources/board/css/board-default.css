@@ -1,8 +1,18 @@
 /*------ board-rwrap ------*/
-.board-default-wrap{font-size: 2vw; margin: 5% auto; width: 60%; height: auto; display: flex; flex-direction: column;}
-h2{color: rgb(234, 118, 103); padding: 0 0 5%;}
-/*---- get-group ----*/
-.get-group{margin: 2% 0;}
+.board-default-wrap{font-size: 2vw; margin: 2% auto; width: 70%; height: auto; display: flex; flex-direction: column;}
 
+h2{margin: 2% 0;}
 /* form-control */
-.form-control{margin: 1% 0; width: 100%; border: 0.5vw solid rgb(234, 156, 094); outline: none; background: #eee; border-radius: 4px;}
+.form-control{margin: 1% 0; width: 100%; border: none; outline: none;}
+
+/* 제목, 글 내용,작성자*/
+#title{font-size: 25px; border-bottom: 1px solid rgba(0,0,0,.05);}
+#content{height: 400px; resize: none; padding: 10px; border: 1px solid rgba(0,0,0,.05);}
+#writer{background: #f3f3f3;}
+
+/* 수정하기 bno,제목,정보 들*/
+.get-group-title > .info-post{font-size: 15px; width: 50px; background: none; float: left; text-align: center;}
+
+/* 작성일 , 수정일 */
+.get-group-date{background-color: #f3f3f3; padding: 5px;}
+.get-group-date > input{width: 100px; background-color: #f3f3f3;}

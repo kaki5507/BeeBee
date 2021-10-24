@@ -7,29 +7,14 @@
 <link rel="stylesheet" href="../../../resources/board/css/board-default.css">
 
 <div class="board-default-wrap">
-      <h2>게시글 읽기</h2>
-
-      <div class="get-group">
-            <label for="">번호</label>
-            <input type="text" class="form-control" name="bno" value='<c:out value="${board.bno}"/>' readonly='readonly'>
+      <div class="get-group-title">
+            <input type="text" class="form-control" id="title" name="title" value='<c:out value="${board.title}"/>' readonly='readonly'>
+            <input type="text" class="form-control info-post" name="bno" value='<c:out value="${board.bno}"/>' readonly='readonly'>
+            <input type="text" class="form-control info-post" id="writer" name="writer" value='<c:out value="${board.writer}"/>' readonly='readonly' />
       </div>
-
-      <div class="get-group">
-            <label for="">제목</label>
-            <input type="text" class="form-control" name="title" value='<c:out value="${board.title}"/>' readonly='readonly'>
-      </div>
-
-      <div class="get-group">
-            <label for="">텍스트 내용</label>
-            <textarea class="form-control" name="content" cols="30" rows="3" readonly='readonly'>
-            	<c:out value="${board.bno}" />
-            </textarea>         
-      </div>
-
-      <div class="get-group">
-            <label for="">작성자</label>
-            <input type="text" class="form-control" name="writer" value='<c:out value="${board.writer}"/>' readonly='readonly' />
-      </div>
+      <textarea class="form-control" id="content" name="content" cols="30" rows="3" readonly='readonly'>
+            <c:out value="${board.bno}" />
+      </textarea>         
 
       <div class="get-btn">
             <button data-oper="modify" class="btn btn-modify">수정하기</button>
