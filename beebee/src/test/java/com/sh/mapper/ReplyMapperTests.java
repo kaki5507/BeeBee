@@ -23,7 +23,7 @@ public class ReplyMapperTests {
 	@Setter(onMethod_ = @Autowired)
 	private ReplyMapper mapper;
 	
-	/*
+	
 	// 매퍼 테스트
 	@Test
 	public void testMapper() {
@@ -48,7 +48,7 @@ public class ReplyMapperTests {
 		});
 	}
 	
-	
+	/*
 	@Test
 	public void testRead() {
 		
@@ -74,7 +74,7 @@ public class ReplyMapperTests {
 		
 		log.info("UPDATE COUNT : " + count);
 	}
-	*/
+	
 	
 	@Test
 	public void testList() {
@@ -84,4 +84,5 @@ public class ReplyMapperTests {
 		
 		replies.forEach(reply -> log.info(reply));
 	}
+	*/
 }
