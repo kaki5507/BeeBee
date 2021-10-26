@@ -15,4 +15,6 @@ public class ReplyVO {
 	private String replyer;
 	private Date replyDate;
 	private Date updateDate;
+	
+	private int replyBoom; // 추천 비추천
 }

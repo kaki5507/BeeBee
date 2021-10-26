@@ -17,7 +17,7 @@
 </select>
 
 <select id="getListWithPaging" resultType="com.sh.domain.ReplyVO">
-	select rno, bno, reply, replyer, replyDate, updatedate
+	select rno, bno, reply, replyer, replyBoom, replyDate, updatedate
 	from tbl_reply
 	where bno = #{bno}
 	order by rno asc
