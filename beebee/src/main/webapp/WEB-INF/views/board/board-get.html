@@ -15,17 +15,42 @@
 <div id="header"></div>
 
 <div class="board-default-wrap">
-
-      <div class="get-group">
-            <div class="get-group-title">
-                  <input type="text" id="title" class="form-control" placeholder="제목을 입력하세요">
-            </div>
-            <textarea id="content" class="form-control" name="content" cols="30" rows="3"></textarea>    
-
-            <input type="text" class="form-control">
-            <button class="btn btn-modify">수정하기</button>
-            <button class="btn">게시판</button>
+      <div class="get-group-title">
+            <input type="text" class="form-control" id="title" name="title" readonly='readonly' value="제목">
+            <input type="text" class="form-control info-post" name="bno" readonly='readonly' value="번호">
+            <input type="text" class="form-control info-post" id="writer" name="writer" readonly='readonly' value="글쓴이"/>
       </div>
-</div>
+      <textarea class="form-control" id="content" name="content" cols="30" rows="3" readonly='readonly'>내용</textarea>         
+      <h3>댓글</h3>
+      <ul class="reply">
+            <li class="reply-args">
+                  <div class="reply-top">
+                        <strong>작성자</strong>
+                        <span>날짜</span>
+                        <a class="replyTool"><i class="fas fa-ellipsis-v"></i></a>
+                        <div class="reply-event">
+                              <button class="replyBtnForm" id="replyModifyBtn">수정</button>
+                              <button class="replyBtnForm" id="replyRemoveBtn">삭제</button>
+                        </div>
+                  </div>
+                  <p class="reply-content">내용테스트</p>
+                  <div class="vote-ui">
+                        <a href="#">👍 2</a>
+                        <a href="#">👎</a>
+                  </div>
+            </li>
+      </ul>
 
+      <div class="new-reply">
+            <input type="text" name="replyer" value="작성자">
+            <textarea name="reply" cols="5" rows="3"></textarea>
+            <input type="button" value="등록">
+      </div>
+
+      <div class="get-btn">
+            <button data-oper="modify" class="btn btn-modify">수정하기</button>
+            <button data-oper="list" class="btn">게시판</button>
+      </div>
+
+</div>
 <div id="footer"></div>

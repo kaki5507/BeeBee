@@ -33,6 +33,8 @@ var replyService = (function(){
     		function(data){
     			if(callback){
     				callback(data);
+					console.log("data : " + data);
+					console.log("callback : " + callback);
     			}
     	}).fail(function(xhr, status, err){
     		if(error){
@@ -94,13 +96,43 @@ var replyService = (function(){
     		}
     	});
     }
-    
+	// 시간 계산하는 함수
+	function displayTime(timeValue){
+		// 오늘 날짜 Date로 생성
+		let today = new Date();
+		// 오늘 날짜에서 받은 값을 뺌
+		let gap = today.getTime() -	timeValue;
+		
+		// 데이터 작성 날짜
+		let dateObj = new Date(timeValue);
+		let str = "";
+
+		// displayTime()은 Ajax에서 데이터를 가져와서 HTML을 만들어 주는 부분
+		if(gap < (1000 * 60 * 60 * 24)){ // 1일 이내 이면
+			let hh = dateObj.getHours();
+			let mi = dateObj.getMinutes();
+			let ss = dateObj.getSeconds();
+			
+			// 9시 넘으면 두자리니깐 그냥 보이게 아니면 09로 나오게
+			return [ (hh > 9 ? '' : '0' ) + hh, ':', (mi > 9 ? '' : '0') + mi,
+					':', (ss > 9 ? '' : '0') + ss].join(''); // join 합쳐서 보내줌
+		} else { // 1일전 이상
+			let yy = dateObj.getFullYear();
+			let mm = dateObj.getMonth() + 1; // getMonth() is zero-based
+			let dd = dateObj.getDate();
+
+			return [ yy, '/', (mm > 9 ? '' : '0') + mm, '/',
+					(dd > 9 ? '' : '0') + dd].join('');
+		}
+	}
+
     return {
     	add:add,
     	getList : getList,
     	remove : remove,
     	update : update,
-    	get : get
+    	get : get,
+		displayTime : displayTime
     }; // 앞에는 속성 뒤에는 add 함수 그 자체
 })();
 
@@ -120,5 +152,4 @@ $(document).ready(function() {
         operForm.attr("action","/board/board-list");
         operForm.submit();
     });
-
 });
