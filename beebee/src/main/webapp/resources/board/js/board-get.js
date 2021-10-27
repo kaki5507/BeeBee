@@ -33,8 +33,6 @@ var replyService = (function(){
     		function(data){
     			if(callback){
     				callback(data);
-					console.log("data : " + data);
-					console.log("callback : " + callback);
     			}
     	}).fail(function(xhr, status, err){
     		if(error){
@@ -69,8 +67,6 @@ var replyService = (function(){
     		data : JSON.stringify(reply),
     		contentType : "application/json; charset=utf-8",
     		success : function(result, status, xhr){
-    			console.log("callback 은 무엇일까 ?  " + callback);
-    			console.log("result = " + result);
     			if(callback){
     				callback(result);
     			}

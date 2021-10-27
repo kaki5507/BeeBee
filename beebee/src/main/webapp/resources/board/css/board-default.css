@@ -21,16 +21,16 @@ h2{margin: 2% 0;}
 .reply-args{margin: 10px 0; position: relative; border-bottom: 1px solid #eee; color: #777; padding: 20px; font-size: 15px;}
 .reply-top > strong{width: 70%;}
 .reply-top > span{margin: 0 20px;}
-.vote-ui{float: right;}
+.vote-ui{float: right; position: relative; bottom: 10px;}
 
 /* 댓글 내용 부분 */
-.reply-content{margin-top: 10px; white-space: nowrap; word-wrap: break-word; width: 100%;}
+.reply-content{margin-top: 10px; white-space: nowrap; word-wrap: break-word; width: 90%;}
 /* 댓글에서 수정/삭제 부분 */
-.replyTool{display: block; border: none; background-color: white; width: 30px; height: 30px; text-align: right; float: right; display: none;}
-.reply-event{position: absolute;top: 10px; right: 25px; border: none; padding: 10px;}
+.replyTool{display: block; border: none; background-color: white; width: 30px; height: 30px; text-align: right; float: right;}
+.reply-event{position: absolute;display: none; top: 10px; right: 25px; border: none; padding-top: 15px;}
 .replyBtnForm{outline: none; border: none; background: none; margin: 0 3px;}
-#replyModifyBtn{color: #90C5F9;}
-#replyRemoveBtn{color: #f4525f;}
+.replyModifyBtn{color: #90C5F9;}
+.replyRemoveBtn{color: #f4525f;}
 /* 새로운 댓글 입력창 작성자 임시 로그인 해야지만 작성 가능하도록 변경 */
 .new-reply{background-color: #aaa; padding: 10px; margin: 10px 0; border-radius: 5px; font-size: 15px; position: relative;}
 .new-reply > input{border: 1px solid; border-color: #ccc #c6c6c6 #c3c3c3 #ccc;border-radius: 3px;}
@@ -43,22 +43,24 @@ h2{margin: 2% 0;}
     white-space: nowrap; cursor: pointer; text-align: center; color: #111; font-weight: 100;
 }
 
+/* 수정하기 위한 댓글 창 */
+.modreply{resize: none; width: 90%; height: 40px; border: 1px solid; border-color: #ccc #c6c6c6 #c3c3c3 #ccc; border-radius: 3px; padding: 5px;}
+.updateReplyBtn{background: linear-gradient(to bottom,#fff 0,#f3f3f3 100%); 
+    float: right; width: 50px; cursor: pointer;
+    text-align: center; color: #111; height: 50px;}
 /* 반응형 수정 */
 @media only screen and (min-width: 880px) and (max-width: 1280px) {
     .new-reply > textarea:nth-child(2){width: 75%;}
-    .replyTool{float: right; display: block;}
-    .reply-event{position: absolute; display: none;}
+    .modreply{width: 85%;}
 }
 @media only screen and (min-width: 500px) and (max-width: 880px) {
     .new-reply > textarea:nth-child(2){width: 70%;}
-    .replyTool{float: right; display: block;}
-    .reply-event{position: absolute; display: none;}
+    .modreply{width: 77%;}
 }
 
 @media only screen and (min-width: 0px) and (max-width: 500px) {
+    .modreply{width: 65%;} 
     .reply-args{font-size: 10px;}
-    .replyTool{float: right; display: block;}
-    .reply-event{position: absolute; display: none;}
 
     .new-reply{font-size: 10px;}
     .new-reply > input{font-size: 10px; height: 10px;}

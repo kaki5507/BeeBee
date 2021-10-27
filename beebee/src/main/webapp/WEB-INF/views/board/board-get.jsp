@@ -23,8 +23,8 @@
                         <span>날짜</span>
                         <button type="button" class="replyTool"><i class="fas fa-ellipsis-v"></i></button>
                         <div class="reply-event">
-                              <button type="button" class="replyBtnForm" id="replyModifyBtn">수정</button>
-                              <button type="button" class="replyBtnForm" id="replyRemoveBtn">삭제</button>
+                              <button type="button" class="replyBtnForm replyModifyBtn">수정</button>
+                              <button type="button" class="replyBtnForm replyRemoveBtn">삭제</button>
                         </div>
                   </div>
                   <p class="reply-content">내용테스트</p>
@@ -62,7 +62,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="../../../resources/board/js/board-get.js" type="text/javascript"></script>
 <script type="text/javascript">
-
 $(document).ready(function() {
       // c:out value jsp에서 작동 안그러면 또 hidden해서 값을 가져와야 함
       var bnoValue = '<c:out value="${board.bno}"/>';
@@ -72,7 +71,6 @@ $(document).ready(function() {
 
       function showList(page){
             replyService.getList({bno:bnoValue, page:1},function(list){
-                  console.log("list 의 값 !" + list);
                   let str = "";
                   // 콜백함수 list가 null이면 아무것도 보여지지 않아야함
                   if(list == null || list.length == 0){
@@ -86,42 +84,85 @@ $(document).ready(function() {
                         str +="<li class = 'reply-args' data-rno='"+ list[i].rno+"'>";
                         str +="<div class='reply-top'><strong>"+list[i].replyer+"</strong>";
                         str +="<span>"+replyService.displayTime(list[i].replyDate)+"</span>";
-                        str +="<button type='button' class='replyTool'><i class='fas fa-ellipsis-v'></i></button>";
-                        str +="<div class='reply-event'><button type='button' class='replyBtnForm' id='replyModifyBtn'>수정</button>"
-                              +"<button type='button' class='replyBtnForm' id='replyRemoveBtn'>삭제</button>"
+                        str +="<button type='button' class='replyTool' data-rno='"+ list[i].rno+"'><i class='fas fa-ellipsis-v'></i></button>";
+                        str +="<div class='reply-event' data-rno='"+ list[i].rno+"'><button type='button' class='replyBtnForm replyModifyBtn'>수정</button>"
+                              +"<button type='button' class='replyBtnForm replyRemoveBtn'>삭제</button>"
                               +"</div></div>";
                         str +="<p class='reply-content'>"+list[i].reply+"</p>";
                         str +="<div class='vote-ui'><a href='#'>👍" + list[i].replyBoom + "</a>"
                               + "<a href='#'>👎</a></div></li>";
                   }
                   replyUL.html(str);
+                  /* replyTool위에 마우스 올려졌을 시*/
+                  $(".reply").on("mouseenter",".replyTool",function(e){
+                        e.preventDefault();
 
-                  // ul reply 태그 클릭 안에 li 태그에 data-rno 존재
-                  $(".reply").on("click","li",function(){
-                        let rno = $(this).data("rno");
-                        console.log(rno);
-                  });                  
+                        let replyevent = $(this).siblings(".reply-event");
+                        replyevent.show();
+
+                        $(this).hide();
+                        var rno = $(this).data("rno");
+
+                        // 수정창 나오는 코드
+                        $(replyevent).children(".replyModifyBtn").click(function(e){
+                              // replyevent의 부모의 형제들에 있는 .reply-content의 댓글 내용을 textarea 태그로 바꾼다.
+                              $(replyevent).parent().siblings(".reply-content")
+                                    .html("<textarea class='modreply' name='modreply' cols='5' rows='3'></textarea>")
+                                    .append("<button type='button' class='updateReplyBtn'>수정</button>"); 
+                              // rno값과 function을 실행해주는데 function 안에는 댓글들을 가져와야한다.
+                              // 댓글을 가져와서 수정 창이 열리면 그 밸류를 새로운 textarea class인 modreply에 넣어준다.
+                              replyService.get(rno, function(reply){
+                                    $(".modreply").val(reply.reply);
+                              });
+
+                              // 댓글 수정 replyevent가 this로 만들어져있어서 동적 각자의 태그를 분별해줌.
+                              $(".updateReplyBtn").on("click",function(e){
+                                    var modreply = $(".modreply");
+                                    var reply = {rno:rno, reply: modreply.val()};
+                                    replyService.update(reply, function(result){
+                                          alert(result);
+                                          showList(1); // 댓글 업데이트하고 새로운 댓글이 달릴 수 있으므로 showList(1); 로 가져와줌
+                                    });
+                              });
+                        });
+                        // 삭제 클릭
+                        $(replyevent).find(".replyRemoveBtn").click(function(e){
+                              console.log(rno);
+                              replyService.remove(rno, function(result){
+                                    alert("remove" + result);
+                                    showList(1);
+                              });
+                        });
+                  });
+                  /* 마우스가 li 태그를 벗어났을 때*/
+                  $(".reply").on("mouseleave","li",function(e){
+                        e.preventDefault();
+                        $(this).find(".reply-event").hide();
+                        $(this).find(".replyTool").show();
+                  });
+
+
             });
       }
-
-	let newreply = $(".new-reply");
-	let newInputReplyer = newreply.find("input[name='replyer']");
-	let newInputReply = newreply.find("textarea[name='reply']");
-	let newInputReplyDate = newreply.find("input[name='replyDate']");
+      let newreply = $(".new-reply");
+      let newInputReplyer = newreply.find("input[name='replyer']");
+      let newInputReply = newreply.find("textarea[name='reply']");
+      let newInputReplyDate = newreply.find("input[name='replyDate']");
     
-	// 등록 버튼 클릭시 일어나는 이벤트
-	$("#addReplyBtn").on("click",function(e){
-		let reply = {
-			reply : newInputReply.val(),
-			replyer : newInputReplyer.val(),
-			bno : bnoValue
-		};
+      // 등록 버튼 클릭시 일어나는 이벤트
+      $("#addReplyBtn").on("click",function(e){
+            let reply = {
+                  reply : newInputReply.val(),
+                  replyer : newInputReplyer.val(),
+                  bno : bnoValue
+            };
 
-		replyService.add(reply,function(result){
-			alert("result : " + result);
+            replyService.add(reply,function(result){
+                  alert("result : " + result);
 
-			showList(1);
-		});
-	});      
+                  showList(1);
+            });
+      });    
 });
+
 </script>
