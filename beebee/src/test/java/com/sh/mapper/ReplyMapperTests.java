@@ -32,6 +32,7 @@ public class ReplyMapperTests {
 	
 	private Long[] bnoArr = {512L,511L,510L,509L,507L};
 	
+	/*
 	// 댓글 만들어지는지 테스트
 	@Test
 	public void testCreate() {
@@ -48,7 +49,7 @@ public class ReplyMapperTests {
 		});
 	}
 	
-	/*
+	
 	@Test
 	public void testRead() {
 		
@@ -85,4 +86,13 @@ public class ReplyMapperTests {
 		replies.forEach(reply -> log.info(reply));
 	}
 	*/
+	
+	@Test
+	public void testList2() {
+		Criteria cri = new Criteria(2, 10);
+		
+		List<ReplyVO> replies = mapper.getListWithPaging(cri, 512L);
+		
+		replies.forEach(reply -> log.info(reply));
+	}
 }
