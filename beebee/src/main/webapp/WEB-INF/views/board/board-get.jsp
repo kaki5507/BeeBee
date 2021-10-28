@@ -35,6 +35,10 @@
             </li>
       </ul>
 
+      <div class="replyPage">
+
+      </div>
+
       <div class="new-reply">
             <input type="text" name="replyer" placeholder="작성자">
             <textarea name="reply" cols="5" rows="3"></textarea>
@@ -70,12 +74,21 @@ $(document).ready(function() {
       showList(1);
 
       function showList(page){
-            replyService.getList({bno:bnoValue, page:1},function(list){
-                  let str = "";
+            replyService.getList({bno:bnoValue, page:page||1},function(replyCnt, list){
+
+                  console.log("replyCnt : " + replyCnt);
+                  console.log("list : " + list);
+
+                  // -1이면 페이지 첫 번째 보여주기
+                  if(page == -1){
+                        pageNum = Math.ceil(replyCnt/10.0);
+                        showList(pageNum);
+                        return;
+                  }
+
+                  var str = "";
                   // 콜백함수 list가 null이면 아무것도 보여지지 않아야함
                   if(list == null || list.length == 0){
-                        replyUL.html("");
-
                         return; 
                   }
                   // 반복문을 통하여 댓글을 보여주는 곳
@@ -93,6 +106,8 @@ $(document).ready(function() {
                               + "<a href='#'>👎</a></div></li>";
                   }
                   replyUL.html(str);
+                  
+                  showReplyPage(replyCnt);
                   /* replyTool위에 마우스 올려졌을 시*/
                   $(".reply").on("mouseenter",".replyTool",function(e){
                         e.preventDefault();
@@ -121,7 +136,7 @@ $(document).ready(function() {
                                     var reply = {rno:rno, reply: modreply.val()};
                                     replyService.update(reply, function(result){
                                           alert(result);
-                                          showList(1); // 댓글 업데이트하고 새로운 댓글이 달릴 수 있으므로 showList(1); 로 가져와줌
+                                          showList(pageNum); // 댓글 업데이트하고 새로운 댓글이 달릴 수 있으므로 showList(1); 로 가져와줌
                                     });
                               });
                         });
@@ -130,7 +145,7 @@ $(document).ready(function() {
                               console.log(rno);
                               replyService.remove(rno, function(result){
                                     alert("remove" + result);
-                                    showList(1);
+                                    showList(pageNum);
                               });
                         });
                   });
@@ -140,8 +155,6 @@ $(document).ready(function() {
                         $(this).find(".reply-event").hide();
                         $(this).find(".replyTool").show();
                   });
-
-
             });
       }
       let newreply = $(".new-reply");
@@ -160,9 +173,66 @@ $(document).ready(function() {
             replyService.add(reply,function(result){
                   alert("result : " + result);
 
-                  showList(1);
+                  showList(-1); // 전체 댓글 파악
             });
       });    
+
+      var pageNum = 1;
+      let replyPage = $(".replyPage");
+      function showReplyPage(replyCnt){
+    	  	console.log("showReplyPage" + replyCnt);
+            let endNum = Math.ceil(pageNum / 10.0) * 10;
+            let startNum = endNum - 9;
+
+            // 앞에 버튼 11이면 2페이지 이므로 앞에 버튼 보여줌
+            let prev = startNum != 1;
+            let next = false;
+
+            // 댓글이 더 적으면 마지막 숫자 올림 해서 보여준다.
+            if(endNum * 10 >= replyCnt){
+                  endNum = Math.ceil(replyCnt/10.0);
+            }
+            
+            // 댓글이 더 많으면 next 버튼 true
+            if(endNum * 10 < replyCnt){
+                  next = true;
+            }
+
+            let str = "<ul class='pagination'>";
+            
+            if(prev){
+                  str += "<li class='paginate_button page-pre'><a href='"+(startNum - 1)+"'>&lt;</a></li>";
+            }
+
+            for(var i = startNum; i <= endNum; i++){
+                  var active = pageNum == i? "page-active" : "";
+
+                  str += "<li class='paginate_button page-num " + active 
+                        + "'><a href='"+i+"'>" + i + "</a></li>";
+            }
+
+            if(next){
+                  str += "<li class='paginate_button page-next><a href='" + (endNum +1) + "'>&gt;</a></li>";                  
+            }
+
+            str += "</ul></div>";
+            
+            replyPage.html(str);
+      }
+      
+      // 댓글 번호 클릭 시 이동
+      replyPage.on("click","li a",function(e){
+    	      e.preventDefault();
+            console.log("page click");
+            
+            var targetPageNum = $(this).attr("href");
+
+            console.log("targetPageNum : " + targetPageNum);
+
+            pageNum = targetPageNum;
+
+            showList(pageNum);
+      });
 });
 
 </script>
