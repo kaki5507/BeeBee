@@ -17,22 +17,7 @@
       </textarea>
       <h3>댓글</h3>
       <ul class="reply">
-            <li class="reply-args">
-                  <div class="reply-top">
-                        <strong>작성자</strong>
-                        <span>날짜</span>
-                        <button type="button" class="replyTool"><i class="fas fa-ellipsis-v"></i></button>
-                        <div class="reply-event">
-                              <button type="button" class="replyBtnForm replyModifyBtn">수정</button>
-                              <button type="button" class="replyBtnForm replyRemoveBtn">삭제</button>
-                        </div>
-                  </div>
-                  <p class="reply-content">내용테스트</p>
-                  <div class="vote-ui">
-                        <a>👍 2</a>
-                        <a>👎</a>
-                  </div>
-            </li>
+      
       </ul>
 
       <div class="replyPage">
