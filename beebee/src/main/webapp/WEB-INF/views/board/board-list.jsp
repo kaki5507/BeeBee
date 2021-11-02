@@ -22,7 +22,7 @@
     <!---- searchForm ---->
     <form class="searchForm" action="/board/board-list" method="get">
         <div><h2>게시판</h2></div>
-        <div>
+        <div class="searchBar">
             <select name="type" class="type-search">
                 <option value="" <c:out value="${pageMaker.cri.type == null ? 'selected' : ''}"/>>--</option>
                 <option value="T" <c:out value="${pageMaker.cri.type eq 'T' ? 'selected' : ''}"/>>제목</option>
@@ -35,8 +35,7 @@
             <input type="text" class="form-search" name="keyword" placeholder="검색하기" value='<c:out value="${pageMaker.cri.keyword}"/>' />
             <input type="hidden" name="pageNum" value='<c:out value="${pageMaker.cri.pageNum}"/>' />
             <input type="hidden" name="amount" value='<c:out value="${pageMaker.cri.amount}"/>' />
-        </div>
-        <div>
+            <button id='searchBtn' type="button" class="btn btn-search">검색</button>
             <button id='board-regBtn' type="button" class="btn btn-reg">글 작성하기</button>
         </div>
     </form>

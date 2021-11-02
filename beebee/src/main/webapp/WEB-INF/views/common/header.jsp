@@ -25,7 +25,7 @@
 <div class="gnb">
     <div class="wrap">
         <!-- h1 -->
-        <h1><a href="#"><img src="../../../resources/common/img/beelogo.png" alt="로고"></a></h1>
+        <h1><a href="<c:url value='/home'/>"><img src="../../../resources/common/img/beelogo.png" alt="로고"></a></h1>
         <section id="fixed-bar-search">
             <div class="search-input-wrap">
                 <span class="search-info">검색</span>

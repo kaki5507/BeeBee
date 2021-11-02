@@ -43,6 +43,9 @@ h2{margin: 2% 0;}
     white-space: nowrap; cursor: pointer; text-align: center; color: #111; font-weight: 100;
 }
 
+/* 댓글 페이징 액티브 */
+.page-active{background-color:rgb(234, 156, 094); color: rgba(234, 156, 094, 0.3);}
+
 /* 수정하기 위한 댓글 창 */
 .modreply{resize: none; width: 90%; height: 40px; border: 1px solid; border-color: #ccc #c6c6c6 #c3c3c3 #ccc; border-radius: 3px; padding: 5px;}
 .updateReplyBtn{background: linear-gradient(to bottom,#fff 0,#f3f3f3 100%); 

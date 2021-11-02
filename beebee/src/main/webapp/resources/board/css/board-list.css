@@ -11,10 +11,11 @@
 .board-side-menu > ul > li > a{display: block; font-size: 1.5vw; margin: 9%; border-bottom: 3px solid black;}
 
 /*---- searchForm ----*/
-.searchForm{grid-column: 3 / 5; grid-row: 1; display: flex; justify-content: space-between; font-size: 1.8vw;}
+.searchForm{grid-column: 3 / 5; grid-row: 1; display: flex; justify-content: space-around; font-size: 1.8vw;}
 .searchForm > div > h2{width: 10vw; margin-left: 5%; color: rgb(234, 118, 103);}
-.btn-reg{width: 10vw;}
-
+.btn-reg{padding: 0 1%; width: 15%; margin-left: 1%; border: none; background-color: #4B89DC; color: white;}
+.searchBar{display: flex; height: 20px;}
+.btn-search{padding: 0; width: 5%; margin-left: 1%;}
 /*---- board-center ----*/
 .board-center{grid-column: 3 / 5; grid-row: 2 / 6;}
 .board-table{width: 100%; border: 1px solid #eee; border-collapse: collapse;}

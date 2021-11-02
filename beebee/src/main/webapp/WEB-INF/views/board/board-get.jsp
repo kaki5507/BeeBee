@@ -13,7 +13,7 @@
             <input type="text" class="form-control info-post" id="writer" name="writer" value='<c:out value="${board.writer}"/>' readonly='readonly' />
       </div>
       <textarea class="form-control" id="content" name="content" cols="30" rows="3" readonly='readonly'>
-            <c:out value="${board.bno}" />
+            <c:out value="${board.content}" />
       </textarea>
       <h3>댓글</h3>
       <ul class="reply">
