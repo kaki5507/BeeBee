@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.sh.domain.Criteria;
 import com.sh.domain.ReplyPageDTO;
 import com.sh.domain.ReplyVO;
+import com.sh.mapper.BoardMapper;
 import com.sh.mapper.ReplyMapper;
 
 import lombok.Setter;
@@ -20,9 +22,15 @@ public class ReplyServiceImpl implements ReplyService{
 	@Setter(onMethod_ = @Autowired)
 	private ReplyMapper mapper;
 	
+	@Setter(onMethod_ = @Autowired)
+	private BoardMapper boardMapper;
+	
+	@Transactional
 	@Override
 	public int register(ReplyVO reply) {
 		log.info("reply register....");
+		
+		boardMapper.updateReplyCnt(reply.getBno(), 1);
 		
 		return mapper.insert(reply);
 	}
@@ -39,9 +47,15 @@ public class ReplyServiceImpl implements ReplyService{
 		return mapper.update(reply);
 	}
 
+	@Transactional
 	@Override
 	public int remove(Long rno) {
-		log.info("reply remove...");
+		
+		log.info("reply remove..." + rno);
+		
+		ReplyVO vo = mapper.read(rno);
+		// 댓글 삭제하면 그값 bno찾아서 -1 시켜줘야함
+		boardMapper.updateReplyCnt(vo.getBno(), -1);
 		return mapper.delete(rno);
 	}
 
