@@ -54,7 +54,7 @@ $(document).ready(function(){
     // 검색 이벤트 처리
     let searchForm = $(".searchForm");
 
-    $(".searchForm > div > button").on("click",function(e){
+    $(".searchForm > div > #searchBtn").on("click",function(e){
 
         // 검색폼안에서 선택된 option의 value값을 찾습니다.
         if(!searchForm.find("option:selected").val()){
