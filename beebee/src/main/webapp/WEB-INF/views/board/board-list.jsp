@@ -58,6 +58,7 @@
                 <td class="bt-2">
                 	<a class='move' href='<c:out value="${board.bno}"/>'>
                 		<c:out value="${board.title}" />
+                		<span>[ <c:out value="${board.replyCnt}" /> ]</span>
                 	</a>
                 </td>
                 <td class="bt-3"><c:out value="${board.writer}" /></td>
