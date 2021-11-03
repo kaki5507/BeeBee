@@ -74,6 +74,7 @@ $(document).ready(function() {
                   var str = "";
                   // 콜백함수 list가 null이면 아무것도 보여지지 않아야함
                   if(list == null || list.length == 0){
+                	  	replyUL.html("");
                         return; 
                   }
                   // 반복문을 통하여 댓글을 보여주는 곳
