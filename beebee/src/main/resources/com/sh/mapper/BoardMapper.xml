@@ -84,6 +84,10 @@
 	<delete id="delete">
 		delete from tbl_board where bno = #{bno}
 	</delete>
+	
+	<delete id="deleteForeignKey">
+		delete from tbl_reply where bno = #{bno}
+	</delete>
 
 	<update id="update">
 		update tbl_board

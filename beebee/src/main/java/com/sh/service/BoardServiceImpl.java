@@ -50,6 +50,8 @@ public class BoardServiceImpl implements BoardService{
 	public boolean remove(Long bno) {
 		
 		log.info("remove...." + bno);
+		// 댓글 먼저 다 제거 
+		mapper.deleteForeignKey(bno);
 		
 		return mapper.delete(bno) == 1;
 	}
