@@ -1,7 +1,7 @@
 $(document).ready(function(){
     // rttr 값 result로 받음 
     let result = $(".result").val(); 
-    
+    console.log("js bno값 "+result);
     // result 값 체크 모델에 넣어서 있는지 없는지 확인
     checkModal(result);
 
