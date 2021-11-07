@@ -14,6 +14,12 @@
 		<input type='file' name='uploadFile' multiple>
 	</div>
 	
+	<div class='uploadResult'>
+		<ul>
+		
+		</ul>
+	</div>
+	
 	<button id='uploadBtn'>Upload</button>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -35,7 +41,11 @@
 			return true;
 		}
 	
+		
 		$(document).ready(function(){
+			// input 복사
+			var cloneObj = $(".uploadDiv").clone();
+		
 			$("#uploadBtn").on("click",function(e){
 				var formData = new FormData();
 				
@@ -61,12 +71,38 @@
 					contentType: false,
 					data: formData,
 					type: 'POST',
+					dataType: 'json',
 					success: function(result){
-						alert("Uploaded");
+						console.log(result);
+						
+						showUploadedFile(result);
+						
+						$(".uploadDiv").html(cloneObj.html());
 					}
 				});
+			}); // #uploadBtn
+		}); // document
+		
+		var uploadResult = $(".uploadResult ul");
+		
+		function showUploadedFile(uploadResultArr){
+			var str = "";
+			
+			$(uploadResultArr).each(function(i, obj){
+				if(!obj.image){ // 이미지 파일이 아닌 첨부 파일이면 이 그림
+					str += "<li><img src='/resources/attach.png'>"
+						+ obj.fileName + "</li>"; 
+				} else {
+					str += "<li>" + obj.fileName + "</li>";
+					
+					var fileCallPath = encodeURIComponent(obj.uploadPath+"/s_"+obj.uuid+"_"+obj.fileName);
+					str += "<li><img src='/display?fileName="+fileCallPath+"'><li>";
+				}
 			});
-		});
+			
+			uploadResult.append(str);
+		}
+		
 	</script>
 </body>
 </html>
