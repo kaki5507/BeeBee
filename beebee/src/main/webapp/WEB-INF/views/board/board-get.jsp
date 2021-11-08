@@ -158,7 +158,6 @@ $(document).ready(function() {
 
             replyService.add(reply,function(result){
                   alert("result : " + result);
-
                   showList(-1); // 전체 댓글 파악
             });
       });    

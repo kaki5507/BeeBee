@@ -14,7 +14,7 @@
         <img src="../../../resources/register/img/bee-fly1.png" alt="벌 나는모습1">
         <img src="../../../resources/register/img/bee-fly2.png" alt="벌 나는모습2">
         <img src="../../../resources/register/img/bee-fly3.png" alt="벌 들어가는 모습">
-        <a href="<c:url value='/main/index.jsp'/>">메인으로</a>
+        <a href="<c:url value='/home'/>">메인으로</a>
     </div>
 </div>
 <!------ //reg-clear-wrap -------->

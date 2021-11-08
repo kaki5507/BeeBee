@@ -68,7 +68,7 @@
 }
 
 /*-- 검색 폼 수정 --*/
-.type-search{width: 10vw; font-size: 0.8vw; float: left; display: block; margin-right: 10px; border: 2px solid gray; padding: 4px; color: #212529;}
+.type-search{width: 10vw; font-size: 0.8vw; float: left; display: block; margin-right: 10px; border: 2px solid gray; color: #212529;}
 .form-search{width: 40vw; font-size: 0.8vw;}
 
 

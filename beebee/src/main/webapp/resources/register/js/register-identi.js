@@ -34,7 +34,6 @@ function joinClear(){
     }else{
     	document.getElementById('btn-join').onclick = function(){
     		document.getElementById('m-wrap').submit();
-    		return false;
     	};
     }
 
@@ -60,6 +59,7 @@ function checkEmail(){
         type : 'POST',
         data : {"email":email}, // data email이라는 String으로 보냄
         url : '/register/emailCheck',
+        dataType: "json",
         success:function(data){
             if(data != 1){
                 _email_error.style.color = '#08a600';
@@ -97,7 +97,9 @@ function checkNickName(){
         type : 'POST',
         data : {"nickName":nickName}, // data email이라는 String으로 보냄
         url : '/register/nickNameCheck',
+        dataType: "json",
         success:function(data){
+        	console.log("data값입니다." + data);
             if(data != 1){
                 _nickName_error.style.color = '#08a600';
             	_nickName_error.innerHTML = "멋진 닉네임 이에요!!!";
@@ -113,7 +115,7 @@ function checkNickName(){
         }
     });    
 }
-var _authenChlick = false;
+var _authenClick = false;
 // 인증번호 체크
 function checkAuthen(){
     let _authen_error = document.getElementById('authen_error');

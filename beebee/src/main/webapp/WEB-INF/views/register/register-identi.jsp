@@ -85,4 +85,4 @@
     
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script defer src="../../../resources/register/js/register-identi.js"></script>
+<script src="../../../resources/register/js/register-identi.js"></script>
