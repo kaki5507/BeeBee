@@ -16,7 +16,7 @@
             <input type="text" class="form-control info-post" id="writer" name="writer" value='<c:out value="${board.writer}"/>' readonly='readonly'>
       </div>
       <textarea class="form-control" id="content" name="content" cols="30" rows="3">
-            <c:out value="${board.bno}" />
+            <c:out value="${board.content}" />
       </textarea>     
       <div class="get-group-date">
             <label>작성일</label>

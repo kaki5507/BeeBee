@@ -12,9 +12,7 @@
             <input type="text" class="form-control info-post" name="bno" value='<c:out value="${board.bno}"/>' readonly='readonly'>
             <input type="text" class="form-control info-post" id="writer" name="writer" value='<c:out value="${board.writer}"/>' readonly='readonly' />
       </div>
-      <textarea class="form-control" id="content" name="content" cols="30" rows="3" readonly='readonly'>
-            <c:out value="${board.content}" />
-      </textarea>
+      <textarea class="form-control" id="content" name="content" cols="30" rows="3" readonly='readonly'><c:out value="${board.content}" /></textarea>
       <h3>댓글</h3>
       <ul class="reply">
       
@@ -59,6 +57,7 @@ $(document).ready(function() {
       showList(1);
 
       function showList(page){
+            console.log("page " + page);
             replyService.getList({bno:bnoValue, page:page||1},function(replyCnt, list){
 
                   console.log("replyCnt : " + replyCnt);
@@ -94,55 +93,58 @@ $(document).ready(function() {
                   replyUL.html(str);
                   
                   showReplyPage(replyCnt);
-                  /* replyTool위에 마우스 올려졌을 시*/
-                  $(".reply").on("mouseenter",".replyTool",function(e){
-                        e.preventDefault();
+            });// replyService.getList
+      }// showList
 
-                        let replyevent = $(this).siblings(".reply-event");
-                        replyevent.show();
+      /* replyTool위에 마우스 올려졌을 시*/
+      $(".reply").on("mouseenter",".replyTool",function(e){
+      e.preventDefault();
 
-                        $(this).hide();
-                        var rno = $(this).data("rno");
+      let replyevent = $(this).siblings(".reply-event");
+      replyevent.show();
 
-                        // 수정창 나오는 코드
-                        $(replyevent).children(".replyModifyBtn").click(function(e){
-                              // replyevent의 부모의 형제들에 있는 .reply-content의 댓글 내용을 textarea 태그로 바꾼다.
-                              $(replyevent).parent().siblings(".reply-content")
-                                    .html("<textarea class='modreply' name='modreply' cols='5' rows='3'></textarea>")
-                                    .append("<button type='button' class='updateReplyBtn'>수정</button>"); 
-                              // rno값과 function을 실행해주는데 function 안에는 댓글들을 가져와야한다.
-                              // 댓글을 가져와서 수정 창이 열리면 그 밸류를 새로운 textarea class인 modreply에 넣어준다.
-                              replyService.get(rno, function(reply){
-                                    $(".modreply").val(reply.reply);
-                              });
+      $(this).hide();
+      var rno = $(this).data("rno");
 
-                              // 댓글 수정 replyevent가 this로 만들어져있어서 동적 각자의 태그를 분별해줌.
-                              $(".updateReplyBtn").on("click",function(e){
-                                    var modreply = $(".modreply");
-                                    var reply = {rno:rno, reply: modreply.val()};
-                                    replyService.update(reply, function(result){
-                                          alert(result);
-                                          showList(pageNum); // 댓글 업데이트하고 새로운 댓글이 달릴 수 있으므로 showList(1); 로 가져와줌
-                                    });
-                              });
-                        });
-                        // 삭제 클릭
-                        $(replyevent).find(".replyRemoveBtn").click(function(e){
-                              console.log(rno);
-                              replyService.remove(rno, function(result){
-                                    alert("remove" + result);
-                                    showList(pageNum);
-                              });
-                        });
-                  });
-                  /* 마우스가 li 태그를 벗어났을 때*/
-                  $(".reply").on("mouseleave","li",function(e){
-                        e.preventDefault();
-                        $(this).find(".reply-event").hide();
-                        $(this).find(".replyTool").show();
+      // 수정창 나오는 코드
+      $(replyevent).children(".replyModifyBtn").click(function(e){
+            // replyevent의 부모의 형제들에 있는 .reply-content의 댓글 내용을 textarea 태그로 바꾼다.
+            $(replyevent).parent().siblings(".reply-content")
+                  .html("<textarea class='modreply' name='modreply' cols='5' rows='3'></textarea>")
+                  .append("<button type='button' class='updateReplyBtn'>수정</button>"); 
+            // rno값과 function을 실행해주는데 function 안에는 댓글들을 가져와야한다.
+            // 댓글을 가져와서 수정 창이 열리면 그 밸류를 새로운 textarea class인 modreply에 넣어준다.
+            replyService.get(rno, function(reply){
+                  $(".modreply").val(reply.reply);
+            });
+
+            // 댓글 수정 replyevent가 this로 만들어져있어서 동적 각자의 태그를 분별해줌.
+            $(".updateReplyBtn").on("click",function(e){
+                  var modreply = $(".modreply");
+                  var reply = {rno:rno, reply: modreply.val()};
+                  replyService.update(reply, function(result){
+                        alert(result);
+                        showList(pageNum); // 댓글 업데이트하고 새로운 댓글이 달릴 수 있으므로 showList(1); 로 가져와줌
                   });
             });
-      }
+      });
+      // 삭제 클릭
+      $(replyevent).find(".replyRemoveBtn").click(function(e){
+            e.preventDefault();
+            console.log("삭제의 rno " + rno);
+            console.log("삭제의 pageNum" + pageNum);
+            replyService.remove(rno, function(result){
+                  alert("remove" + result);
+                  showList(pageNum);
+            });
+      });
+});
+/* 마우스가 li 태그를 벗어났을 때*/
+$(".reply").on("mouseleave","li",function(e){
+      e.preventDefault();
+      $(this).find(".reply-event").hide();
+      $(this).find(".replyTool").show();
+});
       let newreply = $(".new-reply");
       let newInputReplyer = newreply.find("input[name='replyer']");
       let newInputReply = newreply.find("textarea[name='reply']");
@@ -151,7 +153,7 @@ $(document).ready(function() {
       // 등록 버튼 클릭시 일어나는 이벤트
       $("#addReplyBtn").on("click",function(e){
             let reply = {
-                  reply : newInputReply.val(),
+                  reply : newInputReply.val().replace(/(?:\r\n|\r|\n)/g, '<br/>'),
                   replyer : newInputReplyer.val(),
                   bno : bnoValue
             };
