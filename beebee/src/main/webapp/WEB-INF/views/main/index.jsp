@@ -167,19 +167,19 @@
                     <thead>
                         <tr>
                             <th>제목</th>
-                            <th>내용</th>
                             <th>아이디</th>
-                            <th>1시간 전 이런식으로</th>
+                            <th>작성일</th>
                         </tr>
                     </thead>
+                    <c:forEach items="${list}" var="board">
                     <tbody>
                         <tr>
-                            <td>제목 thy</td>
-                            <td>내용 thy</td>
-                            <td>아이디 thy</td>
-                            <td>시간 thy</td>
+                            <td><c:out value="${board.title}" /></td>
+                            <td><c:out value="${board.writer}" /></td>
+                            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate}" /></td>
                         </tr>
                     </tbody>
+                    </c:forEach>
                 </table>
             </div>
             <!-- // .board_peek_study -->
