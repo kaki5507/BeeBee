@@ -6,6 +6,8 @@
 
 <link rel="stylesheet" href="../../../resources/board/css/board-default.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- 게시판 편집 툴-->    
+<script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
 
 <form class="board-default-wrap" action="/board/board-register" method="post">
       <div class="get-group">
@@ -19,5 +21,17 @@
             <button class="btn">게시판</button>
       </div>
 </form>
+<script>
+      ClassicEditor
+            .create( document.querySelector( '#content' ),{
+                  language:{ ui: 'ko', content: 'ko' }
+            })
+            .then((newEditor) =>{
+                  editor = newEditor;
+            })
+            .catch( error => {
+                  console.error( error );
+            });
+</script>
 
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

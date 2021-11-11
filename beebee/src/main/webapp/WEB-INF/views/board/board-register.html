@@ -11,7 +11,9 @@
          $("#header").load("../common/header.html")
          $("#footer").load("../common/footer.html")
       });
-</script>    
+</script>
+<!-- 게시판 편집 툴-->    
+<script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
 <div id="header"></div>
 
 <div class="board-default-wrap">
@@ -19,13 +21,82 @@
       <div class="get-group">
             <div class="get-group-title">
                   <input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력해주세요">
-                  <input type="text" id="writer" name="writer" class="form-control" placeholder="작성자">
             </div>
-            <textarea class="form-control" id="content" name="content" cols="30" rows="3" placeholder="내용을 입력해주세요"></textarea>         
+            <!---- toolbar-group ---->
+            <div class="toolbar-group">
+                  <!-- toolbar-attach-->
+                  <div class="toolbar-attach bb">
+                        <div class="toolbar-item">
+                              <button type="button">
+                                    <i class="far fa-file-image"></i>
+                                    <span>첨부파일</span>
+                              </button>
+                        </div>
+                  </div>
+                  <!-- //.toolbar-attach -->
+                  <!-- toolbar-text-->
+                  <div class="toolbar-text">
+                        <div class="toolbar-item">
+                        <button type="button" data-tool="bold">
+                              <i class="fas fa-bold"></i>
+                              <span>굵게</span>
+                        </button>
+                                    
+                        </div>
+                        <div class="toolbar-item">
+                              <i class="fas fa-italic"></i>
+                              <span>기울임꼴</span>
+                        </div>
+                        <div class="toolbar-item">
+                              <i class="fas fa-underline"></i>
+                              <span>밑줄</span>
+                        </div>
+                        <div class="toolbar-item">
+                              <i>T</i>
+                              <i class="fas fa-circle"></i>
+                              <span>글자색</span>
+                        </div>
+                        <div class="toolbar-item">
+                              <i>T</i>
+                              <span>글자색</span>
+                        </div>
+                  </div>
+                  <!-- //.toolbar-text-->
+                  <!-- toolbar-align-->
+                  <div class="toolbar-align">
+                        <div class="toolbar-item">
+                              <i class="fas fa-align-left"></i>
+                              <span>왼쪽 정렬</span>
+                        </div>
+                        <div class="toolbar-item">
+                              <i class="fas fa-align-center"></i>
+                              <span>가운데 정렬</span>
+                        </div>
+                        <div class="toolbar-item">
+                              <i class="fas fa-align-right"></i>
+                              <span>오른쪽 정렬</span>
+                        </div>
+                        <div class="toolbar-item">
+                              <i class="fas fa-align-justify"></i>
+                              <span>양쪽 정렬</span>
+                        </div>
+                  </div>
+                  <!-- //.toolbar-align-->
+            </div>
+            <!---- //.toolbar-group ---->
+            <textarea class="form-control" id="content" name="content" cols="30" rows="3" placeholder="내용을 입력해주세요"></textarea>
+            <input type="text" id="writer" name="writer" class="form-control" placeholder="작성자">         
             <button type="submit" class="btn btn-modify">작성완료</button>
             <button type="reset" class="btn btn-remove">리셋</button>
             <button class="btn">게시판</button>
       </div>
 </div>
+<script>
+      ClassicEditor
+            .create( document.querySelector( '#content' ) )
+            .catch( error => {
+                  console.error( error );
+            });
+</script>
 
 <div id="footer"></div>

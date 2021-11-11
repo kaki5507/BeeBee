@@ -3,16 +3,26 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
+<script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
 
 <link rel="stylesheet" href="../../../resources/board/css/board-default.css">
-
+<script language="javascript">
+      var tmpCon = '<c:out value="${board.content}"/>';
+      tmpCon = tmpCon.replaceAll("&lt;", "<");
+      tmpCon = tmpCon.replaceAll("&gt;", ">");
+      tmpCon = tmpCon.replaceAll("&amp;lt;", "<");
+      tmpCon = tmpCon.replaceAll("&amp;gt;", ">");
+      tmpCon = tmpCon.replaceAll("&amp;nbsp;", " ");
+      tmpCon = tmpCon.replaceAll("&amp;amp;", "&");
+      document.getElementById('content').innerHTML=tmpCon;
+</script>
 <div class="board-default-wrap">
       <div class="get-group-title">
             <input type="text" class="form-control" id="title" name="title" value='<c:out value="${board.title}"/>' readonly='readonly'>
             <input type="text" class="form-control info-post" name="bno" value='<c:out value="${board.bno}"/>' readonly='readonly'>
             <input type="text" class="form-control info-post" id="writer" name="writer" value='<c:out value="${board.writer}"/>' readonly='readonly' />
       </div>
-      <textarea class="form-control" id="content" name="content" cols="30" rows="3" readonly='readonly'><c:out value="${board.content}" /></textarea>
+      <textarea class="form-control" id="content" name="content" cols="30" rows="3" readonly='readonly'><c:out value="${board.content}"/></textarea>
       <h3>댓글</h3>
       <ul class="reply">
       
@@ -222,4 +232,7 @@ $(".reply").on("mouseleave","li",function(e){
       });
 });
 
+</script>
+<script>
+      CKEDITOR.replace('content',{})
 </script>

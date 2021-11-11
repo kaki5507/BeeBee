@@ -6,7 +6,8 @@
 
 <link rel="stylesheet" href="../../../resources/board/css/board-default.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
+<!-- 게시판 편집 툴-->    
+<script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
 
 <form role="form" class="board-default-wrap" action="/board/board-modify" method="post">
       <h2>게시글 수정하기</h2>
@@ -15,9 +16,7 @@
             <input type="text" class="form-control info-post" name="bno" value='<c:out value="${board.bno}"/>' readonly='readonly'>
             <input type="text" class="form-control info-post" id="writer" name="writer" value='<c:out value="${board.writer}"/>' readonly='readonly'>
       </div>
-      <textarea class="form-control" id="content" name="content" cols="30" rows="3">
-            <c:out value="${board.content}" />
-      </textarea>     
+      <textarea class="form-control" id="content" name="content" cols="30" rows="3"><c:out value="${board.content}" /></textarea>     
       <div class="get-group-date">
             <label>작성일</label>
             <input type="text" class="form-control" name="regDate" value='<fmt:formatDate pattern = "yyyy/MM/dd" value = "${board.regdate}" />' readonly='readonly'>
@@ -39,3 +38,12 @@
 </form>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 <script src="../../../resources/board/js/board-modify.js" type="text/javascript"></script>
+<script>
+      ClassicEditor
+            .create( document.querySelector( '#content' ),{
+                  language:{ ui: 'ko', content: 'ko' }
+            })
+            .catch( error => {
+                  console.error( error );
+            });
+</script>
