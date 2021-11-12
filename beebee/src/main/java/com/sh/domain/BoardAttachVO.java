@@ -6,10 +6,10 @@ import lombok.Data;
 public class BoardAttachVO {
 	
 	private String uuid;
-	private String fileName;
 	private String uploadPath;
-	private boolean image;
+	private String fileName;
+	private boolean fileType;
 	
-	private long bno;
+	private Long bno;
 	
 }

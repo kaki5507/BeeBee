@@ -6,8 +6,8 @@
 <mapper namespace="com.sh.mapper.BoardAttachMapper">
 
 <insert id="insert">
-	insert into tbl_attach(uuid,fileName,uploadPath,image)
-	values(#{uuid}, #{fileName}, #{uploadPath}, #{image})
+	insert into tbl_attach (uuid, uploadpath, filename , filetype, bno)
+	values (#{uuid}, #{uploadPath}, #{fileName}, #{fileType},#{bno})
 </insert>
 
 <delete id="delete">

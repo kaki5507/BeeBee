@@ -6,8 +6,6 @@
 
 <link rel="stylesheet" href="../../../resources/board/css/board-default.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<!-- 게시판 편집 툴-->    
-<script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
 
 <form role="form" class="board-default-wrap" action="/board/board-modify" method="post">
       <h2>게시글 수정하기</h2>
@@ -38,12 +36,3 @@
 </form>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 <script src="../../../resources/board/js/board-modify.js" type="text/javascript"></script>
-<script>
-      ClassicEditor
-            .create( document.querySelector( '#content' ),{
-                  language:{ ui: 'ko', content: 'ko' }
-            })
-            .catch( error => {
-                  console.error( error );
-            });
-</script>
