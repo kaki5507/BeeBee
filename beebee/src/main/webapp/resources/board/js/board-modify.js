@@ -1,5 +1,8 @@
 $(document).ready(function(){
-	
+	$("#attachFile").on('change',function(){
+		var fileName = $("#attachFile").val();
+		$(".uploadFileName").val(fileName);
+  	});    
     // 폼 객체
 	let formObj = $("form");
 	
@@ -26,6 +29,18 @@ $(document).ready(function(){
 			formObj.append(amountTag);
 			formObj.append(keywordTag);
 			formObj.append(typeTag);
+		}else if(operation == 'modify'){
+			var str = "";
+
+			$(".uploadPreview ul li").each(function(i, obj){
+				var jobj = $(obj);
+
+				str += "<input type='hidden' name='attachList[" + i +"].fileName' value='" + jobj.data("filename")+"'>";
+				str += "<input type='hidden' name='attachList[" + i +"].uuid' value='" + jobj.data("uuid")+"'>";
+				str += "<input type='hidden' name='attachList[" + i +"].uploadPath' value='" + jobj.data("path")+"'>";
+				str += "<input type='hidden' name='attachList[" + i +"].fileType' value='" + jobj.data("type")+"'>";
+			});
+			formObj.append(str).submit();
 		}
 		formObj.submit();
 	});
