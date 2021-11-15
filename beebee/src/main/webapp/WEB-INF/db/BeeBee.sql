@@ -5,7 +5,8 @@ select dbms_xdb.gethttpport() from dual; -- ÇöÀç 8090
 exec dbms_xdb.sethttpport(8080);
 
 select * from tbl_attach;
-select * from tbl_board;
+
+select * from tbl_board order by bno desc;
 
 insert into tbl_attach (uuid, uploadpath, filename , filetype, bno)
 values ('sdsdsd', 'sd', 'zz.png', '0','1');

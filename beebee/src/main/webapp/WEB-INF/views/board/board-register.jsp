@@ -119,7 +119,7 @@ function uploadPreviewResult(uploadPreviewArr){
 				str += "data-uuid='" + obj.uuid + "' data-filename='" + obj.fileName + "'data-type='" + obj.image + "'>";
 				str += "<div>";
 				str += "<span class='attachFileName'>" + obj.fileName + "</span>";
-				str += "<button type='button' data-file=\'" + fileCallPath + "\' data-type='image' class='btn-circle'><i class='fa fa-times'></i></button><br>";
+				str += "<button type='button' data-file=\'" + fileCallPath + "\' data-type='file' class='btn-circle'><i class='fa fa-times'></i></button><br>";
 				str += "<img src='/display?fileName=" + fileCallPath + "'>";
 				str += "</div></li>";                  
             }else{
@@ -128,7 +128,7 @@ function uploadPreviewResult(uploadPreviewArr){
 				str += "data-uuid='" + obj.uuid + "' data-filename='" + obj.fileName + "'data-type='" + obj.image + "'>";
 				str += "<div>";
 				str += "<span class='attachFileName'>" + obj.fileName + "</span>";
-				str += "<button type='button' data-file=\'" + fileCallPath + "\' data-type='image' class='btn-circle'><i class='fa fa-times'></i></button><br>";
+				str += "<button type='button' data-file=\'" + fileCallPath + "\' data-type='file' class='btn-circle'><i class='fa fa-times'></i></button><br>";
 				str += "<img class='attachImg' src='/resources/board/img/attach.png'>";
 				str += "</div></li>";      
             }
