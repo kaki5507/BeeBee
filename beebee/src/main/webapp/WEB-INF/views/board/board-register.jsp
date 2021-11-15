@@ -26,7 +26,7 @@
             </div>
             <button type="submit" class="btn btn-modify">작성완료</button>
             <button type="reset" class="btn btn-remove">리셋</button>
-            <button class="btn">게시판</button>
+            <button type="button" class="btn" onclick="moveList();">게시판</button>
       </div>
 </form>
 <script>
@@ -153,5 +153,9 @@ $(".uploadPreview").on("click","button",function(e){
             }
       });
 });
+// list 페이지로
+function moveList(){
+      location.href = "/board/board-list";
+}
 </script>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
