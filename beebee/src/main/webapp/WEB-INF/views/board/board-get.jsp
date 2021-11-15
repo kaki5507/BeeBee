@@ -65,7 +65,7 @@
 
                         var str = "";
 
-                        if(arr != null){
+                        if(arr != null && arr.length > 0){
                               $(".uploadPreview").html("<h5>첨부파일</h5><ul></ul>");
                         }
                         
@@ -85,7 +85,7 @@
                                     str += "<li data-path='" + attach.uploadPath + "' data-uuid='" + attach.uuid + "' data-filename='"
                                           + attach.fileName + "' data-type='" + attach.fileType + "'><div>";
                                     str += "<span>" + attach.fileName + "</span><br/>";
-                                    str += "<img src='/resources/img/attach.png'>";
+                                    str += "<img class='attachImg' src='/resources/board/img/attach.png'>";
                                     str += "</div></li>"
                               }
                         });
