@@ -1,7 +1,12 @@
 package com.sh.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,10 +14,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.sh.domain.BoardAttachVO;
 import com.sh.domain.BoardVO;
 import com.sh.domain.Criteria;
 import com.sh.domain.PageDTO;
@@ -93,5 +100,12 @@ public class BoardController {
 	@GetMapping("/board-register")
 	public void board_register() {
 		
+	}
+	
+	@GetMapping(value = "/getAttachList", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseEntity<List<BoardAttachVO>> getAttachList(Long bno){
+		log.info("getAttachList " + bno);
+		return new ResponseEntity<>(service.getAttachList(bno), HttpStatus.OK);
 	}
 }

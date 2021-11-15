@@ -6,12 +6,18 @@
 <link rel="stylesheet" href="../../../resources/board/css/board-default.css">
 
 <div class="board-default-wrap">
+      <!-- 게시글 제목,번호,내용 -->
       <div class="get-group-title">
             <input type="text" class="form-control" id="title" name="title" value='<c:out value="${board.title}"/>' readonly='readonly'>
             <input type="text" class="form-control info-post" name="bno" value='<c:out value="${board.bno}"/>' readonly='readonly'>
             <input type="text" class="form-control info-post" id="writer" name="writer" value='<c:out value="${board.writer}"/>' readonly='readonly' />
       </div>
+      <!-- 내용 -->
       <textarea class="form-control" id="content" name="content" cols="30" rows="3" readonly='readonly'><c:out value="${board.content}"/></textarea>
+      <!-- 첨부 파일 리스트 -->
+      <div class="uploadPreview">
+
+      </div>
       <h3>댓글</h3>
       <ul class="reply">
       
@@ -47,6 +53,48 @@
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="../../../resources/board/js/board-get.js" type="text/javascript"></script>
+<script>
+      $(document).ready(function(){
+            (function(){
+
+                  var bno = '<c:out value="${board.bno}"/>';
+
+                  $.getJSON("/board/getAttachList", {bno: bno},function(arr){
+                        
+                        console.log(arr);
+
+                        var str = "";
+
+                        if(arr != null){
+                              $(".uploadPreview").html("<h5>첨부파일</h5><ul></ul>");
+                        }
+                        
+                        // 각각의 첨부 파일들을 처리
+                        $(arr).each(function(i, attach){
+                              
+                              // image type
+                              if(attach.fileType){
+                                    var fileCallPath = encodeURIComponent(attach.uploadPath + "/s_" + attach.uuid + "_" + attach.fileName);
+                                    
+                                    str += "<li data-path='" + attach.uploadPath +"' data-uuid='"
+                                          + attach.uuid + "' data-filename='" + attach.fileName + "' data-type='" + attach.fileType
+                                          + "'><div>";
+                                    str += "<img src='/display?fileName=" + fileCallPath + "'>";
+                                    str += "</div></li>";
+                              }else{
+                                    str += "<li data-path='" + attach.uploadPath + "' data-uuid='" + attach.uuid + "' data-filename='"
+                                          + attach.fileName + "' data-type='" + attach.fileType + "'><div>";
+                                    str += "<span>" + attach.fileName + "</span><br/>";
+                                    str += "<img src='/resources/img/attach.png'>";
+                                    str += "</div></li>"
+                              }
+                        });
+
+                        $(".uploadPreview ul").html(str);
+                  });// end getjson
+            })(); // end function
+      })
+</script>
 <script type="text/javascript">
 $(document).ready(function() {
       // c:out value jsp에서 작동 안그러면 또 hidden해서 값을 가져와야 함
@@ -219,6 +267,26 @@ $(".reply").on("mouseleave","li",function(e){
 
             showList(pageNum);
       });
+
+      $(".uploadPreview").on("click","li",function(e){
+            let liObj = $(this);
+
+            var path = encodeURIComponent(liObj.data("path")+ "/" + liObj.data("uuid") + "_" + liObj.data("filename"));
+
+            if(liObj.data("type")){
+                  showImage(path.replace(new RegExp(/\\/g),"/"));
+            }else{
+                  self.location = "/download?fileName=" + path;
+            }
+      });
+
+      function showImage(fileCallPath){
+            let url = "/display?fileName=" + fileCallPath;
+            let title = "attachPopup";
+            let status = "toolbar=no,scrollbars=no,resizable=yes,status=no,menubar=no";
+            window.resizeTo(800, 800);
+            window.open(url,title,status);
+      }
 });
 
 </script>
