@@ -1,5 +1,8 @@
 package com.sh.controller;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -74,7 +77,7 @@ public class BoardController {
 		model.addAttribute("board",service.get(bno));
 	}
 	
-	@PostMapping
+	@PostMapping("/board-modify")
 	public String modify(BoardVO board, @ModelAttribute("cri") Criteria cri,RedirectAttributes rttr) {
 
 		log.info("modify :" + board);
@@ -86,14 +89,44 @@ public class BoardController {
 		return "redirect:/board/board-list" + cri.getListLink();
 	}
 	
+	// 첨부파일 삭제
+	private void deleteFiles(List<BoardAttachVO> attachList) {
+		if(attachList == null || attachList.size() == 0) { return; }
+		
+		log.info("deleteFiles method : " + attachList);
+		
+		attachList.forEach(attach ->{
+			try {
+				Path file = Paths.get("D:\\upload\\" + attach.getUploadPath() + "\\"
+						+ attach.getUuid() + "_" + attach.getFileName());
+				
+				Files.deleteIfExists(file); // null이여도 예외 X
+				
+				if(Files.probeContentType(file).startsWith("image")) {
+					Path thumbNail = Paths.get("D:\\upload\\" + attach.getUploadPath() + "\\s_"
+							+ attach.getUuid() + "_" + attach.getFileName());
+					
+					Files.delete(thumbNail);
+				}
+			} catch (Exception e) {
+				log.error("delete file error" + e.getMessage());
+			}
+		});// end forEach
+	}
+	
 	@PostMapping("/remove")
 	public String remove(@RequestParam("bno") Long bno,@ModelAttribute("cri") Criteria cri ,RedirectAttributes rttr) {
 		
 		log.info("remove...." + bno);
+		
+		List<BoardAttachVO> attachList = service.getAttachList(bno);
+		
 		if(service.remove(bno)) {
+			
+			deleteFiles(attachList);
+			
 			rttr.addFlashAttribute("result", "success");
 		}
-		
 		return "redirect:/board/board-list" + cri.getListLink();
 	}
 	
@@ -108,4 +141,5 @@ public class BoardController {
 		log.info("getAttachList " + bno);
 		return new ResponseEntity<>(service.getAttachList(bno), HttpStatus.OK);
 	}
+	
 }
