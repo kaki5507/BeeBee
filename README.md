@@ -63,8 +63,9 @@
 https://w-giraffe.tistory.com/ <br>
 
 #### 실행 화면
+
+##### 메인 - 회원가입 - 게시판 - 로그인
 https://user-images.githubusercontent.com/76811291/140773096-2c5072ff-3ecb-4a00-af25-3268c653d6fe.mp4
 
+#### 게시판(첨부파일)
 https://user-images.githubusercontent.com/76811291/141991604-9a5aace7-deed-40ef-bf35-c18b5c80de79.mp4
-
-
