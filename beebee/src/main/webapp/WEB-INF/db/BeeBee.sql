@@ -4,6 +4,11 @@ select dbms_xdb.gethttpport() from dual; -- 현재 8090
 -- 8080으로 출력되는 경우
 exec dbms_xdb.sethttpport(8080);
 
+SELECT TO_CHAR(SYSDATE, 'DDD') --365일 기준 205일
+     , TO_CHAR(SYSDATE, 'WW')  --1년 기준 30주
+     , TO_CHAR(SYSDATE, 'Q')   --3분기
+  FROM dual;
+
 select * from tbl_attach;
 
 select * from tbl_board order by bno desc;
