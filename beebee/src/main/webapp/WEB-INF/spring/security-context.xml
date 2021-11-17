@@ -5,14 +5,52 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<bean id="customAccessDenied" class="com.sh.security.CustomAccessDeniedHandler" />
+	<bean id="customLoginSuccess" class="com.sh.security.CustomLoginSuccessHandler" />
+	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+	
 	<security:http>
+		<security:csrf disabled="true" />
 	
-		<security:form-login/>
+		<security:intercept-url pattern="/sample/all" access="permitAll"/>
 	
+		<security:intercept-url pattern="/sample/member" access="hasRole('ROLE_MEMBER')" />
+	
+		<security:intercept-url pattern="/sample/admin" access="hasRole('ROLE_ADMIN')" />
+		
+		<security:access-denied-handler ref="customAccessDenied"/>
+		
+		<security:form-login 
+			login-page="/login/login-custom"
+			login-processing-url="/login/login-custom"
+			username-parameter="email"
+			password-parameter="pwd"
+			authentication-success-handler-ref="customLoginSuccess"/>
+			
 	</security:http>
-	
-	<security:authentication-manager>
-	
-	</security:authentication-manager>
+	<security:authentication-manager> 
+		<security:authentication-provider> 
+			
+			<security:jdbc-user-service data-source-ref="dataSource" 
+				users-by-username-query="select userid, userpw, enabled from tbl_member where userid = ? "
+				authorities-by-username-query="select userid, auth from tbl_member_auth where userid = ? " /> 
 
+			<security:password-encoder ref="bcryptPasswordEncoder"/>
+			
+		 </security:authentication-provider> 
+	</security:authentication-manager>
+	
+	<!-- 
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:user-service>
+			
+				<security:user name="member" password="{noop}member" authorities="ROLE_MEMBER"/>
+				
+				<security:user name="admin" password="{noop}admin" authorities="ROLE_MEMBER, ROLE_ADMIN "/>
+						
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager>
+	 -->
 </beans>

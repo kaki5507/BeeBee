@@ -30,9 +30,18 @@ public class LoginController {
 	
 	private MemberService service;
 	
-	@GetMapping("")
-	public void loginTest() {
-		log.info("로그인 첫 페이지");
+	@GetMapping("/login-custom")
+	public void loginInput(String error, String logout, Model model) {
+		log.info("error : " + error);
+		log.info("logout : " + logout);
+		
+		if(error != null) {
+			model.addAttribute("error", "Login Error Check Your Account");
+		}
+		
+		if(logout != null) {
+			model.addAttribute("logout","Logout!!");
+		}
 	}
 	
 	// 로그인 요청
@@ -58,14 +67,5 @@ public class LoginController {
 		}
 		
 		return path;
-	}
-	
-	@PostMapping("/logout")
-	public String logout(HttpSession session) {
-		
-		//session.removeAttribute("login_info");
-		session.invalidate(); // 세션 전체 날리기
-		
-		return "/home";
 	}
 }
