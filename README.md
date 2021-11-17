@@ -42,14 +42,17 @@
 <br>
 
 # GIT COMMIT MESSAGE
-+ feat: 새로운 기능을 추가할 경우 <br>
-+ fix: 버그를 고친 경우 <br>
-+ docs: 문서 수정한 경우 <br>
-+ style: 코드 포맷 변경, 세미 콜론 누락, 코드 수정이 없는 경우 <br>
-+ refactor: 프로덕션 코드 리팩터링 <br>
-+ test: 테스트 추가, 테스트 리팩터링 (프로덕션 코드 변경 없음) <br>
-+ chore: 빌드 테스크 업데이트, 패키지 매니저 설정할 경우 (프로덕션 코드 변경 없음) <br>
-+ modify : 코드 수정(기능 수정 안함)
++ Feat: 새로운 기능을 추가할 경우 <br>
++ Fixed: 버그를 고친 경우 <br>
++ Docs: 문서 수정한 경우 <br>
++ Style: 코드 포맷 변경, 세미 콜론 누락, 코드 수정이 없는 경우 <br>
++ Refactor: 프로덕션 코드 리팩터링 <br>
++ Test: 테스트 추가, 테스트 리팩터링 (프로덕션 코드 변경 없음) <br>
++ Chore: 빌드 테스크 업데이트, 패키지 매니저 설정할 경우 (프로덕션 코드 변경 없음) <br>
++ Modify : 코드 수정(기능 수정 안함) <br>
++ Add : 기능을 추가한 경우 <br>
++ Config : 설정을 수정한 경우 <br>
+
 
 #### 참고
 
@@ -59,5 +62,10 @@
 
 https://w-giraffe.tistory.com/ <br>
 
-#### 현재 진행 중
+#### 실행 화면
+
+##### 메인 - 회원가입 - 게시판 - 로그인
 https://user-images.githubusercontent.com/76811291/140773096-2c5072ff-3ecb-4a00-af25-3268c653d6fe.mp4
+
+#### 게시판(첨부파일, 댓글 버그 )
+https://user-images.githubusercontent.com/76811291/141991604-9a5aace7-deed-40ef-bf35-c18b5c80de79.mp4
