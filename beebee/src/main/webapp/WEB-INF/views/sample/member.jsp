@@ -3,13 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-
-<h2>SAMPLEDTO ${sampleDTO}</h2>
-<h2>PAGE ${page}</h2>
-
+	<h1>여기 회원만</h1>
 </body>
 </html>
