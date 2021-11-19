@@ -66,6 +66,10 @@ public class RegisterController {
 		
 	}
 	
+	
+	
+	
+	/*
 	// 회원 정보 입력 
 	@PostMapping("/register-identi")
 	public String register_identi(MemberVO member) {
@@ -127,6 +131,7 @@ public class RegisterController {
 		
 		return mailservice.send(subject, sb.toString(), "ckdbioksh@gmail.com", email);
 	}
+	*/
     
 
 	// 회원 가입 완료

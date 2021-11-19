@@ -44,6 +44,7 @@ public class LoginController {
 		}
 	}
 	
+	/*
 	// 로그인 요청
 	@PostMapping("/loginCheck")
 	public String login(HttpSession session,RedirectAttributes rttr,@Param("email") String email,@Param("pwd") String pwd) {
@@ -68,4 +69,5 @@ public class LoginController {
 		
 		return path;
 	}
+	*/
 }

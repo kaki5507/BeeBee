@@ -20,6 +20,8 @@ public class MemberServiceImpl implements MemberService{
 	@Setter(onMethod_ = @Autowired)
 	private MemberMapper mapper;
 	
+	
+	/*
 	// 회원 가입
 	@Override
 	public void register(MemberVO member) {
@@ -72,7 +74,7 @@ public class MemberServiceImpl implements MemberService{
 		
 		return mapper.getByEmail(email);
 	}
-
+	*/
 	
 	
 }
