@@ -6,7 +6,10 @@ import java.util.List;
 import com.sh.domain.MemberVO;
 
 public interface MemberMapper {
-
+	
+	public MemberVO read(String userid);
+	
+	/*
 	public void insert(MemberVO member);
 	
 	public List<MemberVO> selectList();
@@ -19,5 +22,6 @@ public interface MemberMapper {
 	
 	public int login(MemberVO member);
 	
-	public MemberVO getByEmail(String email);
+	public MemberVO getByEmail(String email);]
+	*/
 }
