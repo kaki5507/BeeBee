@@ -28,6 +28,10 @@
 			password-parameter="pwd"
 			authentication-success-handler-ref="customLoginSuccess"/>
 			
+		<security:logout logout-url="/logout" invalidate-session="true" delete-cookies="rember-me,JSESSION_ID" />
+		
+		<security:remember-me data-source-ref="dataSource" token-validity-seconds="604800"/>
+			
 	</security:http>
 	<security:authentication-manager> 
 		<security:authentication-provider user-service-ref="customUserDetailsService"> 

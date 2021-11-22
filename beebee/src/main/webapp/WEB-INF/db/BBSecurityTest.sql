@@ -35,3 +35,20 @@ select * from tbl_member;
 select * from tbl_member_auth;
 drop table tbl_member;
 drop table tbl_member_auth;
+
+		SELECT
+			mem.userid, userpw, username, enabled, regdate, updatedate, auth
+		FROM
+			tbl_member mem LEFT OUTER JOIN tbl_member_auth on mem.userid = auth.userid
+		WHERE
+			mem.userid = 'admin90';
+
+-- 자동 로그인 테이블
+create table persistent_logins(
+    username varchar2(64) not null,
+    series varchar2(64) primary key,
+    token varchar2(64) not null,
+    last_used timestamp not null
+);
+
+select * from persistent_logins;
