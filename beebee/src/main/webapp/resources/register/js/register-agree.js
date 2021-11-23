@@ -17,3 +17,14 @@ function allCheck(){ //onclick 이벤트 발생
         allchk = false;
     }
 } 
+function nextClick(){
+    if(frm.elements['agree-list'][0].checked == false){
+        alert("서비스 이용약관 동의 해야됩니다.");
+        return false;
+    }
+    if(frm.elements['agree-list'][1].checked == false){
+        alert("개인정보 수집 및 이용 동의 해야됩니다.");
+        return false;
+    }
+    self.location="/register/register-identi";
+}

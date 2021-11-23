@@ -69,7 +69,7 @@
 
     <!---- reg-btn ---->
     <div class="reg-btn">
-        <a href="<c:url value='/register/register-identi'/>">NEXT</a>
+        <button type="button" onclick="nextClick();">NEXT</button>
     </div>
     <!---- //reg-btn ---->
 </form>
