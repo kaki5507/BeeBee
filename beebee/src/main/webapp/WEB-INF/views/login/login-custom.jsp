@@ -17,7 +17,7 @@
     <div class="idpass">
         <!-- saveid -->
         <div class="saveid">
-            <input type="checkbox" id="chkSaveId" name="chkSaveId">
+            <input type="checkbox" id="chkSaveId" name="remember-me">
             <label for="chkSaveId">비비ID 저장</label>
         </div>
         <!-- //saveid -->
