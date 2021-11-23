@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
-<link rel="stylesheet" href="../../../../resources/register/stipulation/css/stipulation.css">
-
-
+<div class="stipulation">
 [개인정보 수집 및 이용 동의]
 ShCompanry는 다음과 같이 개인정보를 수집 및 이용하고 있습니다.
 
@@ -19,4 +14,4 @@ ShCompanry는 다음과 같이 개인정보를 수집 및 이용하고 있습니
 이벤트 등 프로모션 알림 전송을 위해 선택적으로 개인정보를 이용할 수 있습니다.
 
 ※ 그 외의 사항 및 자동 수집 정보와 관련된 사항은 개인정보처리방침을 따릅니다.
-
+</div>

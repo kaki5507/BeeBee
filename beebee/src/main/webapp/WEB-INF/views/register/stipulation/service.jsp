@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
-<link rel="stylesheet" href="../../../../resources/register/stipulation/css/stipulation.css">
-
+<div class="stipulation">
         <h4>       제1조</h4>(목적) 이 약관은 ShCompany 회사(전자상거래 사업자)가 운영하는 ShCompany 사이버 몰(이하 "beebee"이라 한다)에서 제공하는 인터넷 관련 서비스(이하 “서비스”라 한다)를 이용함에 있어 사이버 몰과 이용자의 권리․의무 및 책임사항을 규정함을 목적으로 합니다.
         
 
@@ -491,3 +487,4 @@
 
 
         ② "beebee"과 이용자 간에 제기된 전자상거래 소송에는 한국법을 적용합니다.
+</div>

@@ -34,7 +34,9 @@
         <div class="serv-chk-wrap">
             <input type="checkbox" id="serv-chk" value="비비 서비스 이용약관 동의" name="agree-list">
             <label for="serv-chk">비비 서비스 이용약관 동의</label>
-            <iframe src="stipulation/service"  title="비비 서비스 이용약관" frameborder="0"></iframe>
+            <div class="serv-agree-info">
+                <%@ include file="/WEB-INF/views/register/stipulation/service.jsp" %>
+            </div>
         </div>
         <!-- //serv-chk -->
 
@@ -42,7 +44,9 @@
         <div class="priv-chk-wrap">
             <input type="checkbox" id="priv-chk" value="개인정보 수집 및 이용 동의" name="agree-list">
             <label for="priv-chk">개인정보 수집 및 이용 동의</label>
-            <iframe src="stipulation/privacy" frameborder="0"></iframe>
+            <div class="serv-agree-info">
+                <%@ include file="/WEB-INF/views/register/stipulation/privacy.jsp" %>
+            </div>
         </div>
         <!-- //priv-chk-wrap -->
 
@@ -72,4 +76,3 @@
 <!------ //ag-wrap -------->
 
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
- 
