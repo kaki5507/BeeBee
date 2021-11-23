@@ -71,3 +71,8 @@ https://user-images.githubusercontent.com/76811291/140773096-2c5072ff-3ecb-4a00-
 
 #### 게시판(첨부파일, 댓글 버그 )
 https://user-images.githubusercontent.com/76811291/141991604-9a5aace7-deed-40ef-bf35-c18b5c80de79.mp4
+
+#### 로그인 시큐리티 적용
+https://user-images.githubusercontent.com/76811291/143020878-f9616b95-d479-4157-9ef7-47a2983c7c1c.mp4
+
+
