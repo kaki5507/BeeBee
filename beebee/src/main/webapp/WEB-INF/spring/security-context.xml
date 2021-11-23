@@ -11,7 +11,6 @@
 	<bean id="customUserDetailsService" class="com.sh.security.CustomUserDetailsService" />
 	
 	<security:http>
-		<security:csrf disabled="true" />
 	
 		<security:intercept-url pattern="/sample/all" access="permitAll"/>
 	
@@ -19,14 +18,15 @@
 	
 		<security:intercept-url pattern="/sample/admin" access="hasRole('ROLE_ADMIN')" />
 		
-		<security:access-denied-handler ref="customAccessDenied"/>
+		<security:access-denied-handler ref="customAccessDenied"/> 
 		
 		<security:form-login 
 			login-page="/login/login-custom"
 			login-processing-url="/login/login-custom"
 			username-parameter="email"
 			password-parameter="pwd"
-			authentication-success-handler-ref="customLoginSuccess"/>
+			authentication-success-handler-ref="customLoginSuccess"
+			/>
 			
 		<security:logout logout-url="/logout" invalidate-session="true" delete-cookies="rember-me,JSESSION_ID" />
 		
@@ -40,18 +40,4 @@
 			
 		 </security:authentication-provider> 
 	</security:authentication-manager>
-	
-	<!-- 
-	<security:authentication-manager>
-		<security:authentication-provider>
-			<security:user-service>
-			
-				<security:user name="member" password="{noop}member" authorities="ROLE_MEMBER"/>
-				
-				<security:user name="admin" password="{noop}admin" authorities="ROLE_MEMBER, ROLE_ADMIN "/>
-						
-			</security:user-service>
-		</security:authentication-provider>
-	</security:authentication-manager>
-	 -->
 </beans>

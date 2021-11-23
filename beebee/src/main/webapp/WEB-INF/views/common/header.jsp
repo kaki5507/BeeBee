@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>    
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -49,7 +50,7 @@
                 <li><a href="<c:url value='/register/register-welcome'/>">회원가입</a></li>
                 	
                 <li>
-                    <a href="<c:url value='/login/login'/>">로그인</a>
+                    <a href="<c:url value='/login/login-custom'/>">로그인</a>
                 </li>
                 </c:if>
                 
@@ -86,3 +87,4 @@
     </div>
 </div>
 <!---- //gnb ---->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 
 <link rel="stylesheet" href="../../../resources/board/css/board-default.css">
@@ -28,18 +29,22 @@
             <label>최근수정일</label>
             <input type="text" class="form-control" name="updateDate" value='<fmt:formatDate pattern = "yyyy/MM/dd" value = "${board.updateDate}" />' readonly='readonly'>
       </div>
-
-      <div class="get-btn">
-            <button type="submit" data-oper='modify' class="btn btn-modify">수정하기</button>
-            <button type="submit" data-oper='remove' class="btn btn-remove">삭제</button>
-            <button type="submit" data-oper='list' class="btn">게시판</button>
-      </div>
-      
+      <sec:authentication property="principal" var="pinfo" />
+      <sec:authorize access="isAuthenticated()">
+            <div class="get-btn">
+                  <c:if test="${pinfo.username eq board.writer}">
+                  <button type="submit" data-oper='modify' class="btn btn-modify">수정하기</button>
+                  <button type="submit" data-oper='remove' class="btn btn-remove">삭제</button>
+                  </c:if>
+                  <button type="submit" data-oper='list' class="btn">게시판</button>
+            </div>
+      </sec:authorize>
       <!-- 페이지 값과 페이지 양 이동용 input -->
       <input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
       <input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
       <input type='hidden' name='type' value='<c:out value="${cri.type}"/>'>
       <input type='hidden' name='keyword' value='<c:out value="${cri.keyword}"/>'>
+      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 </form>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -107,6 +112,8 @@
                   return true;
             }
 
+            var csrfHeaderName = "${_csrf.headerName}";
+            var csrfTokenValue = "${_csrf.token}";
             $("input[type='file']").change(function(e){
                   // 폼 객체를 만들어줌
                   var formData = new FormData();
@@ -127,6 +134,9 @@
                         processData: false,
                         contentType: false,
                         data:formData,type : 'POST',
+                        beforeSend: function(xhr){
+                              xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+                        },
                         dataType:'json',
                         success: function(result){
                               uploadPreviewResult(result);

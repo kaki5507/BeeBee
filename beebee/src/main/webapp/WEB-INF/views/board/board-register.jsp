@@ -2,18 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 
-<link rel="stylesheet" href="../../../resources/board/css/board-default.css">
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
+<link rel="stylesheet" href="../../../resources/board/css/board-default.css">
 <form role="form" class="board-default-wrap" action="/board/board-register" method="post">
       <div class="get-group">
             <div class="get-group-title">
                   <input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력해주세요">
             </div>
             <textarea class="form-control" id="content" name="content" cols="30" rows="3" placeholder="내용을 입력해주세요"></textarea>         
-            <input type="text" id="writer" name="writer" class="form-control" placeholder="작성자">
+            <input type="text" id="writer" name="writer" class="form-control" value='<sec:authentication property="principal.username"/>' readonly="readonly">
             <div class="file-control">
                   <input class="uploadFileName" value="첨부파일" placeholder="첨부파일">
                   <label for="attachFile">파일찾기</label>
@@ -28,6 +28,7 @@
             <button type="reset" class="btn btn-remove">리셋</button>
             <button type="button" class="btn" onclick="moveList();">게시판</button>
       </div>
+      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 </form>
 <script>
 $(document).ready(function(){
@@ -72,6 +73,10 @@ function checkExtension(fileName, fileSize){
       }
       return true;
 }
+var csrfHeaderName ="${_csrf.headerName}"; 
+var csrfTokenValue="${_csrf.token}";
+console.log("csrfHeaderName : " + csrfHeaderName);
+console.log("csrfToken : " + csrfTokenValue);
 
 $("input[type='file']").change(function(e){
       // 폼 객체를 만들어줌
@@ -92,6 +97,9 @@ $("input[type='file']").change(function(e){
             url: '/uploadAjaxAction',
             processData: false,
             contentType: false,
+            beforeSend: function(xhr) {
+                  xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+            },
             data:formData,type : 'POST',
             dataType:'json',
             success: function(result){
@@ -146,6 +154,9 @@ $(".uploadPreview").on("click","button",function(e){
       $.ajax({
             url: '/deleteFile',
             data: {fileName:targetFile, image:imageType},
+            beforeSend: function(xhr) {
+                  xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+            },
             dataType : 'text',
             type:'POST',
             success: function(result){

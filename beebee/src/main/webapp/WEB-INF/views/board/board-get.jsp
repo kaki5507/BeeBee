@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <link rel="stylesheet" href="../../../resources/board/css/board-default.css">
 
@@ -26,19 +27,24 @@
       <div class="replyPage">
 
       </div>
-
+      <sec:authorize access="isAuthenticated()">
       <div class="new-reply">
-            <input type="text" name="replyer" placeholder="작성자">
+            <input type="text" name="replyer" readonly="readonly" value='<sec:authentication property="principal.username"/>'>
             <textarea name="reply" cols="5" rows="3"></textarea>
             <input type="button" id="addReplyBtn" value="등록">
             <input type="hidden" name="replyDate">
       </div>
+      </sec:authorize>
 
+      <sec:authentication property="principal" var="pinfo"/>
+      <sec:authorize access="isAuthenticated()">
       <div class="get-btn">
+            <c:if test="${pinfo.username eq board.writer}">
             <button data-oper="modify" class="btn btn-modify">수정하기</button>
+            </c:if>
             <button data-oper="list" class="btn">게시판</button>
       </div>
-
+      </sec:authorize>
       <!---- 데이터 전송 operForm ---->
 	<form role="operForm" id='operForm' action="/board/board-modify" method='get'>
             <input type='hidden' id="bno" name='bno' value='<c:out value="${board.bno}"/>'>
@@ -48,6 +54,7 @@
             <input type='hidden' name='type' value='<c:out value="${cri.type}"/>'>
 	</form>
 	<!---- //#operForm ---->
+      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 </div>
 
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
@@ -97,6 +104,11 @@
 </script>
 <script type="text/javascript">
 $(document).ready(function() {
+      // 시큐리티 작성자
+      var secreplyer = null;
+      <sec:authorize access="isAuthenticated()">
+            secreplyer = '<sec:authentication property="principal.username"/>';
+      </sec:authorize>
       // c:out value jsp에서 작동 안그러면 또 hidden해서 값을 가져와야 함
       var bnoValue = '<c:out value="${board.bno}"/>';
       var replyUL = $(".reply");
@@ -127,7 +139,7 @@ $(document).ready(function() {
                   // str을 이용해서 li 태그를 만들어 준다.
                   for(var i = 0, len = list.length || 0; i < len; i++){
                         str +="<li class = 'reply-args' data-rno='"+ list[i].rno+"'>";
-                        str +="<div class='reply-top'><strong>"+list[i].replyer+"</strong>";
+                        str +="<div class='reply-top'><strong class='reply-strong'>"+list[i].replyer+"</strong>";
                         str +="<span>"+replyService.displayTime(list[i].replyDate)+"</span>";
                         str +="<button type='button' class='replyTool' data-rno='"+ list[i].rno+"'><i class='fas fa-ellipsis-v'></i></button>";
                         str +="<div class='reply-event' data-rno='"+ list[i].rno+"'><button type='button' class='replyBtnForm replyModifyBtn'>수정</button>"
@@ -148,6 +160,7 @@ $(document).ready(function() {
       e.preventDefault();
 
       let replyevent = $(this).siblings(".reply-event");
+      let replyStrong = $(this).siblings(".reply-strong");
       replyevent.show();
 
       $(this).hide();
@@ -169,6 +182,15 @@ $(document).ready(function() {
             $(".updateReplyBtn").on("click",function(e){
                   var modreply = $(".modreply");
                   var reply = {rno:rno, reply: modreply.val()};
+
+                  if(!secreplyer){
+                        alert("로그인 후 이용하세요.")
+                        return;
+                  }
+                  if(secreplyer != replyStrong.text()){
+                        alert("본인만 수정 가능합니다.");
+                        return;
+                  }
                   replyService.update(reply, function(result){
                         alert(result);
                         showList(pageNum); // 댓글 업데이트하고 새로운 댓글이 달릴 수 있으므로 showList(1); 로 가져와줌
@@ -178,8 +200,14 @@ $(document).ready(function() {
       // 삭제 클릭
       $(replyevent).find(".replyRemoveBtn").click(function(e){
             e.preventDefault();
-            console.log("삭제의 rno " + rno);
-            console.log("삭제의 pageNum" + pageNum);
+            if(!secreplyer){
+                  alert("로그인 후 이용하세요.");
+                  return false;
+            }
+            if(secreplyer != replyStrong.text()){
+                  alert("본인만 수정 가능합니다.");
+                  return;
+            }
             replyService.remove(rno, function(result){
                   alert("remove" + result);
                   showList(pageNum);
@@ -196,7 +224,12 @@ $(".reply").on("mouseleave","li",function(e){
       let newInputReplyer = newreply.find("input[name='replyer']");
       let newInputReply = newreply.find("textarea[name='reply']");
       let newInputReplyDate = newreply.find("input[name='replyDate']");
-    
+      
+      var csrfHeaderName = "${_csrf.headerName}";
+      var csrfTokenValue = "${_csrf.token}";
+      $(document).ajaxSend(function(e, xhr, options){
+            xhr.setRequestHeader(csrfHeaderName,csrfTokenValue);
+      });
       // 등록 버튼 클릭시 일어나는 이벤트
       $("#addReplyBtn").on("click",function(e){
             let reply = {
@@ -204,7 +237,7 @@ $(".reply").on("mouseleave","li",function(e){
                   replyer : newInputReplyer.val(),
                   bno : bnoValue
             };
-
+            console.log("replyer " + reply);
             replyService.add(reply,function(result){
                   alert("result : " + result);
                   showList(-1); // 전체 댓글 파악
