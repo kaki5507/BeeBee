@@ -11,13 +11,11 @@
 	<bean id="customUserDetailsService" class="com.sh.security.CustomUserDetailsService" />
 	
 	<security:http>
-	
+		<!-- 
 		<security:intercept-url pattern="/sample/all" access="permitAll"/>
-	
 		<security:intercept-url pattern="/sample/member" access="hasRole('ROLE_MEMBER')" />
-	
 		<security:intercept-url pattern="/sample/admin" access="hasRole('ROLE_ADMIN')" />
-		
+		-->
 		<security:access-denied-handler ref="customAccessDenied"/> 
 		
 		<security:form-login 
@@ -28,9 +26,9 @@
 			authentication-success-handler-ref="customLoginSuccess"
 			/>
 			
-		<security:logout logout-url="/logout" invalidate-session="true" delete-cookies="rember-me,JSESSION_ID" />
+		<security:logout logout-url="/logout" invalidate-session="true" delete-cookies="remember-me,JSESSION_ID" />
 		
-		<security:remember-me data-source-ref="dataSource" token-validity-seconds="604800"/>
+		<security:remember-me  data-source-ref="dataSource" token-validity-seconds="604800"/>
 		
 	</security:http>
 	
