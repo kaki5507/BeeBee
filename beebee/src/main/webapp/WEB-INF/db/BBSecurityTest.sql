@@ -12,8 +12,18 @@ create table tbl_member_auth(
     auth varchar2(50) not null,
     constraint fk_member_auth foreign key (userid) references tbl_member(userid)
 );
+create table users(
+      username varchar2(50) not null primary key,
+      password varchar2(50) not null,
+      enabled char(1) default '1');
 
+      
+ create table authorities (
+      username varchar2(50) not null,
+      authority varchar2(50) not null,
+      constraint fk_authorities_users foreign key(username) references users(username));
 
+commit;
 -- users 테이블에 데이터 추가
 insert into users (username, password) values ('user00', 'pw00');
 insert into users (username, password) values ('member00', 'pw00');

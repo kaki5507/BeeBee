@@ -8,9 +8,9 @@ import lombok.Data;
 @Data
 public class MemberVO {
 	
-	private String userid;
-	private String userpw;
-	private String userName;
+	private String userEmail;
+	private String userPwd;
+	private String userNickName;
 	private boolean enabled;
 	
 	private Date regDate;

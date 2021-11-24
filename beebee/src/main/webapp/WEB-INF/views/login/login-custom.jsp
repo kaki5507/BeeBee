@@ -5,9 +5,6 @@
 <link rel="stylesheet" href="../../../resources/login/css/login.css">
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 
-<h1><c:out value="${error}"/></h1>
-<h1><c:out value="${logout}"/></h1>
-
 <!------ login-wrap -------->
 <form id="login-wrap" name="loginForm" action="/login/login-custom" method="post">
     <img class="checkpoint" src="../../../resources/login/img/checkpoint.png" alt="로그인 검문소">

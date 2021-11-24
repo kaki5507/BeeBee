@@ -18,15 +18,14 @@ public class CustomUser extends User{
 	
 	private MemberVO member;
 	
-	public CustomUser(String username, String password, Collection<? extends GrantedAuthority> authorities) {
-		super(username, password, authorities);	
+	public CustomUser(String userEmail, String userPwd,Collection<? extends GrantedAuthority> authorities) {
+		super(userEmail, userPwd ,authorities);
 	}
 	
 	public CustomUser(MemberVO vo) {
-		super(vo.getUserid(), vo.getUserpw(), vo.getAuthList().stream()
+		super(vo.getUserEmail(), vo.getUserPwd(), vo.getAuthList().stream()
 				.map(auth -> new SimpleGrantedAuthority(auth.getAuth()))
 				.collect(Collectors.toList()));
-		
 		this.member = vo;
 	}
 	

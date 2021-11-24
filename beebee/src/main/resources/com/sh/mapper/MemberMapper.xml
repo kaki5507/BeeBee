@@ -6,27 +6,27 @@
 <mapper namespace="com.sh.mapper.MemberMapper">
 	
 	<resultMap type="com.sh.domain.MemberVO" id="memberMap">
-		<id property="userid" column="userid" />
-		<result property="userid" column="userid" />
-		<result property="userpw" column="userpw" />
-		<result property="userName" column="username" />
+		<id property="userEmail" column="userEmail" />
+		<result property="userEmail" column="userEmail" />
+		<result property="userPwd" column="userPwd" />
+		<result property="userNickName" column="userNickName" />
 		<result property="regDate" column="regdate" />
 		<result property="updateDate" column="updatedate" />
 		<collection property="authList" resultMap="authMap"></collection>
 	</resultMap>
 	
 	<resultMap type="com.sh.domain.AuthVO" id="authMap">
-		<result property="userid" column="userid" />
+		<result property="userEmail" column="userEmail" />
 		<result property="auth" column="auth" />
 	</resultMap>
 	
 	<select id="read" resultMap="memberMap">
 		SELECT
-			mem.userid, userpw, username, enabled, regdate, updatedate, auth
+			mem.userEmail, userPwd, userNickName, enabled, regdate, updatedate, auth
 		FROM
-			tbl_member mem LEFT OUTER JOIN tbl_member_auth auth on mem.userid = auth.userid
+			tbl_member mem LEFT OUTER JOIN tbl_member_auth auth on mem.userEmail = auth.userEmail
 		WHERE
-			mem.userid = #{userid}
+			mem.userEmail = #{userEmail}
 	</select>
 	
 	<!-- 세션을 이용해서 만들려고 했던 회원 정보 -> 시큐리티로 변경

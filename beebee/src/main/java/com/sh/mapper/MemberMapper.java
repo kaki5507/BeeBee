@@ -7,7 +7,7 @@ import com.sh.domain.MemberVO;
 
 public interface MemberMapper {
 	
-	public MemberVO read(String userid);
+	public MemberVO read(String userEmail);
 	
 	/*
 	public void insert(MemberVO member);

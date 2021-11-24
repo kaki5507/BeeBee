@@ -72,7 +72,7 @@ public class ReplyController {
 		return new ResponseEntity<>(service.get(rno), HttpStatus.OK);
 	}
 	
-	@PreAuthorize("principal.username == #reply.replyer")
+	@PreAuthorize("principal.userNickName == #reply.replyer")
 	@RequestMapping(method = {RequestMethod.PUT, RequestMethod.PATCH},
 			value = "/{rno}",
 			consumes = "application/json",
