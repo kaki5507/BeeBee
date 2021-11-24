@@ -31,7 +31,7 @@ public class MemberTests {
 	@Test
 	public void testInsertMember() {
 		
-		String sql = "insert into tbl_member(userid, userpw, username) values (?,?,?)";
+		String sql = "insert into tbl_member(userEmail, userPwd, userNickName) values (?,?,?)";
 		
 		for(int i=0; i < 100; i++) {
 			
@@ -80,7 +80,7 @@ public class MemberTests {
 	@Test
 	public void testInsertAuth() {
 
-		String sql = "insert into tbl_member_auth (userid, auth) values (?,?)";
+		String sql = "insert into tbl_member_auth (userEmail, auth) values (?,?)";
 
 		for (int i = 0; i < 100; i++) {
 
