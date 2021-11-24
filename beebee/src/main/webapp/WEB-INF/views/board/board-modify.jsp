@@ -32,7 +32,7 @@
       <sec:authentication property="principal" var="pinfo" />
       <sec:authorize access="isAuthenticated()">
             <div class="get-btn">
-                  <c:if test="${pinfo.username eq board.writer}">
+                  <c:if test="${pinfo.member.userNickName eq board.writer}">
                   <button type="submit" data-oper='modify' class="btn btn-modify">수정하기</button>
                   <button type="submit" data-oper='remove' class="btn btn-remove">삭제</button>
                   </c:if>

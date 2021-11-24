@@ -46,23 +46,23 @@
                         <li><a href="#">자격증</a></li>
                     </ul>
                 </li>
-                <c:if test="${sessionScope.login_info eq null}"><!-- eq 같으면 참 -->
+                <sec:authorize access="isAnonymous()">
                 <li><a href="<c:url value='/register/register-welcome'/>">회원가입</a></li>
                 	
                 <li>
                     <a href="<c:url value='/login/login-custom'/>">로그인</a>
                 </li>
-                </c:if>
+                </sec:authorize>
                 
-                <c:if test="${sessionScope.login_info ne null}"><!-- ne는 반대이면 참 -->
+                <sec:authorize access="isAuthenticated()">
                 <li>
-                    <a href="#">${member.nickName }님</a>
+                    <a href="#"><sec:authentication property="principal.member.userNickName"/>님</a>
                     <ul class="d-menu">
                         <li><a href="#">알림</a></li>
                         <li><a href="<c:url value='/login/logout'/>">로그아웃</a></li>
                     </ul>
                 </li>
-                </c:if>
+                </sec:authorize>
             </ul>
             
         </nav>

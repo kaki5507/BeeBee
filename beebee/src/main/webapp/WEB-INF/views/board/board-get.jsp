@@ -29,7 +29,7 @@
       </div>
       <sec:authorize access="isAuthenticated()">
       <div class="new-reply">
-            <input type="text" name="replyer" readonly="readonly" value='<sec:authentication property="principal.username"/>'>
+            <input type="text" name="replyer" readonly="readonly" value='<sec:authentication property="principal.member.userNickName"/>'>
             <textarea name="reply" cols="5" rows="3"></textarea>
             <input type="button" id="addReplyBtn" value="등록">
             <input type="hidden" name="replyDate">
@@ -39,7 +39,7 @@
       <sec:authentication property="principal" var="pinfo"/>
       <sec:authorize access="isAuthenticated()">
       <div class="get-btn">
-            <c:if test="${pinfo.username eq board.writer}">
+            <c:if test="${pinfo.member.userNickName eq board.writer}">
             <button data-oper="modify" class="btn btn-modify">수정하기</button>
             </c:if>
             <button data-oper="list" class="btn">게시판</button>
@@ -55,6 +55,7 @@
 	</form>
 	<!---- //#operForm ---->
       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+      <input type="hidden" id="secreplyer" value='<sec:authentication property="principal.member.userNickName"/>'>
 </div>
 
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
@@ -105,10 +106,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
       // 시큐리티 작성자
-      var secreplyer = null;
-      <sec:authorize access="isAuthenticated()">
-            secreplyer = '<sec:authentication property="principal.username"/>';
-      </sec:authorize>
+      var secreplyer = document.getElementById("secreplyer").value;
       // c:out value jsp에서 작동 안그러면 또 hidden해서 값을 가져와야 함
       var bnoValue = '<c:out value="${board.bno}"/>';
       var replyUL = $(".reply");

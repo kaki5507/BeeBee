@@ -13,7 +13,7 @@
                   <input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력해주세요">
             </div>
             <textarea class="form-control" id="content" name="content" cols="30" rows="3" placeholder="내용을 입력해주세요"></textarea>         
-            <input type="text" id="writer" name="writer" class="form-control" value='<sec:authentication property="principal.username"/>' readonly="readonly">
+            <input type="text" id="writer" name="writer" class="form-control" value='<sec:authentication property="principal.member.userNickName"/>' readonly="readonly">
             <div class="file-control">
                   <input class="uploadFileName" value="첨부파일" placeholder="첨부파일">
                   <label for="attachFile">파일찾기</label>
