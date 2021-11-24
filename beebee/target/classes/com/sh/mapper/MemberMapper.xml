@@ -4,37 +4,56 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.sh.mapper.MemberMapper">
-
-	<!-- 멤버 리스트 보기 -->
+	
+	<resultMap type="com.sh.domain.MemberVO" id="memberMap">
+		<id property="userEmail" column="userEmail" />
+		<result property="userEmail" column="userEmail" />
+		<result property="userPwd" column="userPwd" />
+		<result property="userNickName" column="userNickName" />
+		<result property="regDate" column="regdate" />
+		<result property="updateDate" column="updatedate" />
+		<collection property="authList" resultMap="authMap"></collection>
+	</resultMap>
+	
+	<resultMap type="com.sh.domain.AuthVO" id="authMap">
+		<result property="userEmail" column="userEmail" />
+		<result property="auth" column="auth" />
+	</resultMap>
+	
+	<select id="read" resultMap="memberMap">
+		SELECT
+			mem.userEmail, userPwd, userNickName, enabled, regdate, updatedate, auth
+		FROM
+			tbl_member mem LEFT OUTER JOIN tbl_member_auth auth on mem.userEmail = auth.userEmail
+		WHERE
+			mem.userEmail = #{userEmail}
+	</select>
+	
+	<!-- 세션을 이용해서 만들려고 했던 회원 정보 -> 시큐리티로 변경
 	<select id="selectList" resultType="com.sh.domain.MemberVO">
 		select email, nickname, pwd
 		from tbl_members
 	</select>
 	
-	<!-- 이메일로 회원 검색 -->
 	<select id="getByEmail" parameterType="String" resultType="com.sh.domain.MemberVO">
 		select * from tbl_members where email = #{email}
 	</select>
 
-	<!-- 회원 가입  -->
 	<insert id="insert">
 		insert into tbl_members (email, nickname, pwd)
 		values (#{email}, #{nickName}, #{pwd})
 	</insert>
 	
-	<!-- 이메일 중복 체크 -->
 	<select id="emailCheck" parameterType="String" resultType="int">
 		select COUNT(email) from tbl_members where email = #{email}
 	</select>
 
-	<!-- 닉네임 중복 체크 -->
 	<select id="nickNameCheck" parameterType="String" resultType="int">
 		select COUNT(nickName) from tbl_members where nickname = #{nickname}
 	</select>
 	
-	<!-- 로그인 -->
 	<select id="login" parameterType="String" resultType="int">
 		SELECT COUNT(*) FROM tbl_members WHERE email = #{email} AND pwd = #{pwd}
 	</select>
-	 
+	 -->
 </mapper>

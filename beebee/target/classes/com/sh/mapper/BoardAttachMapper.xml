@@ -22,4 +22,8 @@
 	delete tbl_attach where bno = #{bno}
 </select>
 
+<select id="getOldFiles">
+	select * from tbl_attach where uploadPath = to_char(sysdate -1,'yyyy/mm/dd')
+</select>
+
 </mapper>
