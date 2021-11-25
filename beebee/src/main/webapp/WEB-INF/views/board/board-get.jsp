@@ -136,10 +136,13 @@ $(document).ready(function() {
                   // 반복문을 통하여 댓글을 보여주는 곳
                   // str을 이용해서 li 태그를 만들어 준다.
                   for(var i = 0, len = list.length || 0; i < len; i++){
+                        console.log(list[i].replyer);
                         str +="<li class = 'reply-args' data-rno='"+ list[i].rno+"'>";
                         str +="<div class='reply-top'><strong class='reply-strong'>"+list[i].replyer+"</strong>";
                         str +="<span>"+replyService.displayTime(list[i].replyDate)+"</span>";
+                        str +="<sec:authorize access='isAuthenticated()'>";
                         str +="<button type='button' class='replyTool' data-rno='"+ list[i].rno+"'><i class='fas fa-ellipsis-v'></i></button>";
+                        str +="</sec:authorize>";
                         str +="<div class='reply-event' data-rno='"+ list[i].rno+"'><button type='button' class='replyBtnForm replyModifyBtn'>수정</button>"
                               +"<button type='button' class='replyBtnForm replyRemoveBtn'>삭제</button>"
                               +"</div></div>";
@@ -163,7 +166,6 @@ $(document).ready(function() {
 
       $(this).hide();
       var rno = $(this).data("rno");
-
       // 수정창 나오는 코드
       $(replyevent).children(".replyModifyBtn").click(function(e){
             // replyevent의 부모의 형제들에 있는 .reply-content의 댓글 내용을 textarea 태그로 바꾼다.
@@ -179,7 +181,11 @@ $(document).ready(function() {
             // 댓글 수정 replyevent가 this로 만들어져있어서 동적 각자의 태그를 분별해줌.
             $(".updateReplyBtn").on("click",function(e){
                   var modreply = $(".modreply");
-                  var reply = {rno:rno, reply: modreply.val()};
+                  var reply = {
+                        rno:rno, 
+                        reply: modreply.val(),
+                        replyer:secreplyer
+                  };
 
                   if(!secreplyer){
                         alert("로그인 후 이용하세요.")
@@ -206,7 +212,7 @@ $(document).ready(function() {
                   alert("본인만 수정 가능합니다.");
                   return;
             }
-            replyService.remove(rno, function(result){
+            replyService.remove(rno, secreplyer,function(result){
                   alert("remove" + result);
                   showList(pageNum);
             });
@@ -240,6 +246,7 @@ $(".reply").on("mouseleave","li",function(e){
                   alert("result : " + result);
                   showList(-1); // 전체 댓글 파악
             });
+            $(".modreply").html("");
       });    
 
       var pageNum = 1;
@@ -319,5 +326,7 @@ $(".reply").on("mouseleave","li",function(e){
             window.open(url,title,status);
       }
 });
-
+$(document).ajaxSend(function(e, xhr, options){
+      xhr.setRequestHeader("${_csrf.headerName}","${_csrf.token}");
+});
 </script>
