@@ -29,31 +29,30 @@
 			mem.userEmail = #{userEmail}
 	</select>
 	
-	<!-- 세션을 이용해서 만들려고 했던 회원 정보 -> 시큐리티로 변경
 	<select id="selectList" resultType="com.sh.domain.MemberVO">
-		select email, nickname, pwd
-		from tbl_members
+		select userEmail, userNickName, userPwd
+		from tbl_member
 	</select>
 	
 	<select id="getByEmail" parameterType="String" resultType="com.sh.domain.MemberVO">
-		select * from tbl_members where email = #{email}
+		select * from tbl_member where userEmail = #{userEmail}
 	</select>
 
 	<insert id="insert">
-		insert into tbl_members (email, nickname, pwd)
-		values (#{email}, #{nickName}, #{pwd})
+		insert ALL
+		into tbl_member (userEmail, userNickName, userPwd)
+		values (#{userEmail}, #{userNickName}, #{userPwd})
+		into tbl_member_auth (userEmail) 
+		values (#{userEmail})
+		select * from dual
 	</insert>
 	
 	<select id="emailCheck" parameterType="String" resultType="int">
-		select COUNT(email) from tbl_members where email = #{email}
+		select COUNT(userEmail) from tbl_member where userEmail = #{userEmail}
 	</select>
 
 	<select id="nickNameCheck" parameterType="String" resultType="int">
-		select COUNT(nickName) from tbl_members where nickname = #{nickname}
+		select COUNT(userNickName) from tbl_member where userNickName = #{userNickName}
 	</select>
 	
-	<select id="login" parameterType="String" resultType="int">
-		SELECT COUNT(*) FROM tbl_members WHERE email = #{email} AND pwd = #{pwd}
-	</select>
-	 -->
 </mapper>
