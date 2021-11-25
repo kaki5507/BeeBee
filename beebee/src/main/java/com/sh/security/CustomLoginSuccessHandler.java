@@ -44,6 +44,13 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler{
 			return;
 		}
 		
+		if(roleNames.contains("ROLE_USER")) {
+			log.info("일반 회원입니다");
+			
+			response.sendRedirect("/home");
+			return;
+		}
+		
 		response.sendRedirect("/");
 	}
 	

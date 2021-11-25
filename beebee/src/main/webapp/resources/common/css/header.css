@@ -30,9 +30,8 @@ h1 a img{height: 50px; padding: 0 16px 10px 16px; float: left;}
 
 /*-- d-menu(detail menu) --*/
 .d-wrap{overflow: hidden; width: 200px;}
-.d-menu{ width: 100px; margin-top: 10px;}
-.d-menu > li {font-size: 0.8em;  width: 50px; margin-top: 10px; display: none;} /* -1로 일단 안보여줌*/
-.d-menu-click{display: block;}
+.d-menu{ width: 100px; margin-top: 10px;  display: none;}
+.d-menu > li {font-size: 0.8em;  width: 50px; margin-top: 10px;} /* -1로 일단 안보여줌*/
 /*-- btn --*/
 .btn{padding: 2%; border-radius: 5%; font-size: 1vw; outline: none;}
 .btn-modify{background-color: #90C5F9; border-color: #9fc0de; color: white;}
@@ -49,6 +48,12 @@ h1 a img{height: 50px; padding: 0 16px 10px 16px; float: left;}
 .page-pre{float: left;}
 .page-next{float: right;}
 
+/* 회원 정보 */
+.userInfo-wrap{position: relative;}
+.userNameBtn{display: block; border: none; background: none; font-size: 1.2rem;}
+#userInfo-menu{display: none; position: absolute; left: 0; top: 20px; background-color: #f3f3f3; border-radius: 10px; z-index: 2;}
+#userInfo-menu > li{width: 100px; height: 20px; padding: 0;}
+#userInfo-menu > li > a{margin: 0;}
 
 @media only screen and (min-width: 0) and (max-width: 1207px) {
     .gnb {margin-top: 0; z-index: 100;}

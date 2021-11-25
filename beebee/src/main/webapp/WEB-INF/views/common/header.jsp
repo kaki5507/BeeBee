@@ -55,9 +55,9 @@
                 </sec:authorize>
                 
                 <sec:authorize access="isAuthenticated()">
-                <li>
-                    <a href="#"><sec:authentication property="principal.member.userNickName"/>님</a>
-                    <ul class="d-menu">
+                <li class="userInfo-wrap">
+                    <button type="button" class="userNameBtn" onclick="userInfo()"><sec:authentication property="principal.member.userNickName"/>님</a>
+                    <ul id="userInfo-menu">
                         <li><a href="#">알림</a></li>
                         <li><a href="<c:url value='/login/logout'/>">로그아웃</a></li>
                     </ul>

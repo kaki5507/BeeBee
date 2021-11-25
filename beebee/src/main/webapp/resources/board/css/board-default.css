@@ -8,10 +8,10 @@ h2{margin: 2% 0;}
 /* 제목, 글 내용,작성자*/
 #title{font-size: 25px; border-bottom: 1px solid rgba(0,0,0,.05);}
 #content{height: 400px; resize: none; padding: 10px; border: 1px solid rgba(0,0,0,.05);}
-#writer{background: #f3f3f3;}
+#writer{}
 
 /* 수정하기 bno,제목,정보 들*/
-.get-group-title > .info-post{font-size: 15px; width: 50px; background: none; float: left; text-align: center;}
+.get-group-title > .info-post{font-size: 15px; width: 100px; background: none; float: left; text-align: center;}
 
 /* 작성일 , 수정일 */
 .get-group-date{background-color: #f3f3f3; padding: 5px;}
