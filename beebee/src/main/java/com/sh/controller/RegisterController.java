@@ -9,6 +9,7 @@ import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -66,14 +67,14 @@ public class RegisterController {
 		
 	}
 	
-	
-	
-	
-	/*
 	// 회원 정보 입력 
 	@PostMapping("/register-identi")
 	public String register_identi(MemberVO member) {
 		log.info("register : " + member);
+		
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String securePwd = encoder.encode(member.getUserPwd());
+		member.setUserPwd(securePwd);
 		
 		service.register(member);
 		
@@ -131,8 +132,6 @@ public class RegisterController {
 		
 		return mailservice.send(subject, sb.toString(), "ckdbioksh@gmail.com", email);
 	}
-	*/
-    
 
 	// 회원 가입 완료
 	@GetMapping("/register-clear")
