@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sh.domain.AuthVO;
 import com.sh.domain.MemberVO;
 import com.sh.mapper.MemberMapper;
 
@@ -21,18 +22,15 @@ public class MemberServiceImpl implements MemberService{
 	private MemberMapper mapper;
 	
 	
-	/*
 	// 회원 가입
 	@Override
 	public void register(MemberVO member) {
-		
 		mapper.insert(member);
-		
 		log.info("register......"+member);
-		log.info("이메일 "+ member.getEmail());
-		log.info("닉네임 "+ member.getNickName());
-		log.info("비밀번호 "+ member.getPwd());
-		log.info("생성일 "+ member.getRegdate());
+		log.info("이메일 "+ member.getUserEmail());
+		log.info("닉네임 "+ member.getUserNickName());
+		log.info("비밀번호 "+ member.getUserPwd());
+		log.info("생성일 "+ member.getRegDate());
 	}
 
 	// 회원 리스트
@@ -53,8 +51,8 @@ public class MemberServiceImpl implements MemberService{
 
 	// 닉네임 중복 체크
 	@Override
-	public int nickNameCheck(String nickName) {
-		int cnt = mapper.nickNameCheck(nickName);
+	public int nickNameCheck(String userNickName) {
+		int cnt = mapper.nickNameCheck(userNickName);
 		return cnt;
 	}
 
@@ -68,13 +66,11 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public MemberVO getByEmail(String email) {
+	public MemberVO getByEmail(String userEmail) {
 		
 		log.info("getByEmail..");
 		
-		return mapper.getByEmail(email);
+		return mapper.getByEmail(userEmail);
 	}
-	*/
-	
 	
 }

@@ -31,7 +31,7 @@
             <!-- id-wrap -->
             <div class="id-wrap">
                 <label for="email">비비ID<b class="m-must">필수입력</b></label>
-                <input type="text" class="info-form" id="email" name="email" maxlength="40" placeholder="비비ID ( 이메일 )" onblur="checkEmail()">
+                <input type="text" class="info-form" id="email" name="userEmail" maxlength="40" placeholder="비비ID ( 이메일 )" onblur="checkEmail()">
                 <button type="button" id="btnauthen" name="btnauthen" class="authentic-n" onclick="authenClick();">인증번호 발송</button>
                 <span id="email_error"></span>
             </div>
@@ -50,14 +50,14 @@
             <!-- name-wrap -->
             <div class="name-wrap">
                 <label for="nickName">닉네임<b class="m-must">필수입력</b></label>
-                <input type="text" class="info-form" id="nickName" name="nickName" minlength="2" maxlength="20" placeholder="닉네임" onblur="checkNickName()">
+                <input type="text" class="info-form" id="nickName" name="userNickName" minlength="2" maxlength="20" placeholder="닉네임" onblur="checkNickName()">
                 <span id="nickName_error"></span>
             </div>
 
             <!-- pwd-wrap -->
             <div class="pwd-wrap">
                 <label for="pwd">비밀번호<b class="m-must">필수입력</b></label>
-                <input type="password" class="info-form" id="pwd" name="pwd" minlength="10" maxlength="16" placeholder="비밀번호" onblur="checkPwd()">
+                <input type="password" class="info-form" id="pwd" name="userPwd" minlength="10" maxlength="16" placeholder="비밀번호" onblur="checkPwd()">
                 <span id="pwd_error"></span>
             </div>
 
@@ -78,11 +78,16 @@
                 <a href="#" class="btn-cancel">CANCEL</a>
             </div>
             <!-- //reg-btn -->
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
         </form>
-
     </div>
     <!------ //reg-identi-wrap -------->
     
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../../../resources/register/js/register-identi.js"></script>
+<script type="text/javascript">
+    $(document).ajaxSend(function(e, xhr, options){
+        xhr.setRequestHeader("${_csrf.headerName}","${_csrf.token}");
+    });
+</script>

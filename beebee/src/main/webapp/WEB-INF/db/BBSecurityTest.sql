@@ -55,10 +55,12 @@ drop table tbl_member_auth;
 
 -- 자동 로그인 테이블
 create table persistent_logins(
-    username varchar2(64) not null,
+    userNickName varchar2(64) not null,
     series varchar2(64) primary key,
     token varchar2(64) not null,
     last_used timestamp not null
 );
 
 select * from persistent_logins;
+
+drop table persistent_logins;
