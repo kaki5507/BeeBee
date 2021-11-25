@@ -54,7 +54,7 @@
         <div class="valid-chk-wrap">
             <input type="checkbox" id="valid-chk" value="개인정보 유효기간 5년" name="agree-list">
             <label for="valid-chk"><span class="ag-choose">(선택)</span>개인정보 유효기간을 5년으로 선택합니다.</label>
-            <span>선택하지 않으시면 1년으로 설정됩니다.<a class="valid-detail">자세히보기</a></span>
+            <span>선택하지 않으시면 1년으로 설정됩니다.<a class="valid-detail" onclick="readMore()">자세히보기</a></span>
         </div>
         <!-- //valid-chk-wrap -->
 

@@ -28,3 +28,8 @@ function nextClick(){
     }
     self.location="/register/register-identi";
 }
+// 더보기
+function readMore(){
+    window.resizeTo(800,800);
+    window.open("https://www.pipc.go.kr/np/default/page.do?mCode=H030000000","privacy","width=700px,height=700px");
+}
