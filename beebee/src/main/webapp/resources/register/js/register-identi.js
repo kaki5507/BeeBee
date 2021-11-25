@@ -189,7 +189,7 @@ function checkPwd(){
         _pwd_error.innerHTML = "비밀번호 양식에 맞지 않아요.";
         return false;
     }else{
-        _pwd_error.innerHTML = "&nbsp";
+        _pwd_error.innerHTML = "";
         okPwd = true;
     }
 }
