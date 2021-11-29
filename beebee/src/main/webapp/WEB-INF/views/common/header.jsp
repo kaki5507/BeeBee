@@ -59,7 +59,10 @@
                     <button type="button" class="userNameBtn" onclick="userInfo()"><sec:authentication property="principal.member.userNickName"/>님</a>
                     <ul id="userInfo-menu">
                         <li><a href="#">알림</a></li>
-                        <li><a href="<c:url value='/login/logout'/>">로그아웃</a></li>
+                        <form class="logoutForm" action="/login/logout" method="post">
+                        <li><a class="btnLogout">로그아웃</li>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+                        </form>
                     </ul>
                 </li>
                 </sec:authorize>
@@ -88,3 +91,10 @@
 </div>
 <!---- //gnb ---->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".btnLogout").on("click",function(){
+            $(".logoutForm").submit();
+        });
+    });
+</script>

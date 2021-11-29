@@ -49,15 +49,6 @@ public class LoginController {
 			model.addAttribute("logout","Logout!!");
 		}
 	}
-	
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	if (auth != null) {
-		new SecurityContextLogoutHandler().logout(request, response, auth);
-	}
-		return "redirect:/home";
-	}
 
 
 }

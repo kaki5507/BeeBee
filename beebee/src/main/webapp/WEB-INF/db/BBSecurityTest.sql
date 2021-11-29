@@ -40,7 +40,7 @@ commit;
 drop table users;
 drop index ix_auth_username;
 drop table authorities;
-
+commit;
 select * from tbl_member;
 select * from tbl_member_auth;
 drop table tbl_member;
