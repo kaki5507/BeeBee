@@ -24,7 +24,7 @@
   + 시큐리티 적용
   + 자동 로그인 CSRF 토큰 이용
   + 로그인 시 게시판(CRUD 가능)
-+ 로그인 완료
++ 로그아웃 
 
 ## 3. 게시판
 + 게시판 목록
@@ -75,4 +75,5 @@ https://user-images.githubusercontent.com/76811291/141991604-9a5aace7-deed-40ef-
 #### 로그인 시큐리티 적용
 https://user-images.githubusercontent.com/76811291/143020878-f9616b95-d479-4157-9ef7-47a2983c7c1c.mp4
 
-
+##### 이메일 인증
+![image](https://user-images.githubusercontent.com/76811291/143466051-347eb90f-4aac-44fb-aaee-d16640539099.png)
