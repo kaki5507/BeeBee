@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
 function userInfo(){
     let userInfoBtn = document.getElementById("userInfo-menu");
-    console.log(userInfoBtn);
     if(userInfoBtn.style.display == 'none'){
         userInfoBtn.style.display = 'block';
     }else{

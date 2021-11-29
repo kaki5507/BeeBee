@@ -51,8 +51,8 @@ h1 a img{height: 50px; padding: 0 16px 10px 16px; float: left;}
 /* 회원 정보 */
 .userInfo-wrap{position: relative;}
 .userNameBtn{display: block; border: none; background: none; font-size: 1.2rem;}
-#userInfo-menu{display: none; position: absolute; left: 0; top: 20px; background-color: #f3f3f3; border-radius: 10px; z-index: 2;}
-#userInfo-menu > li{width: 100px; height: 20px; padding: 0;}
+#userInfo-menu{display: none; width: 100px; position: absolute; left: 0; background-color: #f3f3f3; border-radius: 10px; z-index: 2;}
+#userInfo-menu > li{width: 100px; height: 30px; padding: 0;}
 #userInfo-menu > li > a{margin: 0;}
 
 @media only screen and (min-width: 0) and (max-width: 1207px) {
