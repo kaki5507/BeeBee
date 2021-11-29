@@ -1,0 +1,9 @@
+.notFoundWrap{width: 800px; height: auto; margin: 100px auto 0; text-align: center; font-family: '맑은 고딕', 'Times New Roman', Times, serif;}
+
+.notFoundWrap h1{width: auto; margin: 20px 0;}
+.notFoundWrap em{color: rgb(0, 143, 239); font-style: normal;}
+.notFoundWrap p{white-space: pre-line; line-height: 20px; font-size: 15px;}
+.notFoundWrap img{width: 400px; height: 320px;}
+
+.movePage > a{outline: none; height: 20px; border: 1px solid black; padding: 10px 20px; font-size: 13px; text-decoration: none; display: inline-block; min-width: 120px; font-size: 13px; background: #fff;}
+.movePage > a:hover{background: orange; color: white;}
