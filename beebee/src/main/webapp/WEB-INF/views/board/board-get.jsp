@@ -147,11 +147,10 @@ $(document).ready(function() {
                               +"<button type='button' class='replyBtnForm replyRemoveBtn'>삭제</button>"
                               +"</div></div>";
                         str +="<p class='reply-content'>"+list[i].reply+"</p>";
-                        str +="<div class='vote-ui'><a href='#'>👍" + list[i].replyBoom + "</a>"
-                              + "<a href='#'>👎</a></div></li>";
+                        str +="<div class='vote-ui'><button type='button' name='boomUp' data-rno='"+ list[i].rno+"'>👍 " + list[i].replyBoomUp + "</button>"
+                              + "<button type='button' name='boomDown' data-rno='"+ list[i].rno+"'>👎 " + list[i].replyBoomDown +"</button></div></li>";
                   }
                   replyUL.html(str);
-                  
                   showReplyPage(replyCnt);
             });// replyService.getList
       }// showList
@@ -216,6 +215,15 @@ $(document).ready(function() {
                   alert("remove" + result);
                   showList(pageNum);
             });
+      });
+});
+// 추천 비추천 
+$(".reply").on("click","button[name='boomUp']",function(e){
+      e.preventDefault();
+      var rno = $(this).data("rno");
+      replyService.boomUp(rno,function(result){
+            alert("추천하셨습니다.");
+            showList(pageNum);
       });
 });
 /* 마우스가 li 태그를 벗어났을 때*/
@@ -318,6 +326,7 @@ $(".reply").on("mouseleave","li",function(e){
             }
       });
 
+      // 이미지 클릭
       function showImage(fileCallPath){
             let url = "/display?fileName=" + fileCallPath;
             let title = "attachPopup";

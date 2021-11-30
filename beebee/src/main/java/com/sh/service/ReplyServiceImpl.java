@@ -74,4 +74,9 @@ public class ReplyServiceImpl implements ReplyService{
 				mapper.getListWithPaging(cri, bno));
 	}
 
+	@Override
+	public int boomUp(Long rno) {
+		return mapper.boomUp(rno);
+	}
+
 }

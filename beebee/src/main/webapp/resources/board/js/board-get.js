@@ -60,7 +60,7 @@ var replyService = (function(){
     }
     
     function update(reply, callback, error){
-    	console.log("rno : " + reply.rno)
+    	console.log("rno : " + reply.rno);
     	
     	$.ajax({
     		type : 'put',
@@ -93,6 +93,26 @@ var replyService = (function(){
     		}
     	});
     }
+	// 추천 기능
+	function boomUp(rno, callback, error){
+		console.log("boom rno : " + rno);
+
+		$.ajax({
+			type : "put",
+			url : "/replies/boomUp/" + rno,
+			success:function(result){
+				console.log("result 는 머냐 " + result);
+				if(callback){
+					callback(result);
+				}
+			},
+			error:function(){
+				if(error){
+					error(er);
+				}
+			}
+		});
+	}
 	// 시간 계산하는 함수
 	function displayTime(timeValue){
 		// 오늘 날짜 Date로 생성
@@ -129,6 +149,7 @@ var replyService = (function(){
     	getList : getList,
     	remove : remove,
     	update : update,
+		boomUp : boomUp,
 		displayTime : displayTime
     }; // 앞에는 속성 뒤에는 add 함수 그 자체
 })();

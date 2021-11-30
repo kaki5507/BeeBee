@@ -72,6 +72,7 @@ public class ReplyController {
 		return new ResponseEntity<>(service.get(rno), HttpStatus.OK);
 	}
 	
+	// 댓글 수정
 	@PreAuthorize("principal.userNickName == #reply.replyer")
 	@RequestMapping(method = {RequestMethod.PUT, RequestMethod.PATCH},
 			value = "/{rno}",
@@ -98,5 +99,13 @@ public class ReplyController {
 		return service.remove(rno) == 1
 				? new ResponseEntity<>("success",HttpStatus.OK)
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	//추천
+	@RequestMapping(method = {RequestMethod.PUT, RequestMethod.PATCH},
+			value = "/boomUp/{rno}")
+	public void boomUp(@PathVariable("rno") Long rno){
+		log.info("boomUp REST " + rno);
+		service.boomUp(rno);
 	}
 }

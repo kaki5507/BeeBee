@@ -22,4 +22,6 @@ public interface ReplyMapper {
 			@Param("bno") long bno);
 	
 	public int getCountByBno(Long bno);
+	
+	public int boomUp(Long rno);
 }

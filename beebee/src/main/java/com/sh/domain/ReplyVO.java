@@ -16,5 +16,6 @@ public class ReplyVO {
 	private Date replyDate;
 	private Date updateDate;
 	
-	private int replyBoom; // 추천 비추천
+	private int replyBoomUp; // 추천
+	private int replyBoomDown; // 비추천
 }
