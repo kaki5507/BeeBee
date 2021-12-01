@@ -8,9 +8,8 @@ import lombok.Data;
 public class BoomUpDTO {
 
 	private int replyBoomUp;
-	private String recommender;
+	private String reco;
 	private Date boomDate;
-	
-	private Long rno;
+	private long rno;
 	
 }

@@ -94,25 +94,29 @@ var replyService = (function(){
     	});
     }
 	// 추천 기능
-	function boomUp(rno, callback, error){
-		console.log("boom rno : " + rno);
-
+	function boomUp(boomUp, callback, error){
+		console.log("boom rno : " + boomUp.rno);
+		console.log("boom reco " + boomUp.reco);
 		$.ajax({
 			type : "put",
-			url : "/replies/boomUp/" + rno,
+			url : "/replies/boomUp/" + boomUp.rno,
+			data : JSON.stringify(boomUp),
+    		contentType : "application/json; charset=utf-8",
 			success:function(result){
-				console.log("result 는 머냐 " + result);
+				console.log("result : " + result);
 				if(callback){
 					callback(result);
 				}
 			},
-			error:function(){
+			error:function(xhr, status, er){
+				alert("추천은 한번씩만 가능합니다.");
 				if(error){
 					error(er);
 				}
 			}
 		});
 	}
+	
 	// 시간 계산하는 함수
 	function displayTime(timeValue){
 		// 오늘 날짜 Date로 생성

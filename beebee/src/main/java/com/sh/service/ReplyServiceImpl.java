@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.sh.domain.BoomUpDTO;
 import com.sh.domain.Criteria;
 import com.sh.domain.ReplyPageDTO;
 import com.sh.domain.ReplyVO;
@@ -73,10 +74,20 @@ public class ReplyServiceImpl implements ReplyService{
 				mapper.getCountByBno(bno),
 				mapper.getListWithPaging(cri, bno));
 	}
-
+	
+	
+	@Override
+	public int boomUpRegister(BoomUpDTO boomUp) {
+		log.info("boom Service register....");
+		
+		return mapper.boomUpInsert(boomUp);
+	}
+	
 	@Override
 	public int boomUp(Long rno) {
+		log.info("boomUp........." + rno);
 		return mapper.boomUp(rno);
 	}
+
 
 }

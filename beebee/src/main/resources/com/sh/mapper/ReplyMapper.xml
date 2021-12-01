@@ -54,13 +54,23 @@
 </update>
 
 <update id="boomUp">
-	update tbl_boomUp set replyBoomUp = replyBoomUp + 1
+	update tbl_reply set replyBoomUp = replyBoomUp + 1
 	where rno = #{rno}
 </update>
 
 <update id="boomDown">
-	update tbl_boomDown set replyBoomDown = replyBoomDown + 1
+	update tbl_reply set replyBoomDown = replyBoomDown + 1
 	where rno = #{rno}
 </update>
+
+<insert id="boomUpInsert">
+	insert into tbl_boomUp (reco, rno)
+	values (#{reco}, #{rno})
+</insert>
+
+<select id="readBoomUp" resultType="com.sh.domain.BoomUpDTO">
+	select * from tbl_boomUp
+	where rno = #{rno}
+</select>
 
 </mapper>

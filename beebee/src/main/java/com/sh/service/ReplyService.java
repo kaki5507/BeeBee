@@ -2,6 +2,7 @@ package com.sh.service;
 
 import java.util.List;
 
+import com.sh.domain.BoomUpDTO;
 import com.sh.domain.Criteria;
 import com.sh.domain.ReplyPageDTO;
 import com.sh.domain.ReplyVO;
@@ -21,4 +22,6 @@ public interface ReplyService {
 	public ReplyPageDTO getListPage(Criteria cri, Long bno);
 	
 	public int boomUp(Long rno);
+	
+	public int boomUpRegister(BoomUpDTO boomUp);
 }

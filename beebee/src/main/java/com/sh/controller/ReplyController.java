@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sh.domain.BoomUpDTO;
 import com.sh.domain.Criteria;
 import com.sh.domain.ReplyPageDTO;
 import com.sh.domain.ReplyVO;
@@ -101,11 +103,19 @@ public class ReplyController {
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-	//ÃßÃµ
 	@RequestMapping(method = {RequestMethod.PUT, RequestMethod.PATCH},
-			value = "/boomUp/{rno}")
-	public void boomUp(@PathVariable("rno") Long rno){
+			value = "/boomUp/{rno}",
+			produces = {MediaType.TEXT_PLAIN_VALUE})
+	public ResponseEntity<String> boomUp(@RequestBody BoomUpDTO boomUp, @PathVariable("rno") Long rno){
 		log.info("boomUp REST " + rno);
-		service.boomUp(rno);
+		log.info("boomUp" + boomUp);
+		boomUp.setRno(rno);
+		if(service.boomUpRegister(boomUp) == 1) {
+			service.boomUp(rno);
+			return new ResponseEntity<>("success",HttpStatus.OK);
+		}else {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
+	
 }

@@ -116,10 +116,8 @@ $(document).ready(function() {
       function showList(page){
             console.log("page " + page);
             replyService.getList({bno:bnoValue, page:page||1},function(replyCnt, list){
-
                   console.log("replyCnt : " + replyCnt);
                   console.log("list : " + list);
-
                   // -1이면 페이지 첫 번째 보여주기
                   if(page == -1){
                         pageNum = Math.ceil(replyCnt/10.0);
@@ -221,7 +219,11 @@ $(document).ready(function() {
 $(".reply").on("click","button[name='boomUp']",function(e){
       e.preventDefault();
       var rno = $(this).data("rno");
-      replyService.boomUp(rno,function(result){
+      let boomUp = {
+            reco : secreplyer,
+            rno : rno
+      };
+      replyService.boomUp(boomUp,function(result){
             alert("추천하셨습니다.");
             showList(pageNum);
       });
