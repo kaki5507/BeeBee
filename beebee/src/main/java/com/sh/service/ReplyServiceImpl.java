@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.sh.domain.BoomDownDTO;
 import com.sh.domain.BoomUpDTO;
 import com.sh.domain.Criteria;
 import com.sh.domain.ReplyPageDTO;
@@ -88,6 +89,20 @@ public class ReplyServiceImpl implements ReplyService{
 		log.info("boomUp........." + rno);
 		return mapper.boomUp(rno);
 	}
+	
+	@Override
+	public int boomDownRegister(BoomDownDTO boomUp) {
+		log.info("boom Service register....");
+		
+		return mapper.boomDownInsert(boomUp);
+	}
+	
+	@Override
+	public int boomDown(Long rno) {
+		log.info("boomUp........." + rno);
+		return mapper.boomDown(rno);
+	}
+
 
 
 }

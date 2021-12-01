@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sh.domain.BoomDownDTO;
 import com.sh.domain.BoomUpDTO;
 import com.sh.domain.Criteria;
 import com.sh.domain.ReplyPageDTO;
@@ -112,6 +113,21 @@ public class ReplyController {
 		boomUp.setRno(rno);
 		if(service.boomUpRegister(boomUp) == 1) {
 			service.boomUp(rno);
+			return new ResponseEntity<>("success",HttpStatus.OK);
+		}else {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@RequestMapping(method = {RequestMethod.PUT, RequestMethod.PATCH},
+			value = "/boomDown/{rno}",
+			produces = {MediaType.TEXT_PLAIN_VALUE})
+	public ResponseEntity<String> boomDown(@RequestBody BoomDownDTO boomDown, @PathVariable("rno") Long rno){
+		log.info("boomUp REST " + rno);
+		log.info("boomUp" + boomDown);
+		boomDown.setRno(rno);
+		if(service.boomDownRegister(boomDown) == 1) {
+			service.boomDown(rno);
 			return new ResponseEntity<>("success",HttpStatus.OK);
 		}else {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

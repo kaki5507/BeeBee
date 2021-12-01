@@ -68,8 +68,13 @@
 	values (#{reco}, #{rno})
 </insert>
 
-<select id="readBoomUp" resultType="com.sh.domain.BoomUpDTO">
-	select * from tbl_boomUp
+<insert id="boomDownInsert">
+	insert into tbl_boomDown (reco, rno)
+	values (#{reco}, #{rno})
+</insert>
+
+<select id="readBoomDown" resultType="com.sh.domain.BoomDownDTO">
+	select * from tbl_boomDown
 	where rno = #{rno}
 </select>
 

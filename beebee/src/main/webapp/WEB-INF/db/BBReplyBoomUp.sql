@@ -23,7 +23,7 @@ create table tbl_boomDown(
     reco varchar2(50) not null,
     boomDate date default sysdate,
     rno number(10,0),
-    constraint pk_boomDown_reco primary key (reco),
+    constraint pk_boomDown_reco primary key (reco,rno),
     constraint fk_reply_boomDown foreign key (rno) references tbl_reply(rno)
 );
 

@@ -228,6 +228,18 @@ $(".reply").on("click","button[name='boomUp']",function(e){
             showList(pageNum);
       });
 });
+$(".reply").on("click","button[name='boomDown']",function(e){
+      e.preventDefault();
+      var rno = $(this).data("rno");
+      let boomDown = {
+            reco : secreplyer,
+            rno : rno
+      };
+      replyService.boomDown(boomDown,function(result){
+            alert("비추천하셨습니다.");
+            showList(pageNum);
+      });
+});
 /* 마우스가 li 태그를 벗어났을 때*/
 $(".reply").on("mouseleave","li",function(e){
       e.preventDefault();

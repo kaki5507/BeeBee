@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.sh.domain.BoomDownDTO;
 import com.sh.domain.BoomUpDTO;
 import com.sh.domain.Criteria;
 import com.sh.domain.ReplyVO;
@@ -29,5 +30,11 @@ public interface ReplyMapper {
 	public int boomUpInsert(BoomUpDTO boomUp);
 	
 	public BoomUpDTO readBoomUp(Long rno);
+	
+	public int boomDown(Long rno);
+	
+	public int boomDownInsert(BoomDownDTO boomDown);
+	
+	public BoomDownDTO readBoomDown(Long rno);
 	
 }

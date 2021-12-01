@@ -116,7 +116,29 @@ var replyService = (function(){
 			}
 		});
 	}
-	
+	// 비추천 기능
+	function boomDown(boomDown, callback, error){
+		console.log("boom rno : " + boomDown.rno);
+		console.log("boom reco " + boomDown.reco);
+		$.ajax({
+			type : "put",
+			url : "/replies/boomDown/" + boomDown.rno,
+			data : JSON.stringify(boomDown),
+    		contentType : "application/json; charset=utf-8",
+			success:function(result){
+				console.log("result : " + result);
+				if(callback){
+					callback(result);
+				}
+			},
+			error:function(xhr, status, er){
+				alert("비추천은 한번씩만 가능합니다.");
+				if(error){
+					error(er);
+				}
+			}
+		});
+	}	
 	// 시간 계산하는 함수
 	function displayTime(timeValue){
 		// 오늘 날짜 Date로 생성
@@ -154,6 +176,7 @@ var replyService = (function(){
     	remove : remove,
     	update : update,
 		boomUp : boomUp,
+		boomDown : boomDown,
 		displayTime : displayTime
     }; // 앞에는 속성 뒤에는 add 함수 그 자체
 })();

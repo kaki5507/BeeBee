@@ -2,6 +2,7 @@ package com.sh.service;
 
 import java.util.List;
 
+import com.sh.domain.BoomDownDTO;
 import com.sh.domain.BoomUpDTO;
 import com.sh.domain.Criteria;
 import com.sh.domain.ReplyPageDTO;
@@ -24,4 +25,8 @@ public interface ReplyService {
 	public int boomUp(Long rno);
 	
 	public int boomUpRegister(BoomUpDTO boomUp);
+	
+	public int boomDown(Long rno);
+	
+	public int boomDownRegister(BoomDownDTO boomDown);
 }
