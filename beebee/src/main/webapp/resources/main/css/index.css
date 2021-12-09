@@ -285,25 +285,29 @@
         top: 0;
     }
     .web_about > img{position: relative; width: 150px; height:200px; opacity: 0; border: 3px solid #DADBDD; border-radius: 15px; box-shadow: 3px 3px 2px 0;}
-    .web_about > .web_about_info{position: absolute; top: 80px; opacity: 0; right: -30px; font-size: 2.0em;}
-    .web_about_info > span{line-height: 35px; font-size: 20px;}
-    
+    .web_about > .web_about_info{position: absolute; width: 280px; top: 280px; opacity: 0; right: 0px; font-size: 1.5em;}
+    .web_about_info > span{font-size: 20px;}
+    .web_about_info > p{margin-bottom: 0;}
+
     /* Application 위치 수정 */
-    .web_about > img:nth-child(1){top: 0; left: -80px;}
-    .web_about > img:nth-child(2){top: 80px; right: 200px;}
-    .web_about > img:nth-child(3){top: -80px; left: 150px;}
+    .web_about > img:nth-child(1){top: 10px; left: -80px;}
+    .web_about > img:nth-child(2){top: -150px; left: 10px;}
+    .web_about > img:nth-child(3){top: -310px; left: 90px;}
 
     @keyframes show_img1{
-        0%{left: -300px;}
-        100%{left: -80px; opacity: 1;}
+        0%{margin-left: 0;}
+        100%{margin-left: 20px; opacity: 1;}
     }
     @keyframes show_img2{
-        0%{right: 500px;}
-        100%{right: 200px; opacity: 1;}
+        0%{margin-left: 0;}
+        100%{margin-left: 20px; opacity: 1;}
     }
     @keyframes show_img3{
-        0%{left: -200px;}
-        100%{left: 20px; opacity: 1;}
+        0%{margin-left: 0;}
+        100%{margin-left: 20px; opacity: 1;}
     }
-
+    @keyframes show_text{
+        0% {opacity: 0; position: absolute; right: -30px;}
+        100%{opacity: 1; position: absolute; color: black;}
+    }
 }

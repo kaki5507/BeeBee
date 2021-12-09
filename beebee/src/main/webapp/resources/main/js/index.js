@@ -1,4 +1,4 @@
-
+var mobile = window.matchMedia("screen and (max-width: 736px)");
 /*------- 마우스 스크롤 -------*/
 window.addEventListener('scroll',function(){
     // document.element 안됐음 why? IE, firefox만 지원
@@ -11,18 +11,30 @@ window.addEventListener('scroll',function(){
     let _web_about_img3 = $('.web_about > img:nth-child(3)');
     let _web_about_info = $('.web_about_info');
     console.log(currScroll);
+    if(mobile.matches){
+        if(currScroll > 257){
+            _web_about_img1.addClass('img_show1');
+            _web_about_img2.addClass('img_show2');
+            _web_about_img3.addClass('img_show3');
+            _web_about_info.addClass('text_show');
+        }else{
+            _web_about_img1.removeClass('img_show1');
+            _web_about_img2.removeClass('img_show2');
+            _web_about_img3.removeClass('img_show3');
+            _web_about_info.removeClass('text_show');
+        }
+    }
 
     if(currScroll > 800){
         _web_about_img1.addClass('img_show1');
         _web_about_img2.addClass('img_show2');
         _web_about_img3.addClass('img_show3');
         _web_about_info.addClass('text_show');
-    }
-
-    if(currScroll < 500){
+    }else if(currScroll < 500){
         _web_about_img1.removeClass('img_show1');
         _web_about_img2.removeClass('img_show2');
         _web_about_img3.removeClass('img_show3');
         _web_about_info.removeClass('text_show');
     }
+
 });
