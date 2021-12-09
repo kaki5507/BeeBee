@@ -64,28 +64,32 @@
                         <li>
                             <a class="btnLogout">로그아웃</li>
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+                        </li>
                     </ul>
-                </li>
                 </form>
                 </sec:authorize>
             </ul>
             
         </nav>
 
-        <form action="" class="side-menu-form">
+        <form class="side-menu-form">
             <div class="side-menu-wrap">
                 <nav class="side-menu">
                     <ul>
-                        <li><a href="../main/index.html">비비 홈</a></li>
-                        <li><a href="../main/index.html">게시판</a></li>
-                        <li><a href="../main/index.html">스터디매칭</a></li>
-                        <li><a href="../main/index.html">비비 톡</a></li>
-                        <li><a href="../main/index.html">내 정보</a></li>
+                        <li><a href="<c:url value='/home'/>">비비 홈</a></li>
+                        <li><a href="<c:url value='/board/board-list'/>">게시판</a></li>
                     </ul>
                     
-                    <div>
-                        <h2>로그인, 로그아웃</h2>
+                    <div class="side-menu-log-wrap">
+                        <sec:authorize access="isAnonymous()">
+                            <a class="side-menu-log" href="<c:url value='/login/login-custom'/>">로그인</a>
+                        </sec:authorize>
+                        <sec:authorize access="isAuthenticated()">
+                            <sec:authentication property="principal.member.userNickName"/>님
+                            <a class="side-menu-log btnLogout">로그아웃</a>
+                        </sec:authorize>
                     </div>
+
                 </nav>
             </div>
         </form>
