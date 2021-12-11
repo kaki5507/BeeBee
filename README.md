@@ -68,12 +68,15 @@ https://w-giraffe.tistory.com/ <br>
 
 ##### 메인 - 회원가입 - 게시판 - 로그인
 https://user-images.githubusercontent.com/76811291/140773096-2c5072ff-3ecb-4a00-af25-3268c653d6fe.mp4
-
+<br>
 #### 게시판(첨부파일, 댓글 버그 )
 https://user-images.githubusercontent.com/76811291/141991604-9a5aace7-deed-40ef-bf35-c18b5c80de79.mp4
-
+<br>
 #### 로그인 시큐리티 적용
 https://user-images.githubusercontent.com/76811291/143020878-f9616b95-d479-4157-9ef7-47a2983c7c1c.mp4
-
-##### 이메일 인증
+<br>
+#### 이메일 인증
 ![image](https://user-images.githubusercontent.com/76811291/143466051-347eb90f-4aac-44fb-aaee-d16640539099.png)
+<br>
+#### 모바일 반응형
+https://user-images.githubusercontent.com/76811291/145679720-f895bde1-1efe-4840-89e2-2d5f2a6373f7.mp4
