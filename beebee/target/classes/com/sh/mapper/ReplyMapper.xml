@@ -18,11 +18,11 @@
 
 <select id="getListWithPaging" resultType="com.sh.domain.ReplyVO">
 	<![CDATA[
-		select rno, bno, reply, replyer, replyBoom, replyDate, updatedate
+		select rno, bno, reply, replyer, replyBoomUp, replyBoomDown, replyDate, updatedate
 		from
 		(
 			select /*+INDEX(tbl_reply idx_reply)*/
-				rownum rn, rno, bno, reply, replyer, replyBoom, replyDate, updatedate
+				rownum rn, rno, bno, reply, replyer, replyBoomUp , replyBoomDown, replyDate, updatedate
 			from tbl_reply
 			where bno = #{bno}
 			and rno > 0
@@ -52,5 +52,30 @@
 	where rno = #{rno}
 
 </update>
+
+<update id="boomUp">
+	update tbl_reply set replyBoomUp = replyBoomUp + 1
+	where rno = #{rno}
+</update>
+
+<update id="boomDown">
+	update tbl_reply set replyBoomDown = replyBoomDown + 1
+	where rno = #{rno}
+</update>
+
+<insert id="boomUpInsert">
+	insert into tbl_boomUp (reco, rno)
+	values (#{reco}, #{rno})
+</insert>
+
+<insert id="boomDownInsert">
+	insert into tbl_boomDown (reco, rno)
+	values (#{reco}, #{rno})
+</insert>
+
+<select id="readBoomDown" resultType="com.sh.domain.BoomDownDTO">
+	select * from tbl_boomDown
+	where rno = #{rno}
+</select>
 
 </mapper>
