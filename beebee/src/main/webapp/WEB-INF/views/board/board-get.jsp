@@ -180,7 +180,7 @@ $(document).ready(function() {
                   var modreply = $(".modreply");
                   var reply = {
                         rno:rno, 
-                        reply: modreply.val(),
+                        reply: modreply.val().replace(/(?:\r\n|\r|\n)/g, '<br/>'),
                         replyer:secreplyer
                   };
 
