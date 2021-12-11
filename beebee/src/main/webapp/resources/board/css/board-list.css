@@ -76,7 +76,7 @@
     /*---- board-side-menu ----*/
     .board-wrap {display: flex; flex-direction: column;}
     .board-side-menu{ display: flex; flex-direction: row; border-radius: 10px; margin-right: 0; margin-bottom: 5%;}
-    .board-side-menu h3{font-size: 1.2em; background-image: none;}
+    .board-side-menu > ul > li > h3{font-size: 1.2em; background-image: none; line-height: 30px;}
     .board-side-menu > ul {display: flex; width: 100%; flex-direction: row;}
     .board-side-menu > ul > li{border: 0; width: 100%;} 
     .board-side-menu > ul > li a{padding: 0; font-size: 0.8em;} 
@@ -87,8 +87,19 @@
 
     .btn-reg{width: 15vw;}
 
+    
     /*-- 검색 폼 수정 --*/
     .type-search{width: 10vw; padding: 1px; margin-right: 5px; font-size: 10px; color: #212529;}
     .form-search{width: 40vw; padding: 1px; font-size: 10px;}
+    .searchForm{margin-bottom: 1%;}
+    .searchForm > div > h2{margin-top: 7%; margin-left: 8%;}
+    /*-- 검색 버튼 크기 --*/
+    .btn-search{width: 10%;}
 
+    /*-- 페이징 크기 --*/
+    .pagination > li > a{padding-top: 0;}
+
+    /*-- 모달 창 수정 --*/
+    .modal-content-message{font-size: 15px;}
+    .modal-close{width: 40%;}
 }

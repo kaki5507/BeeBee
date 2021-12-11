@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<footer>
+    <footer>
         <div class="footer-container">
             <div class="footer-top">
                 <img class="footer-logo footer-between" src="../../../resources/common/img/beelogo.png" alt="비비 로고">

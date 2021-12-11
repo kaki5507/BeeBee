@@ -38,7 +38,7 @@ h2{margin: 2% 0;}
 .new-reply > input:nth-child(1){ width: 70px; bottom: 20px; height: 20px;}
 .new-reply > textarea:nth-child(2){padding: 5px; width: 90%; resize: none; min-height: 56px; border: 1px solid; border-color: #ccc #c6c6c6 #c3c3c3 #ccc;border-radius: 3px;}
 .new-reply > textarea:nth-child(2):focus{outline: none; }
-.new-reply > input:nth-child(3){width: 65px; height: 68px; position: absolute; right: 20px; top: 40px;
+.new-reply > input:nth-child(3){width: 65px; height: 68px; position: absolute; right: 20px; top: 41px;
     background: linear-gradient(to bottom,#fff 0,#f3f3f3 100%);
     white-space: nowrap; cursor: pointer; text-align: center; color: #111; font-weight: 100;
 }
@@ -88,6 +88,16 @@ h2{margin: 2% 0;}
 
     .new-reply{font-size: 10px;}
     .new-reply > input{font-size: 10px; height: 10px;}
-    .new-reply > textarea:nth-child(2){padding: 5px; width: 80%;}
+    .new-reply > textarea:nth-child(2){width: 65%;}
 
+    /* 첨부 파일 부분*/
+    .file-control > .uploadFileName{width: auto;}
+
+    /* 페이징 부분 */
+    .pagination > li > a{padding-top: 0;}
+    
+    /* 댓글 부분 */
+    .replyTool{height: auto;}
+    .reply-event > button{font-size: 10px;}
+    .vote-ui > button{font-size: 10px;}
 }
