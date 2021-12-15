@@ -48,6 +48,7 @@ public class BoardServiceImpl implements BoardService{
 	public BoardVO get(Long bno) {
 		
 		log.info("get....." + bno);
+		mapper.updateBoardHit(bno);
 		
 		return mapper.read(bno);
 	}
