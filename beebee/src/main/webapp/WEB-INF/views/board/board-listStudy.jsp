@@ -10,7 +10,7 @@
     <!---- board-side-menu ---->
     <div class="board-side-menu">
         <ul>
-            <li><h3>통합 게시판</h3></li>
+            <li><h3>공부 인증</h3></li>
             <li><a href="<c:url value='/board/board-list'/>">통합 게시판</a></li>
             <li><a href="<c:url value='/board/board-listStudy'/>">공부 인증</a></li>
             <li><a href="<c:url value='/board/board-listFree'/>">자유게시판</a></li>
@@ -21,7 +21,7 @@
     <!---- //board-side-menu ---->
     
     <!---- searchForm ---->
-    <form class="searchForm" action="/board/board-list" method="get">
+    <form class="searchForm" action="/board/board-listStudy" method="get">
         <div><h2>게시판</h2></div>
         <div class="searchBar">
             <select name="type" class="type-search">
@@ -53,18 +53,20 @@
                 <th class="bt-5">조회수</th>
             </tr>
             <c:forEach items="${list}" var="board">
-            <tr>
-                <td class="bt-1"><c:out value="${board.bno}" /></td>
-                <td class="bt-2">
-                	<a class='move' href='<c:out value="${board.bno}"/>'>
-                		<c:out value="${board.title}" />
-                		<span>[ <c:out value="${board.replyCnt}" /> ]</span>
-                	</a>
-                </td>
-                <td class="bt-3"><c:out value="${board.writer}" /></td>
-                <td class="bt-4"><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate}" /></td>
-                <td class="bt-5"><c:out value="${board.hit}" /></td>
-            </tr>
+                <c:if test="${board.category eq 'Study'}">
+                    <tr>
+                        <td class="bt-1"><c:out value="${board.bno}" /></td>
+                        <td class="bt-2">
+                            <a class='move' href='<c:out value="${board.bno}"/>'>
+                                <c:out value="${board.title}" />
+                                <span>[ <c:out value="${board.replyCnt}" /> ]</span>
+                            </a>
+                        </td>
+                        <td class="bt-3"><c:out value="${board.writer}" /></td>
+                        <td class="bt-4"><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate}" /></td>
+                        <td class="bt-5"><c:out value="${board.hit}" /></td>
+                    </tr>
+                </c:if>
             </c:forEach>
         </table>
 
@@ -83,7 +85,7 @@
     <!---- //board-center ---->
     
     <!---- actionForm 게시글 이동용 form ---->
-	<form id='actionForm' action="/board/board-list" method='get'>
+	<form id='actionForm' action="/board/board-listStudy" method='get'>
 		<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
 		<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
         <input type='hidden' name='type' value='<c:out value="${pageMaker.cri.type}"/>'>

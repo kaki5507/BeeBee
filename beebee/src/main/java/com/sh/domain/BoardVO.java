@@ -8,13 +8,14 @@ import lombok.Data;
 @Data
 public class BoardVO {
 
-	private Long bno;
-	private String title;
-	private String content;
-	private String writer;
-	private Date regdate;
-	private Date updateDate;
-	private int hit;
+	private Long bno; //게시 번호
+	private String title; //제목
+	private String content; //내용
+	private String writer; //작성자
+	private Date regdate; //작성일
+	private Date updateDate; //수정일
+	private int hit; // 조회수
+	private String category; // 게시판 종류
 	
 	private int replyCnt;
 	

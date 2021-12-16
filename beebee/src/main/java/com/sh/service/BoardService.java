@@ -23,6 +23,14 @@ public interface BoardService {
 	
 	public int getTotal(Criteria cri);
 	
+	public int getFreeTotal(Criteria cri); // ÀÚÀ¯ °Ô½ÃÆÇ ÃÑ °¹¼ö
+	
+	public int getStudyTotal(Criteria cri); // °øºÎ °Ô½ÃÆÇ ÃÑ °¹¼ö
+	
+	public int getQnATotal(Criteria cri); // Áú¹® °Ô½ÃÆÇ ÃÑ °¹¼ö
+	
+	public int getCertiTotal(Criteria cri); // ÀÚ°ÝÁõ °Ô½ÃÆÇ ÃÑ °¹¼ö
+	
 	public List<BoardAttachVO> getAttachList(Long bno);
 	
 }

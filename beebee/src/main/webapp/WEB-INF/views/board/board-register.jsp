@@ -12,6 +12,13 @@
             <div class="get-group-title">
                   <input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력해주세요">
             </div>
+            <select name="category" class="type-search">
+                  <option value="">--</option>
+                  <option value="Free">자유게시판</option>
+                  <option value="QnA">질문게시판</option>
+                  <option value="Study">공부 인증</option>
+                  <option value="Certi">자격증</option>
+              </select>
             <textarea class="form-control" id="content" name="content" cols="30" rows="3" placeholder="내용을 입력해주세요"></textarea>         
             <input type="text" id="writer" name="writer" class="form-control" value='<sec:authentication property="principal.member.userNickName"/>' readonly="readonly">
             <div class="file-control">

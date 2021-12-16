@@ -34,11 +34,11 @@
 	<select id="getListWithPaging" resultType="com.sh.domain.BoardVO">
 		<![CDATA[
 			select 
-				bno, title, content, writer, regdate, updatedate, replycnt , hit
+				bno, title, content, writer, regdate, updatedate, replycnt , hit , category
 			from
 				(
 					select /*+ INDEX_DESC(tbl_board pk_board) */
-						rownum rn, bno, title, content, writer, regdate, updatedate, replycnt, hit
+						rownum rn, bno, title, content, writer, regdate, updatedate, replycnt, hit, category 
 					from
 						tbl_board
 					where
@@ -62,9 +62,38 @@
 		bno > 0
 	</select>
 	
+	<!-- 공부 게시판  -->
+	<select id="getStudyTotalCount" resultType="int">
+		select count(*) from tbl_board
+		where
+		<include refid="criteria"></include>
+		category like '%Study%'
+	</select>
+	<!-- 자유 게시판  -->
+	<select id="getFreeTotalCount" resultType="int">
+		select count(*) from tbl_board
+		where
+		<include refid="criteria"></include>
+		category like '%Free%'
+	</select>
+	<!-- 질문 게시판  -->
+	<select id="getQnATotalCount" resultType="int">
+		select count(*) from tbl_board
+		where
+		<include refid="criteria"></include>
+		category like '%QnA%'
+	</select>
+	<!-- 자격증 게시판  -->
+	<select id="getCertiTotalCount" resultType="int">
+		select count(*) from tbl_board
+		where
+		<include refid="criteria"></include>
+		category like '%Certi%'
+	</select>
+	
 	<insert id="insert">
-		insert into tbl_board (bno,title,content,writer)
-		values (seq_board.nextval, #{title}, #{content}, #{writer})
+		insert into tbl_board (bno,title,content,writer, category)
+		values (seq_board.nextval, #{title}, #{content}, #{writer}, #{category})
 	</insert>
 	
 	<insert id="insertSelectKey">
@@ -73,8 +102,8 @@
 			select seq_board.nextval from dual
 		</selectKey>
 		
-		insert into tbl_board (bno,title,content,writer)
-		values (#{bno}, #{title}, #{content}, #{writer})		
+		insert into tbl_board (bno,title,content,writer, category)
+		values (#{bno}, #{title}, #{content}, #{writer}, #{category})		
 	</insert>
 	
 	<select id="read" resultType="com.sh.domain.BoardVO">
@@ -108,4 +137,11 @@
 		update tbl_board set hit = hit + 1
 		where bno = #{bno}
 	</update>
+	
+	<!-- 종류별 게시판 -->
+	<select id="readCategory">
+		select * from tbl_board
+		where bno = #{bno} and category = #{category}
+	</select>
+	
 </mapper>

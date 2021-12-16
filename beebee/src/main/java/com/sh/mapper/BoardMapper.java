@@ -20,6 +20,8 @@ public interface BoardMapper {
 	
 	public BoardVO read(Long bno);
 	
+	public BoardVO readCategory(Long bno,String category);
+	
 	public int delete(Long bno);
 	
 	public int deleteForeignKey(Long bno);
@@ -28,7 +30,16 @@ public interface BoardMapper {
 	
 	public int getTotalCount(Criteria cri);
 	
+	public int getStudyTotalCount(Criteria cri); // °øºÎ ÀÎÁõ °Ô½ÃÆÇ ÃÑ °¹¼ö
+	
+	public int getFreeTotalCount(Criteria cri); // ÀÚÀ¯ °Ô½ÃÆÇ ÃÑ °¹¼ö
+	
+	public int getQnATotalCount(Criteria cri); // Áú¹® °Ô½ÃÆÇ ÃÑ °¹¼ö
+	
+	public int getCertiTotalCount(Criteria cri); // ÀÚ°İÁõ °Ô½ÃÆÇ ÃÑ °¹¼ö
+	
 	public void updateReplyCnt(@Param("bno") Long bno,@Param("amount") int amount);
 	
 	public void updateBoardHit(long bno);
+	
 }

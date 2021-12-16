@@ -94,20 +94,32 @@ public class BoardServiceImpl implements BoardService{
 		
 		return mapper.getListWithPaging(cri);
 	}
-
-	@Override
-	public int getTotal(Criteria cri) {
-		log.info("get total count");
-		return mapper.getTotalCount(cri);
-	}
-
+	
 	@Override
 	public List<BoardAttachVO> getAttachList(Long bno) {
 		
 		log.info("get Attach list by bno " + bno);
 		
 		return attachMapper.findByBno(bno);
+	}	
+
+	@Override
+	public int getTotal(Criteria cri) {
+		log.info("get total count");
+		return mapper.getTotalCount(cri);
 	}
+	
+	@Override
+	public int getFreeTotal(Criteria cri) {
+		log.info("get total free board ");
+		return mapper.getFreeTotalCount(cri);
+	}
+	@Override
+	public int getStudyTotal(Criteria cri) {return mapper.getStudyTotalCount(cri);}
+	@Override
+	public int getQnATotal(Criteria cri) {return mapper.getQnATotalCount(cri);}
+	@Override
+	public int getCertiTotal(Criteria cri) {return mapper.getCertiTotalCount(cri);}
 	
 
 }

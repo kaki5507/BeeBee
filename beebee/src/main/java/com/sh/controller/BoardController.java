@@ -40,6 +40,7 @@ public class BoardController {
 	
 	private BoardService service;
 	
+	/* 통합 게시판 */
 	@GetMapping("/board-list")
 	public void list(Model model,Criteria cri) {
 		
@@ -49,6 +50,47 @@ public class BoardController {
 		int total = service.getTotal(cri);
 		
 		log.info("total : " + total);
+		
+		model.addAttribute("pageMaker", new PageDTO(cri,total));
+	}
+	
+	/* 공부 인증 게시판 */
+	@GetMapping("/board-listStudy")
+	public void listStudy(Model model,Criteria cri) {
+		
+		model.addAttribute("list",service.getList(cri));
+		
+		int total = service.getFreeTotal(cri);
+		
+		model.addAttribute("pageMaker", new PageDTO(cri,total));
+	}
+	
+	/* 자유 게시판 */
+	@GetMapping("/board-listFree")
+	public void listFree(Model model,Criteria cri) {
+		
+		model.addAttribute("list",service.getList(cri));
+
+		int total = service.getFreeTotal(cri);
+		
+		model.addAttribute("pageMaker", new PageDTO(cri,total));
+	}
+	
+	/* 질문 게시판 */
+	@GetMapping("/board-listQnA")
+	public void listQnA(Model model,Criteria cri) {
+		model.addAttribute("list",service.getList(cri));
+		int total = service.getQnATotal(cri);
+		model.addAttribute("pageMaker", new PageDTO(cri,total));
+	}
+	
+	/* 자격증 게시판 */
+	@GetMapping("/board-listCerti")
+	public void listCerti(Model model,Criteria cri) {
+		
+		model.addAttribute("list",service.getList(cri));
+
+		int total = service.getCertiTotal(cri);
 		
 		model.addAttribute("pageMaker", new PageDTO(cri,total));
 	}
@@ -74,7 +116,9 @@ public class BoardController {
 	}
 	
 	@GetMapping({"/board-get","/board-modify"})
-	public void get(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri,Model model) {
+	public void get(
+			@RequestParam("bno") Long bno,
+			@ModelAttribute("cri") Criteria cri,Model model) {
 		log.info("/get");
 		model.addAttribute("board",service.get(bno));
 	}

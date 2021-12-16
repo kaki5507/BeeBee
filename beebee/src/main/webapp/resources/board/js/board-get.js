@@ -80,8 +80,8 @@ var replyService = (function(){
     	})
     }
     
-    function get(rno, callback, error){
-    	$.get("/replies/" + rno + ".json", function(result){
+    function get(rno, category,callback, error){
+    	$.get("/replies/" + rno + "/" + category + ".json", function(result){
     		
     		if(callback){
     			callback(result);
