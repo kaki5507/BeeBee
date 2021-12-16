@@ -1,0 +1,57 @@
+/*---- 관리자 헤더 영역 ----*/
+.admin-header{
+    background-color: rgb(216, 177, 094);
+    height: 20%;
+    overflow: hidden;
+}
+
+.profile{
+    display: flex;
+}
+
+.profile-img{width: 150px; height: 150px; box-shadow: 3px 3px 3px rgba(0, 0, 255, .2); margin:10px; background-color: #f3f3f3; border-radius: 50%;}
+.profile-info{font-size: 1em;}
+.profile-info > span{display: block; margin: 10px;}
+.profile-info > span:nth-child(1){margin-top: 100px;}
+
+/*---- 관리자 사이드 영역 ----*/
+.admin-sidemenu{background-color: rgba(216, 177, 094, 0.6); width: 15%;}
+.admin-sidemenu > ul{padding: 20%;}
+.admin-sidemenu > ul > li{margin: 10px 0;}
+.admin-sidemenu > ul > li > a{font-size: 1.2em;}
+.admin-sidemenu > ul > li > a:hover{color: white;}
+
+/*---- 관리자 홈 ----*/
+.admin-contents {width: 80%; margin: 0 auto;}
+.admin-contents > h2{display: block; padding-bottom: 10px; border-bottom: 2px solid #000;}
+.contents-menu{
+    width: 100%; margin: 0 auto;
+    display: grid; /* 그리드 사용 비율로 크기 지정 */
+    grid-template-columns: 1fr 1fr 1fr;
+}
+/* 관리자 메뉴 네모 박스 */
+.contents-menu > li > a{display: block; margin: 5px; width: 200px; height: 200px; padding: 20px; background-color: #f3f3f3;}
+.contents-menu > li > a:hover{box-shadow:0 0 5px #333;}
+.contents-menu > li > a > div{text-align: center;}
+.menu-img > i{font-size: 70px; margin-top: 40px;}
+.menu-info{font-size: 20px; margin-top: 30px;}
+
+/*---- 관리자 회원 관리, 게시판 관리 ----*/
+.admin-total{display: flex; width: 60%; margin: 0 auto;}
+.admin-total > div{height: 200px; padding: 20px;}
+.admin-total-info{background-color: #f3f3f3; width: 50%;}
+.admin-total-rounge{background-color: aquamarine; width: 50%;}
+.admin-total-info > span{display: block; font-size: 20px; margin: 10px 0;}
+.admin-total-info > span:first-child{margin-top: 50px;}
+/* 회원 테이블, 게시판 테이블 */
+.admin-management{margin-top: 35px;}
+.admin-table{width: 100%; border: 1px solid #eee; border-collapse: collapse;}
+.admin-table tr th,td{text-align: center; border-collapse: collapse; border-bottom: 1px solid #eee; padding: 10px;}
+.admin-table tr th{background-color: rgb(159, 192, 222);}
+.admin-table tr td{font-weight: 300; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-width: 154px;}
+.admin-table tr:nth-child(2n-1) td{background-color: rgba(159, 192, 222, 0.3);}
+/* 옵션 검색 */
+.searchBar{display: flex; width: 80%; height: 30px; margin: 10px auto;}
+.searchBar > select{width: 10%;}
+.searchBar > input{width: 80%; padding: 10px;}
+.searchBar > button{width: 10%}
