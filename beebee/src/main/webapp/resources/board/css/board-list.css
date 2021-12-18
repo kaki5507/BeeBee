@@ -80,6 +80,7 @@
     .board-side-menu > ul {display: flex; width: 100%; flex-direction: row;}
     .board-side-menu > ul > li{border: 0; width: 100%;} 
     .board-side-menu > ul > li a{padding: 0; font-size: 0.8em;} 
+    .side-select-menu{color: white;}
 
     /*---- board-center ----*/
     .board-table{table-layout: fixed;}

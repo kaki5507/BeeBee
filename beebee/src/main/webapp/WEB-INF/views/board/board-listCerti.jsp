@@ -15,7 +15,7 @@
             <li><a href="<c:url value='/board/board-listStudy'/>">공부 인증</a></li>
             <li><a href="<c:url value='/board/board-listFree'/>">자유게시판</a></li>
             <li><a href="<c:url value='/board/board-listQnA'/>">질문게시판</a></li>
-            <li><a href="<c:url value='/board/board-listCerti'/>">자격증</a></li>
+            <li class="side-select-menu"><a href="<c:url value='/board/board-listCerti'/>">자격증</a></li>
         </ul>
     </div>
     <!---- //board-side-menu ---->

@@ -44,6 +44,7 @@
             </c:if>
             <button data-oper="list" class="btn">게시판</button>
       </div>
+      <input type="hidden" id="secreplyer" value='<sec:authentication property="principal.member.userNickName"/>'>
       </sec:authorize>
       <!---- 데이터 전송 operForm ---->
 	<form role="operForm" id='operForm' action="/board/board-modify" method='get'>
@@ -55,7 +56,6 @@
 	</form>
 	<!---- //#operForm ---->
       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-      <input type="hidden" id="secreplyer" value='<sec:authentication property="principal.member.userNickName"/>'>
 </div>
 
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
