@@ -17,6 +17,8 @@ time, mark, audio, video {
 	border: 0;
     font-family: 'jua';
 	vertical-align: baseline;
+	margin: 0;
+	padding: 0;
 }
 html, body{
 	max-width: 100%;

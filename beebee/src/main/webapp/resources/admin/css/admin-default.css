@@ -1,6 +1,6 @@
 /*---- 관리자 헤더 영역 ----*/
 .admin-header{
-    background-color: rgb(216, 177, 094);
+    background-color: rgba(216, 177, 094,0.7);
     height: 20%;
     overflow: hidden;
 }
@@ -15,26 +15,28 @@
 .profile-info > span:nth-child(1){margin-top: 100px;}
 
 /*---- 관리자 사이드 영역 ----*/
-.admin-sidemenu{background-color: rgba(216, 177, 094, 0.6); width: 15%;}
-.admin-sidemenu > ul{padding: 20%;}
-.admin-sidemenu > ul > li{margin: 10px 0;}
+.admin-contents-side{width: 10%; height: 110vh; /* 관리자 사이드 좀 더 크게 */ float: left;}
+.admin-sidemenu{background-color: rgb(216, 177, 094,0.7); height: 100%;}
+.admin-sidemenu > ul{padding: 20px;}
+.admin-sidemenu > ul > li{margin: 10px 0; font-size: 1.2em}
 .admin-sidemenu > ul > li > a{font-size: 1.2em;}
 .admin-sidemenu > ul > li > a:hover{color: white;}
 
 /*---- 관리자 홈 ----*/
-.admin-contents {width: 80%; margin: 0 auto;}
-.admin-contents > h2{display: block; padding-bottom: 10px; border-bottom: 2px solid #000;}
+.admin-contents {width: 90%; box-sizing: border-box; padding: 20px; margin: 0 auto; float: right;}
+.admin-contents > h2{display: block; padding: 15px 0; border-bottom: 2px solid #000;}
 .contents-menu{
-    width: 100%; margin: 0 auto;
+    width: 100%; margin: 20px auto 0;
     display: grid; /* 그리드 사용 비율로 크기 지정 */
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr); /* 4번 1fr 반복 */
+    gap: 3%;
 }
 /* 관리자 메뉴 네모 박스 */
-.contents-menu > li > a{display: block; margin: 5px; width: 200px; height: 200px; padding: 20px; background-color: #f3f3f3;}
+.contents-menu > li > a{display: block; width: 100%; height: 100%; padding: 5%; box-sizing: border-box; background-color: #f3f3f3;}
 .contents-menu > li > a:hover{box-shadow:0 0 5px #333;}
 .contents-menu > li > a > div{text-align: center;}
-.menu-img > i{font-size: 70px; margin-top: 40px;}
-.menu-info{font-size: 20px; margin-top: 30px;}
+.menu-img > i{font-size: 3.5em; margin-top: 15%;}
+.menu-info{font-size: 2.5em; margin-top: 10%;}
 
 /*---- 관리자 회원 관리, 게시판 관리 ----*/
 .admin-total{display: flex; width: 60%; margin: 0 auto;}

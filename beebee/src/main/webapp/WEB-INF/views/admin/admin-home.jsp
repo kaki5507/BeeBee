@@ -1,5 +1,9 @@
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" crossorigin="anonymous">
-<link rel="stylesheet" href="../../../resources/admin/css/admin-default.css">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
+<%@ include file="/WEB-INF/views/admin/admin-header.jsp" %>
 
 <div class="admin-wrap">
     <!---- admin-contents ---->
@@ -60,4 +64,7 @@
         <!--- .contents-menu --->
     </div>
     <!---- admin-contents ---->
+    <div class="admin-contents-side">
+        <%@ include file="/WEB-INF/views/admin/admin-sidemenu.jsp" %>
+    </div>
 </div>
