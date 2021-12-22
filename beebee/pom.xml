@@ -284,6 +284,7 @@
 
 	</dependencies>
 	<build>
+		<defaultGoal>install</defaultGoal> <!-- 메이븐 빌드 버그 -->
 		<plugins>
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
